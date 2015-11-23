@@ -11,6 +11,19 @@ package Code.Domain;
  */
 public class Persona {
     
+    private int id;
+    private TipoDocumento tipoDocumento;
+    private String nombre1;
+    private String nombre2;
+    private String apellido1;
+    private String apellido2;
+    private String fechaNacimiento;
+    private String genero;
+    private String direccionResidencia;
+    private String telefonoResidencia;
+    private int sisben;
+    
+    
     
     
     
