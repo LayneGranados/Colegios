@@ -12,6 +12,7 @@ package Code.Domain;
 public class Estudiante {
     
     private int id;
+    private String codigo;
     private Persona persona;
 
     public int getId() {
@@ -29,8 +30,13 @@ public class Estudiante {
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
-    
-    
-    
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
     
 }
