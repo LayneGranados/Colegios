@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Code.Business.CertificacionBusiness;
 import Code.Business.ConfiguracionBusiness;
 import Code.Business.EstudianteBusiness;
 import Code.Business.MatriculaBusiness;
@@ -34,19 +35,23 @@ import javax.swing.tree.DefaultTreeModel;
 public class Principal extends javax.swing.JFrame {
     
     String rutaArchivo;
+    CertificacionBusiness certificacionBusiness;
     ConfiguracionBusiness configuracionBusiness;
     MatriculaBusiness matriculaBusiness;
     EstudianteBusiness estudianteBusiness;
     Persona personaActual;
     Matricula matriculaActual;
+    private String rutaArchivoCertificacion;
 
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        certificacionBusiness = new CertificacionBusiness();
         configuracionBusiness = new ConfiguracionBusiness();
         matriculaBusiness = new MatriculaBusiness();
+        
         initPrincipal();
         
     }
@@ -2162,11 +2167,30 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarLogoActionPerformed
 
     private void btnCargarArchivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivo1ActionPerformed
-        // TODO add your handling code here:
+        //Cargar Archivo de Certificacion
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        chooser.addChoosableFileFilter(new FileNameExtensionFilter("Archivo csv", "csv"));
+        chooser.setAcceptAllFileFilterUsed(false);
+
+        int returnVal = chooser.showOpenDialog(null);
+        if(returnVal == JFileChooser.APPROVE_OPTION)
+        {
+            this.rutaArchivoCertificacion = chooser.getSelectedFile().getAbsolutePath();
+            this.txtRutaArchivo1.setText(this.rutaArchivoCertificacion);
+            {
+                this.btnCargarMatriculas1.setEnabled(true);
+            }
+        }
+        else
+        {
+            this.txtRutaArchivo.setText("Ningun archivo fue seleccionado");
+        }
     }//GEN-LAST:event_btnCargarArchivo1ActionPerformed
 
     private void btnCargarMatriculas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarMatriculas1ActionPerformed
-        // TODO add your handling code here:
+        certificacionBusiness.procesarArchivoCertificaciones(this.rutaArchivoCertificacion);
     }//GEN-LAST:event_btnCargarMatriculas1ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
@@ -2175,10 +2199,31 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnCargarMatriculas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarMatriculas2ActionPerformed
         // TODO add your handling code here:
+        matriculaBusiness.procesarArchivoMatricula(this.rutaArchivo);
     }//GEN-LAST:event_btnCargarMatriculas2ActionPerformed
 
     private void btnCargarArchivo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivo2ActionPerformed
-        // TODO add your handling code here:
+                
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        chooser.addChoosableFileFilter(new FileNameExtensionFilter("Archivo csv", "csv"));
+        chooser.setAcceptAllFileFilterUsed(false);
+
+        int returnVal = chooser.showOpenDialog(null);
+        if(returnVal == JFileChooser.APPROVE_OPTION)
+        {
+            this.rutaArchivo = chooser.getSelectedFile().getAbsolutePath();
+            this.txtRutaArchivo.setText(this.rutaArchivo);
+            if(!this.rutaArchivo.isEmpty())
+            {
+                this.btnCargarMatriculas2.setEnabled(true);
+            }
+        }
+        else
+        {
+            this.txtRutaArchivo.setText("Ningun archivo fue seleccionado");
+        }
     }//GEN-LAST:event_btnCargarArchivo2ActionPerformed
 
     private void btnSeleccionarInstitucionEducativaActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarInstitucionEducativaActualActionPerformed
