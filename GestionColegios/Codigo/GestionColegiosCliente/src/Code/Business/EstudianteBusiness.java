@@ -16,26 +16,27 @@ import Code.Domain.Persona;
  */
 public class EstudianteBusiness {
     
-    EstudianteDAOImpl estudiante;
-    PersonaDAOImpl persona;
+    EstudianteDAOImpl estudianteDAO;
+    PersonaDAOImpl personaDAO;
 
     public EstudianteBusiness() {
-        this.estudiante = new EstudianteDAOImpl();
-        this.persona = new PersonaDAOImpl();
+        this.estudianteDAO = new EstudianteDAOImpl();
+        this.personaDAO = new PersonaDAOImpl();
     }
     
     public void guardarEstudiante(Estudiante e){
-        this.persona.guardarPersona(e.getPersona());
-        Persona p = this.persona.getPersona(e.getPersona());
+        this.personaDAO.guardarPersona(e.getPersona());
+        Persona p = this.personaDAO.getPersona(e.getPersona());
         e.setPersona(p);
-        this.estudiante.guardarEstudiante(e);
+        this.estudianteDAO.guardarEstudiante(e);
     }
     
-    public void buscarEstudiante(Estudiante e){
-        this.persona.guardarPersona(e.getPersona());
-        Persona p = this.persona.getPersona(e.getPersona());
+    public Estudiante buscarEstudiante(Estudiante e){
+        this.personaDAO.guardarPersona(e.getPersona());
+        Persona p = this.personaDAO.getPersonaMasCampos(e.getPersona());
         e.setPersona(p);
-        this.estudiante.guardarEstudiante(e);
+        Estudiante encontrado = this.estudianteDAO.getEstudianteMasCampos(e);  
+        return encontrado;
     }
     
 }
