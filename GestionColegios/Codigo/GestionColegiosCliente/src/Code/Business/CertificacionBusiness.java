@@ -35,6 +35,7 @@ public class CertificacionBusiness {
                     co.setNombre1(fields[5]);
                     co.setNombre2(fields[6]);
                     co.setObservaciones(fields[7]);
+                    co.setC(fields[7]);
                 break;
             }
         });

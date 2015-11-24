@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -48,19 +49,9 @@ public class PersonaDAOImpl {
             if(miConexion!=null)
             {
                 Statement st = miConexion.createStatement();
-                ResultSet rs = st.executeQuery(this.personaPorIdentificacion);
-                while (rs.next())
-                {
-                    p.setId(rs.getInt("persona_id"));
-                    p.setNombre1(rs.getString("nombre1"));
-                    p.setNombre2(rs.getString("nombre2"));
-                    p.setApellido1(rs.getString("apellido1"));
-                    p.setApellido2(rs.getString("apellido2"));
-                    p.setDireccionResidencia(rs.getString("direccion_residencia"));
-                    p.setSisben(rs.getInt(Integer.parseInt("sisben")));
-                    p.setGenero(rs.getString("genero"));
+                result = st.execute(guardarPersona);
+                st.close();
                 }
-            }
         }catch(SQLException sqlException){
             
         }catch(NullPointerException nullPointerException){
@@ -74,15 +65,74 @@ public class PersonaDAOImpl {
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         Boolean result=false;
-        this.personaPorIdentificacion+=p.getTipoDocumento().getId()+" and documento='"+p.getDocumento()+"')";
+        this.personaPorIdentificacion+=p.getTipoDocumento().getId()+" and documento='"+p.getDocumento()+"'";
         try{
             if(miConexion!=null)
-        {
-            Statement st = miConexion.createStatement();
-            
-            result = st.execute(guardarPersona);
-            st.close();
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(this.personaPorIdentificacion);
+                while (rs.next())
+                {
+                    p.setId(rs.getInt("persona_id"));
+                    p.setNombre1(rs.getString("nombre1"));
+                    p.setNombre2(rs.getString("nombre2"));
+                    p.setApellido1(rs.getString("apellido1"));
+                    p.setApellido2(rs.getString("apellido2"));
+                    p.setDireccionResidencia(rs.getString("direccion_residencia"));
+                    p.setSisben(rs.getInt(Integer.parseInt("sisben")));
+                    p.setGenero(rs.getString("genero"));
+                }
         }
+        }catch(SQLException sqlException){
+            
+        }catch(NullPointerException nullPointerException){
+        }
+        catch(Exception exception){
+        }
+        return p;
+    }
+    
+    public Persona getPersonaMasCampos(Persona p){      
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        Boolean result=false;
+        this.personaPorIdentificacion+=p.getTipoDocumento().getId();
+        
+        if(!p.getDocumento().trim().equalsIgnoreCase("")){
+            this.personaPorIdentificacion+=" and documento='"+p.getDocumento()+"'";
+        }
+        if(!p.getNombre1().equalsIgnoreCase("")&&p.getNombre1().trim().length()!=0){
+            this.personaPorIdentificacion+=" and nombre1='"+p.getNombre1()+"'";
+        }
+        if(!p.getNombre2().equalsIgnoreCase("")&&p.getNombre2().trim().length()!=0){
+            this.personaPorIdentificacion+=" and nombre2='"+p.getNombre2()+"'";
+        }
+        if(!p.getApellido1().equalsIgnoreCase("")&&p.getApellido1().trim().length()!=0){
+            this.personaPorIdentificacion+=" and apellido1='"+p.getApellido1()+"'";
+        }
+        if(!p.getApellido2().equalsIgnoreCase("")&&p.getApellido2().trim().length()!=0){
+            this.personaPorIdentificacion+=" and apellido2='"+p.getApellido2()+"'";
+        }
+        if(!p.getGenero().equalsIgnoreCase("")&&p.getGenero().trim().length()!=0){
+            this.personaPorIdentificacion+=" and genero='"+p.getGenero()+"'";
+        }       
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(this.personaPorIdentificacion);
+                while (rs.next())
+                {
+                    p.setId(rs.getInt("persona_id"));
+                    p.setNombre1(rs.getString("nombre1"));
+                    p.setNombre2(rs.getString("nombre2"));
+                    p.setApellido1(rs.getString("apellido1"));
+                    p.setApellido2(rs.getString("apellido2"));
+                    p.setDireccionResidencia(rs.getString("direccion_residencia"));
+                    p.setSisben(rs.getInt(Integer.parseInt("sisben")));
+                    p.setGenero(rs.getString("genero"));
+                }
+            }
         }catch(SQLException sqlException){
             
         }catch(NullPointerException nullPointerException){
