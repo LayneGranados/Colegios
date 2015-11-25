@@ -25,19 +25,18 @@ public class EstudianteDAOImpl {
     String estudiantePorId="SELECT * FROM estudiante WHERE estudiante_id=";
     String estudiantePorCodigo="SELECT * FROM estudiante WHERE codigo=";
     String estudiantePorPersona="SELECT * FROM estudiante WHERE persona_id=";
-    String guardarEstudiante="insert into estudiante (codigo, persona_id) values('";
+    String guardarEstudiante="insert into estudiante (persona_id) values(";
     
     public Boolean guardarEstudiante(Estudiante e){      
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         Boolean result=false;
-        this.guardarEstudiante +=e.getCodigo()+"',"+e.getPersona().getId()+")";
         try{
             if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
             
-            result = st.equals(guardarEstudiante);
+            result = st.execute(this.guardarEstudiante +e.getPersona().getId()+")");
             st.close();
         }
         }catch(SQLException sqlException){
@@ -53,21 +52,14 @@ public class EstudianteDAOImpl {
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         Boolean result=false;
-        
-        this.estudiantePorPersona+=e.getPersona().getId();
-        
-        if(!e.getCodigo().trim().equalsIgnoreCase("")){
-            this.estudiantePorPersona+=" and codigo='"+e.getCodigo()+"'";
-        }
               
         try{
             if(miConexion!=null)
             {
                 Statement st = miConexion.createStatement();
-                ResultSet rs = st.executeQuery(this.estudiantePorPersona);
+                ResultSet rs = st.executeQuery(this.estudiantePorPersona+e.getPersona().getId());
                 while (rs.next())
                 {
-                   e.setCodigo(rs.getString("codigo"));
                    e.setId(rs.getInt("estudiante_id"));
                 }
             }

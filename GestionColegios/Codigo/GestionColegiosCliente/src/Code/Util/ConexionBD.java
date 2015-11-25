@@ -5,6 +5,7 @@
  */
 package Code.Util;
 
+import Code.Business.ConfiguracionBusiness;
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -19,11 +20,12 @@ public class ConexionBD {
     public static Connection GetConnection()
     {
         Connection conexion=null;
+        ConfiguracionBusiness c = new ConfiguracionBusiness();
       
         try
-        {
+        {   
             Class.forName("com.mysql.jdbc.Driver");
-            String servidor = "jdbc:mysql://192.168.0.20/colegios";
+            String servidor = "jdbc:mysql://"+c.getIp().replace("ip: ", "")+":3306/colegios";
             String usuarioDB="root";
             String passwordDB="root";
             conexion= (Connection) DriverManager.getConnection(servidor,usuarioDB,passwordDB);

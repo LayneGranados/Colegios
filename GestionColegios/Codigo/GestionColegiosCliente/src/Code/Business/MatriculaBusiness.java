@@ -6,6 +6,7 @@
 package Code.Business;
 
 import Code.DAO.EstudianteDAOImpl;
+import Code.Util.PDFUtil;
 import Code.Util.UtilidadesArchivo;
 import java.io.File;
 import java.util.ArrayList;
@@ -37,43 +38,11 @@ public class MatriculaBusiness {
             System.out.println(lineas.get(i));
         }
         
-        //this.getEstudianteDAO().guardarEstudiante();
+        
     
     }
     
-    /*
-    estrato
-    sisben
-    nombre2
-    nombre1
-    apellido2
-    apellido1
-    fecha_nacimiento
-    genero
-    documento
-    direccion_residencia
-    proviene_sector_privado
-    proviene_otro_municipio
     
-    tipo_discapacidad_id
-    
-    resguardo_id
-    res_mun
-    res_depto
-    
-    poblacion_victima_id
-    persona_id
-    
-    nac_mun
-    nac_depto
-    mun_expulsor
-    exp_mun
-    exp_depto
-    etnia_id
-    
-    dep_expulsor
-    capacidad_excepcional_id
-    */
     
     
     

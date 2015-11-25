@@ -23,7 +23,7 @@ public class AuxiliaresDAOImpl {
     String todosEtnia="select * from etnia";
     String todosResguardo="select * from resguardo";
     String todosEspecialiades="select * from especialidad";
-    String todosMetodologias="select * from metodologias";
+    String todosMetodologias="select * from metodologia";
     String todosCaracteres="select * from caracter";
     String todosPoblacionVictima="select * from poblacion_victima";
     String todosTipoDiscapacidad="select * from tipo_discapacidad";
@@ -37,7 +37,7 @@ public class AuxiliaresDAOImpl {
     String todosColegios="select * from colegio";
     String todosSedePorColegio="select * from sede where colegio_id=";
     String todosAnioPorSede="select * from anio where sede_id=";
-    String todosJornadaPorAnio="select * from jornada where jornada_id=";
+    String todosJornadaPorAnio="select * from jornada where anio_id=";
     String todosPeriodoPorJornada="select * from periodo where jornada_id=";
     String todosGradoPorJornada="select * from grado where jornada_id=";
     String todosCursoPorGrado="select * from curso where grado_id=";
@@ -90,7 +90,8 @@ public class AuxiliaresDAOImpl {
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
-            ResultSet rs = st.executeQuery(this.todos+g);
+            System.out.println("grado por jornada:"+this.todosGradoPorJornada+g);
+            ResultSet rs = st.executeQuery(this.todosGradoPorJornada+g);
             while (rs.next())
             {
                 int id = rs.getInt("grado_id");
@@ -109,15 +110,20 @@ public class AuxiliaresDAOImpl {
       
         if(miConexion!=null)
         {
-            Statement st = miConexion.createStatement();
-            ResultSet rs = st.executeQuery(this.todosGradoPorJornada+p);
-            while (rs.next())
-            {
-                int id = rs.getInt("periodo_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
-            }
-            st.close();
+            //Statement st = miConexion.createStatement();
+            //ResultSet rs = st.executeQuery(this.todosGradoPorJornada+p);
+            //while (rs.next())
+            //{
+                //int id = rs.getInt("periodo_id");
+                //String nombre = rs.getString("nombre");
+                //all.add(id+"-"+nombre);
+                
+            //}
+            all.add("PERIODO - 1");
+            all.add("PERIODO - 2");
+            all.add("PERIODO - 3");
+            all.add("PERIODO - 4");
+            //st.close();
         }
         return all;
     }
@@ -130,6 +136,7 @@ public class AuxiliaresDAOImpl {
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
+            System.out.println(this.todosJornadaPorAnio+j);
             ResultSet rs = st.executeQuery(this.todosJornadaPorAnio+j);
             while (rs.next())
             {
@@ -150,11 +157,12 @@ public class AuxiliaresDAOImpl {
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
+            System.out.println(this.todosAnioPorSede+a);
             ResultSet rs = st.executeQuery(this.todosAnioPorSede+a);
             while (rs.next())
-            {
+            {   System.out.println("imp");
                 int id = rs.getInt("anio_id");
-                String nombre = rs.getString("nombre");
+                String nombre = rs.getString("anio");
                 all.add(id+"-"+nombre);
             }
             st.close();
@@ -190,7 +198,7 @@ public class AuxiliaresDAOImpl {
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
-            ResultSet rs = st.executeQuery(this.todos);
+            ResultSet rs = st.executeQuery(this.todosColegios);
             while (rs.next())
             {
                 int id = rs.getInt("colegio_id");
@@ -504,6 +512,24 @@ public class AuxiliaresDAOImpl {
             st.close();
         }
         return all;
+    }
+    
+    public Integer getColegioActual() throws SQLException{
+        Integer codigoColegio=0;
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+      
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery("select * from colegio where actual=true");
+            while (rs.next())
+            {
+                codigoColegio = rs.getInt("colegio_id");
+            }
+            st.close();
+        }
+        return codigoColegio;
     }
     
 }

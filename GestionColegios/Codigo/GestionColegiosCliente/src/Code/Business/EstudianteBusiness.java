@@ -32,7 +32,13 @@ public class EstudianteBusiness {
     }
     
     public Estudiante buscarEstudiante(Estudiante e){
-        this.personaDAO.guardarPersona(e.getPersona());
+        Persona p = this.personaDAO.getPersona(e.getPersona());
+        e.setPersona(p);
+        Estudiante encontrado = this.estudianteDAO.getEstudianteMasCampos(e);  
+        return encontrado;
+    }
+    
+    public Estudiante buscarEstudiantePorDocumento(Estudiante e){
         Persona p = this.personaDAO.getPersonaMasCampos(e.getPersona());
         e.setPersona(p);
         Estudiante encontrado = this.estudianteDAO.getEstudianteMasCampos(e);  

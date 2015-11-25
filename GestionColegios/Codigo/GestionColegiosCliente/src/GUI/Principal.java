@@ -10,6 +10,7 @@ import Code.Business.CertificacionBusiness;
 import Code.Business.ConfiguracionBusiness;
 import Code.Business.EstudianteBusiness;
 import Code.Business.MatriculaBusiness;
+import Code.Business.PersonaBusiness;
 import Code.Domain.Estudiante;
 import Code.Domain.InstitucionEducativa;
 import Code.Domain.Matricula;
@@ -42,6 +43,7 @@ public class Principal extends javax.swing.JFrame {
     ConfiguracionBusiness configuracionBusiness;
     MatriculaBusiness matriculaBusiness;
     EstudianteBusiness estudianteBusiness;
+    PersonaBusiness personaBusiness;
     AuxiliaresBusiness auxiliaresBusiness;
     Persona personaActual;
     Estudiante estudianteActual;
@@ -57,6 +59,8 @@ public class Principal extends javax.swing.JFrame {
         configuracionBusiness = new ConfiguracionBusiness();
         matriculaBusiness = new MatriculaBusiness();
         auxiliaresBusiness= new AuxiliaresBusiness();
+        personaBusiness=new PersonaBusiness();
+        this.estudianteBusiness = new EstudianteBusiness();
         initPrincipal();
 
     }
@@ -73,16 +77,6 @@ public class Principal extends javax.swing.JFrame {
     }
 
     private void combos() {
-        ArrayList<String> combo = new ArrayList<String>();
-        try {
-            combo = this.configuracionBusiness.getColegios();
-        } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        for (String c : combo) {
-            this.cmbInstitucionEducativa.addItem(c);
-        }
         
         try{this.cargarCombo(this.cmbTipoDocumentoIdentificacion, this.auxiliaresBusiness.getAllTipoDocumento());
         }catch(Exception e){}
@@ -138,8 +132,12 @@ public class Principal extends javax.swing.JFrame {
         try{this.cargarCombo(this.cmbFuenteRecursos, this.auxiliaresBusiness.getAllFuentesRecursos());
         }catch(Exception e){}
         
-        try{this.cargarCombo(this.cmbInstitucionEducativa, this.refactorArrayActual(this.auxiliaresBusiness.getAllFuentesRecursos()));
+        try{this.cargarCombo(this.cmbInstitucionEducativa, this.refactorArrayActual(this.auxiliaresBusiness.getAllColegios()));
         }catch(Exception e){}
+        
+        try{this.cargarCombo(this.cmbSedeMatricula, this.refactorArrayActual(this.auxiliaresBusiness.getAllSedes(this.auxiliaresBusiness.getColegioActual())));
+        }catch(Exception e){}
+        
     }
     
     private ArrayList<String> refactorArrayActual(ArrayList<String> toRefactor){
@@ -149,6 +147,9 @@ public class Principal extends javax.swing.JFrame {
             String cadena = toRefactor.get(i);
             if(cadena.toLowerCase().contains("-true")){
                 actual=true;
+                cadena = cadena.replace("-true", "");
+                cadena = cadena.replace("-TRUE", "");
+                cadena = cadena.replace("-True", "");
                 refactor.add(cadena);
                 toRefactor.remove(i);
             }
@@ -156,6 +157,9 @@ public class Principal extends javax.swing.JFrame {
         
         for(int i=0;i<toRefactor.size();i++){
             String cadena = toRefactor.get(i);
+            cadena = cadena.replace("-false", "");
+            cadena = cadena.replace("-FALSE", "");
+            cadena = cadena.replace("-False", "");
             refactor.add(cadena);
         }
         return refactor;
@@ -213,19 +217,145 @@ public class Principal extends javax.swing.JFrame {
         p.setNombre2(this.txtSegundoNombre.getText());
         p.setApellido1(this.txtPrimerApellido.getText());
         p.setApellido2(this.txtSegundoApellido.getText());
-        String[] tipoIdentificacion = this.cmbTipoDocumentoIdentificacion.getSelectedItem().toString().split("-");
+        String[] cadena = this.cmbTipoDocumentoIdentificacion.getSelectedItem().toString().split("-");
         TipoDocumento ti = new TipoDocumento();
-        ti.setId(Integer.parseInt(tipoIdentificacion[0]));
+        ti.setId(Integer.parseInt(cadena[0]));
         p.setTipoDocumento(ti);
         p.setDocumento(this.txtNumeroDocumentoIdentificacion.getText());
         p.setDireccionResidencia(this.txtDireccion.getText());
         p.setTelefonoResidencia(this.txtTelefono.getText());
         p.setSisben(Integer.parseInt(this.cmbSisben.getSelectedItem().toString()));
+        p.setEstrato(Integer.parseInt(this.cmbEstrato.getSelectedItem().toString()));
+        
+        if(this.cmbGenero.getSelectedItem().toString().equalsIgnoreCase("Femenino")){
+            p.setGenero("F");
+        }else{
+            p.setGenero("M");
+        }
+        
+        cadena = this.cmbMunicipioExpedicion.getSelectedItem().toString().split("-");
+        p.setMunicipioExpedicion(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbMunicipioNacimiento.getSelectedItem().toString().split("-");
+        p.setMunicipioNacimiento(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbMunicipioResidencia.getSelectedItem().toString().split("-");
+        p.setMunicipioResidencia(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbDepartamentoExpedicion.getSelectedItem().toString().split("-");
+        p.setDepartamentoExpedicion(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbDepartamentoNacimiento.getSelectedItem().toString().split("-");
+        p.setDepartamentoNacimiento(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbDepartamentoResidencia.getSelectedItem().toString().split("-");
+        p.setDepartamentoResidencia(Integer.parseInt(cadena[0]));
+        
         Estudiante e = new Estudiante();
-        e.setCodigo("135-36");
         e.setPersona(p);
+        
+        Matricula m = new Matricula();
+        m.setCodigo(this.txtCodigo.getText());
+        m.setBeneficiarioCabezaFamilia(this.chkCabezaFamiliaMatricula.isSelected());
+        m.setBeneficiarioHeroeNacional(this.chkBenHeroeNacionalMatricula.isSelected());
+        m.setBeneficiarioMadreFamilia(this.chkBenMadreFamiliaMatricula.isSelected());
+        m.setBeneficiarioVeteranoFuerzas(this.chkBenVeteranoFuerzasMatricula.isSelected());
+        m.setNuevo(this.chkNuevoMatricula.isSelected());
+        m.setProvieneSectorPrivado(this.chkProvieneSectorPrivadoMatricula.isSelected());
+        m.setProvienteOtroMunicipio(this.chkProvieneOtroMunicipioMatricula.isSelected());
+        m.setRepitente(this.chkRepitenteMatricula.isSelected());
+        m.setRetirado(this.chkRetiradoMatricula.isSelected());
+        m.setSubsidiado(this.chkSubsidiadoMatricula.isSelected());
+        
+        cadena = this.cmbCursoMatricula.getSelectedItem().toString().split("-");
+        m.setCurso(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbCaracterMatricula.getSelectedItem().toString().split("-");
+        m.setCaracter(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbEspecialidad.getSelectedItem().toString().split("-");
+        m.setEspecialidad(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbMetodologia.getSelectedItem().toString().split("-");
+        m.setMetodologia(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbVictimaConflicto.getSelectedItem().toString().split("-");
+        m.setVictimaConflicto(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbTipoDiscapacidad.getSelectedItem().toString().split("-");
+        m.setTipoDiscapacidad(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbCapacidadExcepcional.getSelectedItem().toString().split("-");
+        m.setCapacidadExcepcional(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbMunicipioExpulsor.getSelectedItem().toString().split("-");
+        m.setMunicipioExpulsor(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbDepartamentoExpulsor.getSelectedItem().toString().split("-");
+        m.setDepartamentoExpulsor(Integer.parseInt(cadena[0]));
+        
+        if(this.cmbZonaAlumno.getSelectedItem().toString().equalsIgnoreCase("Rural")){
+            m.setZonaAlumno("R");
+        }else{
+            m.setZonaAlumno("U");
+        }
+        
         return e;
     }
+    
+    private Matricula crearMatricula() {        
+        Matricula m = new Matricula();
+        m.setCodigo(this.txtCodigo.getText());
+        m.setBeneficiarioCabezaFamilia(this.chkCabezaFamiliaMatricula.isSelected());
+        m.setBeneficiarioHeroeNacional(this.chkBenHeroeNacionalMatricula.isSelected());
+        m.setBeneficiarioMadreFamilia(this.chkBenMadreFamiliaMatricula.isSelected());
+        m.setBeneficiarioVeteranoFuerzas(this.chkBenVeteranoFuerzasMatricula.isSelected());
+        m.setNuevo(this.chkNuevoMatricula.isSelected());
+        m.setProvieneSectorPrivado(this.chkProvieneSectorPrivadoMatricula.isSelected());
+        m.setProvienteOtroMunicipio(this.chkProvieneOtroMunicipioMatricula.isSelected());
+        m.setRepitente(this.chkRepitenteMatricula.isSelected());
+        m.setRetirado(this.chkRetiradoMatricula.isSelected());
+        m.setSubsidiado(this.chkSubsidiadoMatricula.isSelected());
+        
+        String[] cadena = this.cmbCursoMatricula.getSelectedItem().toString().split("-");
+        m.setCurso(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbCaracterMatricula.getSelectedItem().toString().split("-");
+        m.setCaracter(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbEspecialidad.getSelectedItem().toString().split("-");
+        m.setEspecialidad(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbMetodologia.getSelectedItem().toString().split("-");
+        m.setMetodologia(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbVictimaConflicto.getSelectedItem().toString().split("-");
+        m.setVictimaConflicto(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbTipoDiscapacidad.getSelectedItem().toString().split("-");
+        m.setTipoDiscapacidad(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbCapacidadExcepcional.getSelectedItem().toString().split("-");
+        m.setCapacidadExcepcional(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbMunicipioExpulsor.getSelectedItem().toString().split("-");
+        m.setMunicipioExpulsor(Integer.parseInt(cadena[0]));
+        
+        cadena = this.cmbDepartamentoExpulsor.getSelectedItem().toString().split("-");
+        m.setDepartamentoExpulsor(Integer.parseInt(cadena[0]));
+        
+        if(this.cmbZonaAlumno.getSelectedItem().toString().equalsIgnoreCase("Rural")){
+            m.setZonaAlumno("R");
+        }else{
+            m.setZonaAlumno("U");
+        }
+        
+        m.setEstudiante(estudianteActual);
+        
+        return m;
+    }
+    
+    
 
     private void ponerEstudiante(Estudiante e) {
         this.txtPrimerNombre.setText(e.getPersona().getNombre1());
@@ -686,7 +816,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnSeleccionarAnioPeriodos.setText("Seleccionar");
+        btnSeleccionarAnioPeriodos.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
+        btnSeleccionarAnioPeriodos.setText("Seleccionar Actual");
 
         jLabel13.setText("Logo");
 
@@ -704,7 +835,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnSeleccionarInstitucionEducativaActual.setText("Seleccionar");
+        btnSeleccionarInstitucionEducativaActual.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
+        btnSeleccionarInstitucionEducativaActual.setText("Seleccionar Actual");
         btnSeleccionarInstitucionEducativaActual.setMaximumSize(new java.awt.Dimension(122, 29));
         btnSeleccionarInstitucionEducativaActual.setMinimumSize(new java.awt.Dimension(122, 29));
         btnSeleccionarInstitucionEducativaActual.addActionListener(new java.awt.event.ActionListener() {
@@ -713,7 +845,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnSeleccionarSedeActual.setText("Seleccionar");
+        btnSeleccionarSedeActual.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
+        btnSeleccionarSedeActual.setText("Seleccionar Actual");
         btnSeleccionarSedeActual.setMaximumSize(new java.awt.Dimension(122, 29));
         btnSeleccionarSedeActual.setMinimumSize(new java.awt.Dimension(122, 29));
 
@@ -857,6 +990,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel81.setText("Jornada");
 
+        cmbJornada.setMaximumRowCount(20);
         cmbJornada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbJornadaActionPerformed(evt);
@@ -924,7 +1058,7 @@ public class Principal extends javax.swing.JFrame {
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(btnSeleccionarInstitucionEducativaActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(btnSeleccionarSedeActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnSeleccionarAnioPeriodos, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                            .addComponent(btnSeleccionarAnioPeriodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(btnEscogerLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addComponent(cmbProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -976,7 +1110,7 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel27)))
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbSedes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSeleccionarSedeActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1591,6 +1725,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        cmbGradoMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbGradoMatriculaActionPerformed(evt);
+            }
+        });
+
         jLabel23.setText("Metodología");
 
         jLabel65.setText("Caracter");
@@ -1603,6 +1743,12 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel72.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
         jLabel72.setText("Víctima");
+
+        cmbJornadaMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbJornadaMatriculaActionPerformed(evt);
+            }
+        });
 
         cmbZonaAlumno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Rural", "Urbano" }));
 
@@ -2674,6 +2820,16 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmbSedeMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSedeMatriculaActionPerformed
         // TODO add your handling code here:
+        ArrayList<String> cargaCombo;
+        try{
+            String[] selected = ((String)this.cmbSedeMatricula.getSelectedItem()).split("-");
+            cargaCombo = this.auxiliaresBusiness.getAllAnio(Integer.parseInt(selected[0]));
+            this.cargarCombo(this.cmbAnioMatricula, this.refactorArrayActual(cargaCombo));
+        }catch(Exception e){
+            cargaCombo = new ArrayList<String>();
+            cargaCombo.add("0-Sin información");
+            this.cargarCombo(this.cmbAnioMatricula, cargaCombo);
+        }
     }//GEN-LAST:event_cmbSedeMatriculaActionPerformed
 
     private void chkCabezaFamiliaMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCabezaFamiliaMatriculaActionPerformed
@@ -2746,14 +2902,17 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnGuardarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstudianteActionPerformed
         // TODO add your handling code here:
-        this.estudianteBusiness.guardarEstudiante(this.crearEstudiante());
+        Estudiante e = this.crearEstudiante();
+        this.estudianteBusiness.guardarEstudiante(e);
+        this.estudianteActual = this.estudianteBusiness.buscarEstudiante(e);
+        this.ponerEstudiante(e);
     }//GEN-LAST:event_btnGuardarEstudianteActionPerformed
 
     private void btnBuscarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEstudianteActionPerformed
         // TODO add your handling code here:
         //this.jTabbedPane1.setSelectedIndex(2);
-        Estudiante e = this.estudianteBusiness.buscarEstudiante(this.crearEstudiante());
-        this.ponerEstudiante(e);
+        this.estudianteActual = this.estudianteBusiness.buscarEstudiante(this.crearEstudiante());
+        this.ponerEstudiante(this.estudianteActual);
     }//GEN-LAST:event_btnBuscarEstudianteActionPerformed
 
     private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
@@ -2805,6 +2964,17 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmbAnioMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAnioMatriculaActionPerformed
         // TODO add your handling code here:
+        
+        ArrayList<String> cargaCombo;
+        try{
+            String[] selected = ((String)this.cmbAnioMatricula.getSelectedItem()).split("-");
+            cargaCombo = this.auxiliaresBusiness.getAllJornadaPorAnio(Integer.parseInt(selected[0]));
+            this.cargarCombo(this.cmbJornadaMatricula, this.refactorArrayActual(cargaCombo));
+        }catch(Exception e){
+            cargaCombo = new ArrayList<String>();
+            cargaCombo.add("0-Sin información");
+            this.cargarCombo(this.cmbJornadaMatricula, cargaCombo);
+        }
     }//GEN-LAST:event_cmbAnioMatriculaActionPerformed
 
     private void cmbDepartamentoExpulsorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoExpulsorActionPerformed
@@ -2850,7 +3020,7 @@ public class Principal extends javax.swing.JFrame {
         try{
             String[] selected = ((String)this.cmbInstitucionEducativa.getSelectedItem()).split("-");
             cargaCombo = this.auxiliaresBusiness.getAllSedes(Integer.parseInt(selected[0]));
-            this.cargarCombo(this.cmbSedes, cargaCombo);
+            this.cargarCombo(this.cmbSedes, this.refactorArrayActual(cargaCombo));
         }catch(Exception e){
             cargaCombo = new ArrayList<String>();
             cargaCombo.add("0-Sin información");
@@ -2864,7 +3034,7 @@ public class Principal extends javax.swing.JFrame {
         try{
             String[] selected = ((String)this.cmbSedes.getSelectedItem()).split("-");
             cargaCombo = this.auxiliaresBusiness.getAllAnio(Integer.parseInt(selected[0]));
-            this.cargarCombo(this.cmbAnioEscolar, cargaCombo);
+            this.cargarCombo(this.cmbAnioEscolar, this.refactorArrayActual(cargaCombo));
         }catch(Exception e){
             cargaCombo = new ArrayList<String>();
             cargaCombo.add("0-Sin información");
@@ -2878,7 +3048,7 @@ public class Principal extends javax.swing.JFrame {
         ArrayList<String> cargaCombo;
         try{
             String[] selected = ((String)this.cmbAnioEscolar.getSelectedItem()).split("-");
-            cargaCombo = this.auxiliaresBusiness.getAllAnio(Integer.parseInt(selected[0]));
+            cargaCombo = this.auxiliaresBusiness.getAllJornadaPorAnio(Integer.parseInt(selected[0]));
             this.cargarCombo(this.cmbJornada, cargaCombo);
         }catch(Exception e){
             cargaCombo = new ArrayList<String>();
@@ -2889,9 +3059,17 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmbJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJornadaActionPerformed
         // TODO add your handling code here:
-        
         ArrayList<String> cargaCombo;
-        String[] selected = ((String)this.cmbJornada.getSelectedItem()).split("-");
+        
+        String[] selected = null;
+        try{
+            String x="";
+            x = ((String)this.cmbJornada.getSelectedItem());
+            selected = x.split("-");
+        }catch(Exception e){
+            selected[0]="1";
+        }
+        
         try{
             
             cargaCombo = this.auxiliaresBusiness.getAllGradoPorJornada(Integer.parseInt(selected[0]));
@@ -2911,6 +3089,36 @@ public class Principal extends javax.swing.JFrame {
             this.cargarCombo(this.cmbPeriodo, cargaCombo);
         }
     }//GEN-LAST:event_cmbJornadaActionPerformed
+
+    private void cmbJornadaMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJornadaMatriculaActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList<String> cargaCombo;
+        try{
+            String[] selected = ((String)this.cmbJornadaMatricula.getSelectedItem()).split("-");
+            cargaCombo = this.auxiliaresBusiness.getAllGradoPorJornada(Integer.parseInt(selected[0]));
+            this.cargarCombo(this.cmbGradoMatricula, this.refactorArrayActual(cargaCombo));
+        }catch(Exception e){
+            cargaCombo = new ArrayList<String>();
+            cargaCombo.add("0-Sin información");
+            this.cargarCombo(this.cmbGradoMatricula, cargaCombo);
+        }
+    }//GEN-LAST:event_cmbJornadaMatriculaActionPerformed
+
+    private void cmbGradoMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGradoMatriculaActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList<String> cargaCombo;
+        try{
+            String[] selected = ((String)this.cmbGradoMatricula.getSelectedItem()).split("-");
+            cargaCombo = this.auxiliaresBusiness.getAllCursoPorGrado(Integer.parseInt(selected[0]));
+            this.cargarCombo(this.cmbCursoMatricula, this.refactorArrayActual(cargaCombo));
+        }catch(Exception e){
+            cargaCombo = new ArrayList<String>();
+            cargaCombo.add("0-Sin información");
+            this.cargarCombo(this.cmbCursoMatricula, cargaCombo);
+        }
+    }//GEN-LAST:event_cmbGradoMatriculaActionPerformed
 
     /**
      * @param args the command line arguments

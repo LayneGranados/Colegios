@@ -22,9 +22,17 @@ public class Persona {
     private String genero;
     private String direccionResidencia;
     private String telefonoResidencia;
+    private int municipioNacimiento;
+    private int departamentoNacimiento;
+    private int municipioResidencia;
+    private int departamentoResidencia;
+    private int municipioExpedicion;
+    private int departamentoExpedicion;
     private int sisben;
+    private int estrato;
     private Etnia etnia;
     private Resguardo resguardo;
+    private String foto;
 
     public int getId() {
         return id;
@@ -137,6 +145,71 @@ public class Persona {
     public void setResguardo(Resguardo resguardo) {
         this.resguardo = resguardo;
     }
+
+    public int getMunicipioNacimiento() {
+        return municipioNacimiento;
+    }
+
+    public void setMunicipioNacimiento(int municipioNacimiento) {
+        this.municipioNacimiento = municipioNacimiento;
+    }
+
+    public int getDepartamentoNacimiento() {
+        return departamentoNacimiento;
+    }
+
+    public void setDepartamentoNacimiento(int departamentoNacimiento) {
+        this.departamentoNacimiento = departamentoNacimiento;
+    }
+
+    public int getMunicipioResidencia() {
+        return municipioResidencia;
+    }
+
+    public void setMunicipioResidencia(int municipioResidencia) {
+        this.municipioResidencia = municipioResidencia;
+    }
+
+    public int getDepartamentoResidencia() {
+        return departamentoResidencia;
+    }
+
+    public void setDepartamentoResidencia(int departamentoResidencia) {
+        this.departamentoResidencia = departamentoResidencia;
+    }
+
+    public int getMunicipioExpedicion() {
+        return municipioExpedicion;
+    }
+
+    public void setMunicipioExpedicion(int municipioExpedicion) {
+        this.municipioExpedicion = municipioExpedicion;
+    }
+
+    public int getDepartamentoExpedicion() {
+        return departamentoExpedicion;
+    }
+
+    public void setDepartamentoExpedicion(int departamentoExpedicion) {
+        this.departamentoExpedicion = departamentoExpedicion;
+    }
+
+    public int getEstrato() {
+        return estrato;
+    }
+
+    public void setEstrato(int estrato) {
+        this.estrato = estrato;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+    
     
     
     

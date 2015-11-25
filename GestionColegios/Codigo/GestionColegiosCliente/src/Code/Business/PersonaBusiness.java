@@ -5,10 +5,34 @@
  */
 package Code.Business;
 
+import Code.DAO.EstudianteDAOImpl;
+import Code.DAO.PersonaDAOImpl;
+import Code.Domain.Persona;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 /**
  *
  * @author laynegranadosmogollon
  */
 public class PersonaBusiness {
+    
+    PersonaDAOImpl personaDAO;
+
+    public PersonaDAOImpl getPersonaDAO() {
+        return personaDAO;
+    }
+
+    public void setPersonaDAO() {
+        this.personaDAO = new PersonaDAOImpl();
+    }
+    
+    public Persona getPersona(Persona p){
+        return this.personaDAO.getPersona(p);
+    }
+    
+    public void guardarPersona(Persona p){
+        this.personaDAO.guardarPersona(p);
+    }
     
 }

@@ -6,6 +6,7 @@
 package Code.Business;
 
 import Code.DAO.ColegioDAOImpl;
+import Code.Util.PDFUtil;
 import Code.Util.UtilidadesArchivo;
 import java.io.File;
 import java.sql.SQLException;
@@ -34,6 +35,9 @@ public class ConfiguracionBusiness {
         }catch(Exception e){
             
         }
+        
+        PDFUtil pdf = new PDFUtil();
+        pdf.create(this.getRutaResources()+"/ejemplo.pdf");
         return msg;
     }
     

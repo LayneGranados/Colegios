@@ -229,4 +229,13 @@ public class AuxiliaresBusiness {
         }
         return combo;
     }
+    public Integer getColegioActual(){
+        Integer colegioActual;
+        try{
+            colegioActual = this.auxiliarDAO.getColegioActual();
+        }catch(SQLException e){
+            colegioActual = 1;
+        }
+        return colegioActual;
+    }
 }
