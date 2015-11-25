@@ -16,11 +16,13 @@ public class CertificacionOldstyle {
     private String nombre1;
     private String nombre2;
     private String observaciones;
+    private String comportamiento;
     private int fallas;
 
     public CertificacionOldstyle() {
     }
-
+    
+    
     
     public int getCer_old_id() {
         return cer_old_id;
@@ -108,6 +110,14 @@ public class CertificacionOldstyle {
 
     public void setFallas(int fallas) {
         this.fallas = fallas;
+    }
+
+    public String getComportamiento() {
+        return comportamiento;
+    }
+
+    public void setComportamiento(String comportamiento) {
+        this.comportamiento = comportamiento;
     }
     
     
