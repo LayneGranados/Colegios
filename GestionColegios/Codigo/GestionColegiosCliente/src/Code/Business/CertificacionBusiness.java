@@ -18,7 +18,6 @@ public class CertificacionBusiness {
         lista.stream().forEach((item) -> {
             String anio="", colegio="",sede="";
             String[] fields = item.split(";");
-            System.out.println("Este es un campo -> " + fields[0]);
             switch (fields[0]){
                 case "1":
                    anio = fields[1];
@@ -35,7 +34,7 @@ public class CertificacionBusiness {
                     co.setNombre1(fields[5]);
                     co.setNombre2(fields[6]);
                     co.setObservaciones(fields[7]);
-                    co.setC(fields[7]);
+                    //45rrtco.setC(fields[7]);
                 break;
             }
         });

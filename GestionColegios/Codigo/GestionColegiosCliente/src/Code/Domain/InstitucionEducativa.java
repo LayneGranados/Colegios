@@ -17,6 +17,7 @@ public class InstitucionEducativa {
     private String codigoDANEAnterior;
     private Municipio municipio;
     private Boolean actual;
+    private String rutaLogo;
 
     public int getId() {
         return id;
@@ -57,6 +58,8 @@ public class InstitucionEducativa {
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
     }
+    
+    
     
     
     

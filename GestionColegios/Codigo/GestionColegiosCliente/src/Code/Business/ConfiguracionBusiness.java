@@ -53,7 +53,6 @@ public class ConfiguracionBusiness {
     }
     
     public void guardarLogo(String rutaCopiar){
-        System.out.println(rutaCopiar);
         File from = new File(rutaCopiar);
         String[] extensiones = rutaCopiar.split("\\.");
         String extension =  extensiones[extensiones.length-1];

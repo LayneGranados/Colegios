@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/AuxiliaresBusiness.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Principal.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/DepartamentoDAOImpl.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Domain/Persona.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Domain/TipoDocumento.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/EstudianteBusiness.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/ColegioDAOImpl.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/EstudianteDAOImpl.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Domain/Etnia.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/MatriculaBusiness.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/MunicipioDAOImpl.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/CertificacionBusiness.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/AuxiliaresDAOImpl.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Domain/Resguardo.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/PersonaBusiness.java</file>
+            <file>file:/Users/laynegranadosmogollon/Documents/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/PersonaDAOImpl.java</file>
+        </group>
     </open-files>
 </project-private>

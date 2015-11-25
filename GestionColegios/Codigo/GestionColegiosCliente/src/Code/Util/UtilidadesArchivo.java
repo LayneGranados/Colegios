@@ -50,7 +50,6 @@ public class UtilidadesArchivo {
     
     public static void escribirNuevaLineaEnArchivo(String rutaArchivo, String nuevaLinea){
         try {
-            System.out.println("rutaArchivo"+rutaArchivo+"--");
             FileWriter writer = new FileWriter(new File(rutaArchivo), true);
             try 
             {
