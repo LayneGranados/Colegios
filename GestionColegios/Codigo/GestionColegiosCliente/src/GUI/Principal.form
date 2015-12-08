@@ -1097,12 +1097,12 @@
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="cmbDepartamentoExpedicion1" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Component id="txtPrimerNombre1" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Component id="txtPrimerApellido1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Component id="jDateChooser1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Component id="cmbDepartamentoNacimiento1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Component id="cmbTipoDocumentoIdentificacion1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Component id="cmbDepartamentoExpedicion" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Component id="txtPrimerNombre" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Component id="txtPrimerApellido" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Component id="cmbFechaNacimientoPersona" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Component id="cmbDepartamentoNacimiento" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Component id="cmbTipoDocumentoIdentificacion" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Component id="jLabel126" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1117,10 +1117,10 @@
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtSegundoNombre1" min="-2" pref="261" max="-2" attributes="0"/>
-                                                      <Component id="cmbMunicipioExpedicion1" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Component id="txtNumeroDocumentoIdentificacion1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Component id="jComboBox1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Component id="txtSegundoNombre" min="-2" pref="261" max="-2" attributes="0"/>
+                                                      <Component id="cmbMunicipioExpedicion" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Component id="txtNumeroDocumentoIdentificacion" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Component id="cmbTipoPersona" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
@@ -1134,14 +1134,14 @@
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jButton7" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="cmbGenero1" alignment="1" pref="260" max="32767" attributes="0"/>
-                                                      <Component id="txtSegundoApellido1" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="cmbMunicipioNacimiento1" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="txtTelefono1" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="cmbMunicipioResidencia1" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="cmbEstrato1" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="cmbResguardo1" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="btnBuscarFotoPersona" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="cmbGenero" alignment="1" pref="260" max="32767" attributes="0"/>
+                                                      <Component id="txtSegundoApellido" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="cmbMunicipioNacimiento" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="txtTelefono" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="cmbMunicipioResidencia" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="cmbEstrato" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="cmbResguardo" alignment="1" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -1161,30 +1161,30 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="txtDireccion1" min="-2" pref="260" max="-2" attributes="0"/>
+                                                              <Component id="txtDireccion" min="-2" pref="260" max="-2" attributes="0"/>
                                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                  <Component id="cmbSisben1" alignment="0" pref="260" max="32767" attributes="0"/>
-                                                                  <Component id="cmbEtnia1" alignment="0" max="32767" attributes="0"/>
+                                                                  <Component id="cmbSisben" alignment="0" pref="260" max="32767" attributes="0"/>
+                                                                  <Component id="cmbEtnia" alignment="0" max="32767" attributes="0"/>
                                                               </Group>
-                                                              <Component id="cmbDepartamentoResidencia1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                                              <Component id="cmbDepartamentoResidencia" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                                           <Component id="jLabel71" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <Component id="txtRutaFoto1" alignment="0" min="-2" pref="394" max="-2" attributes="0"/>
+                                                      <Component id="txtRutaFoto" alignment="0" min="-2" pref="394" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace pref="104" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="btnBuscarEstudiante1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btnBuscarEstudiante" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                                  <Component id="btnGuardarEstudiante1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btnGuardarEstudiante" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jButton8" min="-2" pref="161" max="-2" attributes="0"/>
+                                                  <Component id="btnVerListadoPersonas" min="-2" pref="161" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="btnLimpiarCamposEstudiante1" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="btnLimpiarCamposEstudiante" min="-2" pref="176" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace pref="16" max="32767" attributes="0"/>
@@ -1197,22 +1197,22 @@
                                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel132" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbTipoPersona" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jLabel117" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="cmbTipoDocumentoIdentificacion1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cmbTipoDocumentoIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtNumeroDocumentoIdentificacion1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtNumeroDocumentoIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="cmbMunicipioExpedicion1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cmbDepartamentoExpedicion1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cmbMunicipioExpedicion" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cmbDepartamentoExpedicion" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel118" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jLabel120" min="-2" max="-2" attributes="0"/>
@@ -1221,30 +1221,30 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPrimerNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtSegundoNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPrimerNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtSegundoNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPrimerApellido1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtSegundoApellido1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPrimerApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtSegundoApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jDateChooser1" max="32767" attributes="0"/>
+                                      <Component id="cmbFechaNacimientoPersona" max="32767" attributes="0"/>
                                       <Component id="jLabel58" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel64" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="cmbGenero1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cmbGenero" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="cmbMunicipioNacimiento1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cmbDepartamentoNacimiento1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cmbMunicipioNacimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cmbDepartamentoNacimiento" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel122" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
@@ -1254,10 +1254,10 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtDireccion1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtTelefono1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
@@ -1272,31 +1272,31 @@
                                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="cmbMunicipioResidencia1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="cmbMunicipioResidencia" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="cmbDepartamentoResidencia1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cmbDepartamentoResidencia" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                          <Component id="cmbSisben1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cmbSisben" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel130" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="cmbEstrato1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbEstrato" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmbEtnia1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmbResguardo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbEtnia" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbResguardo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1305,16 +1305,16 @@
                                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                          <Component id="txtRutaFoto1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtRutaFoto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnBuscarFotoPersona" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnBuscarEstudiante1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnGuardarEstudiante1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnLimpiarCamposEstudiante1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnBuscarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnGuardarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnLimpiarCamposEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnVerListadoPersonas" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1347,28 +1347,28 @@
                             <Property name="text" type="java.lang.String" value="Segundo Apellido"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbTipoDocumentoIdentificacion1">
+                        <Component class="javax.swing.JComboBox" name="cmbTipoDocumentoIdentificacion">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTipoDocumentoIdentificacion1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTipoDocumentoIdentificacionActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtNumeroDocumentoIdentificacion1">
+                        <Component class="javax.swing.JTextField" name="txtNumeroDocumentoIdentificacion">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroDocumentoIdentificacion1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroDocumentoIdentificacionActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtPrimerNombre1">
+                        <Component class="javax.swing.JTextField" name="txtPrimerNombre">
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtSegundoNombre1">
+                        <Component class="javax.swing.JTextField" name="txtSegundoNombre">
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtSegundoApellido1">
+                        <Component class="javax.swing.JTextField" name="txtSegundoApellido">
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtPrimerApellido1">
+                        <Component class="javax.swing.JTextField" name="txtPrimerApellido">
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel58">
                           <Properties>
@@ -1393,7 +1393,7 @@
                             <Property name="text" type="java.lang.String" value="Sisben"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbSisben1">
+                        <Component class="javax.swing.JComboBox" name="cmbSisben">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="4">
@@ -1405,7 +1405,7 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSisben1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSisbenActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel64">
@@ -1413,7 +1413,7 @@
                             <Property name="text" type="java.lang.String" value="G&#xe9;nero"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbGenero1">
+                        <Component class="javax.swing.JComboBox" name="cmbGenero">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="2">
@@ -1423,9 +1423,9 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtDireccion1">
+                        <Component class="javax.swing.JTextField" name="txtDireccion">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccion1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel70">
@@ -1433,7 +1433,7 @@
                             <Property name="text" type="java.lang.String" value="Etnia"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbEtnia1">
+                        <Component class="javax.swing.JComboBox" name="cmbEtnia">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="0"/>
@@ -1445,38 +1445,38 @@
                             <Property name="text" type="java.lang.String" value="Resguardo"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbResguardo1">
+                        <Component class="javax.swing.JComboBox" name="cmbResguardo">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbResguardo1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbResguardoActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnBuscarEstudiante1">
+                        <Component class="javax.swing.JButton" name="btnBuscarEstudiante">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Buscar Persona"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarEstudiante1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarEstudianteActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnGuardarEstudiante1">
+                        <Component class="javax.swing.JButton" name="btnGuardarEstudiante">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Guardar Persona"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarEstudiante1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarEstudianteActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnLimpiarCamposEstudiante1">
+                        <Component class="javax.swing.JButton" name="btnLimpiarCamposEstudiante">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Limpiar Formulario"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarCamposEstudiante1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarCamposEstudianteActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel117">
@@ -1503,26 +1503,26 @@
                             <Property name="text" type="java.lang.String" value="&lt;html&gt;Municipio de &lt;br /&gt; Expedici&#xf3;n&lt;/html&gt;"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbDepartamentoExpedicion1">
+                        <Component class="javax.swing.JComboBox" name="cmbDepartamentoExpedicion">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoExpedicion1MousePressed"/>
-                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoExpedicion1MouseClicked"/>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoExpedicion1ActionPerformed"/>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoExpedicionMousePressed"/>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoExpedicionMouseClicked"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoExpedicionActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbMunicipioExpedicion1">
+                        <Component class="javax.swing.JComboBox" name="cmbMunicipioExpedicion">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioExpedicion1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioExpedicionActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel122">
@@ -1533,14 +1533,14 @@
                             <Property name="text" type="java.lang.String" value="&lt;html&gt;Departamento&lt;br /&gt;de Nacimiento&lt;/html&gt;"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbDepartamentoNacimiento1">
+                        <Component class="javax.swing.JComboBox" name="cmbDepartamentoNacimiento">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoNacimiento1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoNacimientoActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel124">
@@ -1551,14 +1551,14 @@
                             <Property name="text" type="java.lang.String" value="&lt;html&gt;Municipio de&lt;br /&gt;Nacimiento&lt;/html&gt;"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbMunicipioNacimiento1">
+                        <Component class="javax.swing.JComboBox" name="cmbMunicipioNacimiento">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioNacimiento1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioNacimientoActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel126">
@@ -1569,14 +1569,14 @@
                             <Property name="text" type="java.lang.String" value="&lt;html&gt;Departamento&lt;br /&gt;de Residencia"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbDepartamentoResidencia1">
+                        <Component class="javax.swing.JComboBox" name="cmbDepartamentoResidencia">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoResidencia1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoResidenciaActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel128">
@@ -1587,19 +1587,19 @@
                             <Property name="text" type="java.lang.String" value="&lt;html&gt;Municipio de&lt;br /&gt;Residencia&lt;/html&gt;"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbMunicipioResidencia1">
+                        <Component class="javax.swing.JComboBox" name="cmbMunicipioResidencia">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioResidencia1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioResidenciaActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtTelefono1">
+                        <Component class="javax.swing.JTextField" name="txtTelefono">
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="cmbEstrato1">
+                        <Component class="javax.swing.JComboBox" name="cmbEstrato">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="4">
@@ -1611,7 +1611,7 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEstrato1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEstratoActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel130">
@@ -1624,9 +1624,9 @@
                             <Property name="text" type="java.lang.String" value="Foto"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtRutaFoto1">
+                        <Component class="javax.swing.JTextField" name="txtRutaFoto">
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton7">
+                        <Component class="javax.swing.JButton" name="btnBuscarFotoPersona">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Buscar foto"/>
                           </Properties>
@@ -1636,7 +1636,7 @@
                             <Property name="text" type="java.lang.String" value="Tipo de Persona a Registrar"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="jComboBox1">
+                        <Component class="javax.swing.JComboBox" name="cmbTipoPersona">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="3">
@@ -1647,9 +1647,9 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+                        <Component class="com.toedter.calendar.JDateChooser" name="cmbFechaNacimientoPersona">
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton8">
+                        <Component class="javax.swing.JButton" name="btnVerListadoPersonas">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Ver Listado"/>
                           </Properties>
@@ -1705,14 +1705,18 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                              <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1721,8 +1725,6 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1813,718 +1815,6 @@
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarMatriculasActionPerformed"/>
                                   </Events>
-                                </Component>
-                              </SubComponents>
-                            </Container>
-                            <Container class="javax.swing.JPanel" name="jPanel12">
-                              <Properties>
-                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                                    <TitledBorder title="Registro de Informaci&#xf3;n del Estudiante"/>
-                                  </Border>
-                                </Property>
-                              </Properties>
-
-                              <Layout>
-                                <DimensionLayout dim="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="102" attributes="0">
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="jLabel50" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel52" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Group type="102" attributes="0">
-                                                                      <Component id="txtDireccion" min="-2" pref="272" max="-2" attributes="0"/>
-                                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                      <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
-                                                                  </Group>
-                                                                  <Group type="102" attributes="0">
-                                                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                                                      <Component id="txtFechaNacimiento" min="-2" pref="269" max="-2" attributes="0"/>
-                                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                      <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
-                                                                  </Group>
-                                                              </Group>
-                                                          </Group>
-                                                          <Component id="jLabel108" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="cmbMunicipioNacimiento" pref="260" max="32767" attributes="0"/>
-                                                          <Component id="txtTelefono" max="32767" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Group type="102" alignment="1" attributes="0">
-                                                                  <EmptySpace min="115" pref="115" max="-2" attributes="0"/>
-                                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Component id="cmbTipoDocumentoIdentificacion" min="-2" pref="269" max="-2" attributes="0"/>
-                                                                      <Component id="txtPrimerNombre" min="-2" pref="269" max="-2" attributes="0"/>
-                                                                      <Component id="cmbDepartamentoExpedicion" alignment="0" min="-2" pref="269" max="-2" attributes="0"/>
-                                                                  </Group>
-                                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="jLabel103" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel74" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel105" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel104" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel106" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel107" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="102" attributes="0">
-                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                  <Component id="cmbMunicipioExpedicion" pref="260" max="32767" attributes="0"/>
-                                                                  <Component id="txtNumeroDocumentoIdentificacion" max="32767" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                              <Component id="txtSegundoNombre" min="-2" pref="261" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace min="-2" pref="313" max="-2" attributes="0"/>
-                                                      <Component id="btnBuscarEstudiante" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="btnGuardarEstudiante" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="btnLimpiarCamposEstudiante" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel113" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel112" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel55" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                  <Component id="cmbDepartamentoResidencia" max="32767" attributes="0"/>
-                                                                  <Component id="cmbSisben" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="cmbEtnia" alignment="0" pref="269" max="32767" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                      </Group>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel115" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel114" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="jButton3" pref="270" max="32767" attributes="0"/>
-                                                          <Component id="cmbMunicipioResidencia" max="32767" attributes="0"/>
-                                                          <Component id="cmbEstrato" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="cmbResguardo" alignment="0" max="32767" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="txtRutaFoto" alignment="1" min="-2" pref="390" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                              <Component id="txtPrimerApellido" min="-2" pref="269" max="-2" attributes="0"/>
-                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                              <Component id="jLabel45" min="-2" pref="110" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="jLabel109" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                                              <Component id="cmbDepartamentoNacimiento" min="-2" pref="269" max="-2" attributes="0"/>
-                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="jLabel110" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel111" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="cmbGenero" pref="260" max="32767" attributes="0"/>
-                                                      <Component id="txtSegundoApellido" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                </DimensionLayout>
-                                <DimensionLayout dim="1">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel74" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel103" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="jLabel104" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="3" attributes="0">
-                                                              <Component id="jLabel105" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel107" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="jLabel106" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txtPrimerNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txtSegundoNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                                          <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="txtPrimerApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                                          <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="txtSegundoApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="cmbTipoDocumentoIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txtNumeroDocumentoIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="cmbDepartamentoExpedicion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="cmbMunicipioExpedicion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txtFechaNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                                          <Component id="jLabel109" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                                          <Component id="cmbDepartamentoNacimiento" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="cmbGenero" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel110" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel108" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace max="32767" attributes="0"/>
-                                                          <Component id="jLabel111" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                          <Component id="cmbMunicipioNacimiento" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                          <Component id="txtTelefono" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                          <Component id="txtDireccion" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel52" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel112" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel113" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace pref="6" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="cmbMunicipioResidencia" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="cmbDepartamentoResidencia" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabel114" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jLabel115" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                                  <Component id="cmbSisben" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel55" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel56" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="cmbEstrato" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cmbEtnia" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cmbResguardo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtRutaFoto" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="btnBuscarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnGuardarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnLimpiarCamposEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                </DimensionLayout>
-                              </Layout>
-                              <SubComponents>
-                                <Component class="javax.swing.JLabel" name="jLabel41">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel42">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Primer Nombre"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel43">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Segundo Nombre"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel44">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Primer Apellido"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel45">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Segundo Apellido"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbTipoDocumentoIdentificacion">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTipoDocumentoIdentificacionActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtNumeroDocumentoIdentificacion">
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroDocumentoIdentificacionActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtPrimerNombre">
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtSegundoNombre">
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtSegundoApellido">
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtPrimerApellido">
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel50">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Fech Nacimiento"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel51">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel52">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel55">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Sisben"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbSisben">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="4">
-                                        <StringItem index="0" value="1"/>
-                                        <StringItem index="1" value="2"/>
-                                        <StringItem index="2" value="3"/>
-                                        <StringItem index="3" value="4"/>
-                                      </StringArray>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSisbenActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel57">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="G&#xe9;nero"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbGenero">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="2">
-                                        <StringItem index="0" value="Femenino"/>
-                                        <StringItem index="1" value="Masculino"/>
-                                      </StringArray>
-                                    </Property>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtDireccion">
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel61">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Etnia"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbEtnia">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="4">
-                                        <StringItem index="0" value="Item 1"/>
-                                        <StringItem index="1" value="Item 2"/>
-                                        <StringItem index="2" value="Item 3"/>
-                                        <StringItem index="3" value="Item 4"/>
-                                      </StringArray>
-                                    </Property>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel62">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Resguardo"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbResguardo">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="4">
-                                        <StringItem index="0" value="Item 1"/>
-                                        <StringItem index="1" value="Item 2"/>
-                                        <StringItem index="2" value="Item 3"/>
-                                        <StringItem index="3" value="Item 4"/>
-                                      </StringArray>
-                                    </Property>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnBuscarEstudiante">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Buscar Estudiante"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarEstudianteActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnGuardarEstudiante">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Guardar Estudiante"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarEstudianteActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnLimpiarCamposEstudiante">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Limpiar Campos"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarCamposEstudianteActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel103">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Identificaci&#xf3;n"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel74">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Documento de"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel104">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Departamento de"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel105">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Expedici&#xf3;n"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel106">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Municipio de"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel107">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Expedici&#xf3;n"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbDepartamentoExpedicion">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoExpedicionMousePressed"/>
-                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoExpedicionMouseClicked"/>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoExpedicionActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbMunicipioExpedicion">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioExpedicionActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel108">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Departamento de"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel109">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Nacimiento"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbDepartamentoNacimiento">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoNacimientoActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel110">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Municipio de"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel111">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Nacimiento"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbMunicipioNacimiento">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioNacimientoActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtFechaNacimiento">
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel112">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Departamento de"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel113">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Residencia"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbDepartamentoResidencia">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoResidenciaActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel114">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Municipio de"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel115">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Residencia"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbMunicipioResidencia">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioResidenciaActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtTelefono">
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbEstrato">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="4">
-                                        <StringItem index="0" value="1"/>
-                                        <StringItem index="1" value="2"/>
-                                        <StringItem index="2" value="3"/>
-                                        <StringItem index="3" value="4"/>
-                                      </StringArray>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEstratoActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel56">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Estrato"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel40">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Foto"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtRutaFoto">
-                                </Component>
-                                <Component class="javax.swing.JButton" name="jButton3">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Buscar foto del Estudiante"/>
-                                  </Properties>
                                 </Component>
                               </SubComponents>
                             </Container>
