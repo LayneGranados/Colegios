@@ -19,6 +19,10 @@ public class PersonaBusiness {
     
     PersonaDAOImpl personaDAO;
 
+    public PersonaBusiness() {
+        this.personaDAO = new PersonaDAOImpl();
+    }
+
     public PersonaDAOImpl getPersonaDAO() {
         return personaDAO;
     }
@@ -31,8 +35,12 @@ public class PersonaBusiness {
         return this.personaDAO.getPersona(p);
     }
     
-    public void guardarPersona(Persona p){
-        this.personaDAO.guardarPersona(p);
+    public boolean guardarPersona(Persona p){
+        return this.personaDAO.guardarPersona(p);
+    }
+    
+    public ArrayList<Persona> buscarPersonasPorArgumentos(Persona p){
+        return this.personaDAO.buscarPersonasPorArgumentos(p);
     }
     
 }

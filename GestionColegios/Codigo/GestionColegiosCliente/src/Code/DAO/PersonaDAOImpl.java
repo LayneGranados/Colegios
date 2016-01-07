@@ -12,7 +12,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  *
@@ -23,21 +26,30 @@ public class PersonaDAOImpl {
     String todosLasPersonas="select * from persona";
     String personaPorId="SELECT * FROM persona WHERE persona_id=";
     String personaPorIdentificacion="SELECT * FROM persona WHERE tipo_documento_id=";
+    String buscarPersonaArgumentos="SELECT * FROM persona where ";
     String guardarPersona="insert into persona "
             + "("
+            + "tipo_persona, "
             + "tipo_documento_id, "
             + "documento,"
+            + "exp_depto,"
+            + "exp_mun,"
             + "nombre1,"
             + "nombre2,"
             + "apellido1,"
             + "apellido2,"
+            + "fecha_nacimiento,"
+            + "genero,"
+            + "nac_depto,"
+            + "nac_mun,"
+            + "telefono_residencia,"
             + "direccion_residencia,"
+            + "res_depto,"
+            + "res_mun,"
             + "estrato,"
             + "sisben,"
-            + "fecha_nacimiento,"
-            + "genero)"
-            //+ "etnia_id,"
-            //+ "resguardo_id) "
+            + "etnia_id,"
+            + "resguardo_id) "
             + "values"
             + "(";
     
@@ -45,33 +57,45 @@ public class PersonaDAOImpl {
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         Boolean result=false;
-        this.guardarPersona+=
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha = formatter.format(p.getFechaNacimiento());
+        String consulta="'"+
+                p.getTipoPersona()+"',"+
                 p.getTipoDocumento().getId()+",'"+
-                p.getDocumento()+"','"+
+                p.getDocumento()+"',"+
+                p.getDepartamentoExpedicion()+","+
+                p.getMunicipioExpedicion()+",'"+
                 p.getNombre1()+"','"+
                 p.getNombre2()+"','"+
                 p.getApellido1()+"','"+
-                p.getApellido2()+"','"+
-                p.getDireccionResidencia()+"','"+
+                p.getApellido2()+"',str_to_date('"+
+                fecha+"','%d/%m/%Y'),'"+
+                p.getGenero()+"',"+
+                p.getDepartamentoNacimiento()+","+
+                p.getMunicipioNacimiento()+",'"+
+                p.getTelefonoResidencia()+"','"+
+                p.getDireccionResidencia()+"',"+
+                p.getDepartamentoResidencia()+","+
+                p.getMunicipioResidencia()+",'"+
                 p.getEstrato()+"','"+
                 p.getSisben()+"',"+
-                "'1991-01-01','"+
-                p.getGenero()+"')";
-                //p.getEtnia().getId()+","+
-                //p.getResguardo().getId()+")";
-        
+                p.getEtnia().getId()+","+
+                p.getResguardo().getId()+")";
         try{
             if(miConexion!=null)
             {
+                String q = this.guardarPersona+""+consulta;
+                System.out.println("query de insert persona: "+q);
                 Statement st = miConexion.createStatement();
-                result = st.execute(guardarPersona);
+                result = st.execute(q);
                 st.close();
                 }
         }catch(SQLException sqlException){
             
         }catch(NullPointerException nullPointerException){
         }
-        catch(Exception exception){
+        catch(Exception ex){
+            System.out.println("exception:"+ex.getMessage());
         }
         return result;
     }
@@ -85,7 +109,6 @@ public class PersonaDAOImpl {
             if(miConexion!=null)
             {
                 Statement st = miConexion.createStatement();
-                System.out.println("query: "+this.personaPorIdentificacion+p.getTipoDocumento().getId()+" and documento='"+p.getDocumento()+"'");
                 ResultSet rs = st.executeQuery(this.personaPorIdentificacion+p.getTipoDocumento().getId()+" and documento='"+p.getDocumento()+"'");
                 while (rs.next())
                 {
@@ -162,6 +185,183 @@ public class PersonaDAOImpl {
         catch(Exception exception){
         }
         return p;
+    }
+    
+    public ArrayList<Persona> buscarPersonasPorArgumentos(Persona p){
+        ArrayList<Persona> personas = new ArrayList<Persona>();
+        int i=0;
+
+        String query=" ";
+        if(p.getTipoDocumento()!=null){
+            if(p.getTipoDocumento().getId()>0){
+                query+="tipo_documento_id="+p.getTipoDocumento().getId();
+                i++;
+            }
+        }
+        if(!p.getDocumento().isEmpty()&&!p.getDocumento().equalsIgnoreCase("")){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="documento='"+p.getDocumento()+"'";
+            
+            i++;
+        }
+        if(p.getTipoPersona()!=null){
+            if(!p.getTipoPersona().isEmpty()){
+                if(i>0){
+                    query+=" and ";
+                }
+                query+="tipo_persona='"+p.getTipoPersona()+"'";
+                i++;
+            }
+        }
+        
+        if(!p.getNombre1().isEmpty()&&!p.getNombre1().equalsIgnoreCase("")){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="nombre1='"+p.getNombre1()+"'";
+            
+            i++;
+        }
+        if(!p.getNombre2().isEmpty()&&!p.getNombre2().equalsIgnoreCase("")){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="nombre2='"+p.getNombre2()+"'";
+            
+            i++;
+        }
+        if(!p.getApellido1().isEmpty()&&!p.getApellido1().equalsIgnoreCase("")){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="apellido1='"+p.getApellido1()+"'";
+            
+            i++;
+        }
+        if(!p.getGenero().isEmpty()&&!p.getGenero().equalsIgnoreCase("")){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="genero='"+p.getGenero()+"'";
+            
+            i++;
+        }
+        if(!p.getApellido2().isEmpty()&&!p.getApellido2().equalsIgnoreCase("")){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="apellido2='"+p.getApellido2()+"'";
+            i++;
+        }
+        if(p.getSisben()>0){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="sisben='"+p.getSisben()+"'";
+    
+            i++;
+        }
+        if(p.getEstrato()>0){
+            if(i>0){
+                query+=" and ";
+            }
+            query="estrato='"+p.getEstrato()+"'";
+
+            i++;
+        }
+        if(p.getDepartamentoNacimiento()>0){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="nac_depto="+p.getDepartamentoNacimiento();
+            
+            i++;
+        }
+        if(p.getDepartamentoResidencia()>0){
+            query+="res_depto="+p.getDepartamentoResidencia();
+            if(i>0){
+                query+=" and ";
+            }
+            i++;
+        }
+        if(p.getDepartamentoExpedicion()>0){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="exp_depto="+p.getDepartamentoExpedicion();
+           
+            i++;
+        }
+        if(p.getMunicipioNacimiento()>0){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="nac_mun="+p.getMunicipioNacimiento();
+            
+            i++;
+        }
+        if(p.getMunicipioResidencia()>0){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="res_mun="+p.getMunicipioResidencia();
+           
+            i++;
+        }
+        if(p.getMunicipioExpedicion()>0){
+            if(i>0){
+                query+=" and ";
+            }
+            query+="exp_mun="+p.getMunicipioExpedicion();
+            
+            i++;
+        }
+        
+        String cadena="";
+        if(i>0){
+            cadena = this.todosLasPersonas+ " where "+query;
+        }
+        else{
+            cadena = this.todosLasPersonas;
+        }
+        
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        Boolean result=false;
+        
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(cadena);
+                while (rs.next())
+                {   Persona persona = new Persona(); 
+                    TipoDocumento tipo = new TipoDocumento();
+                    tipo.setId(rs.getInt("tipo_documento_id"));
+                    persona.setTipoDocumento(tipo);
+                    persona.setDocumento(rs.getString("documento"));
+                    persona.setId(rs.getInt("persona_id"));
+                    persona.setNombre1(rs.getString("nombre1"));
+                    persona.setNombre2(rs.getString("nombre2"));
+                    persona.setApellido1(rs.getString("apellido1"));
+                    persona.setApellido2(rs.getString("apellido2"));
+                    persona.setDireccionResidencia(rs.getString("direccion_residencia"));
+                    persona.setSisben(Integer.parseInt(rs.getString("sisben")));
+                    persona.setEstrato(Integer.parseInt(rs.getString("estrato")));
+                    persona.setGenero(rs.getString("genero"));
+                    personas.add(persona);
+                }
+        }
+        }catch(SQLException sqlException){
+            
+        }catch(NullPointerException nullPointerException){
+        }
+        catch(Exception exception){
+        }
+        
+        return personas;
     }
     
 }

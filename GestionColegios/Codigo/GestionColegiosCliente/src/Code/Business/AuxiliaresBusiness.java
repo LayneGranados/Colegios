@@ -7,6 +7,10 @@ package Code.Business;
 
 import Code.DAO.AuxiliaresDAOImpl;
 import Code.Domain.Departamento;
+import Code.Domain.Etnia;
+import Code.Domain.Municipio;
+import Code.Domain.Resguardo;
+import Code.Domain.TipoDocumento;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -94,21 +98,21 @@ public class AuxiliaresBusiness {
         return combo;
     } 
     
-    public ArrayList<String> getAllDepartamentos(){
-        ArrayList<String> combo;
+    public ArrayList<Departamento> getAllDepartamentos(){
+        ArrayList<Departamento> combo;
         try{
             combo = this.auxiliarDAO.getAllDepartamentos();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<Departamento>();
         }
         return combo;
     }
-    public ArrayList<String> getAllMunicipiosPorDepartamento(int d){
-        ArrayList<String> combo;
+    public ArrayList<Municipio> getAllMunicipiosPorDepartamento(int d){
+        ArrayList<Municipio> combo;
         try{
             combo = this.auxiliarDAO.getAllMunicipiosPorDepartamento(d);
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<Municipio>();
         }
         return combo;
     }
@@ -202,30 +206,30 @@ public class AuxiliaresBusiness {
         }
         return combo;
     }
-    public ArrayList<String> getAllResguardo(){
-        ArrayList<String> combo;
+    public ArrayList<Resguardo> getAllResguardo(){
+        ArrayList<Resguardo> combo;
         try{
             combo = this.auxiliarDAO.getAllResguardo();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<Resguardo>();
         }
         return combo;
     }
-    public ArrayList<String> getAllEtnia(){
-        ArrayList<String> combo;
+    public ArrayList<Etnia> getAllEtnia(){
+        ArrayList<Etnia> combo;
         try{
             combo = this.auxiliarDAO.getAllEtnia();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<Etnia>();
         }
         return combo;
     }
-    public ArrayList<String> getAllTipoDocumento(){
-        ArrayList<String> combo;
+    public ArrayList<TipoDocumento> getAllTipoDocumento(){
+        ArrayList<TipoDocumento> combo;
         try{
             combo = this.auxiliarDAO.getAllTipoDocumento();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<TipoDocumento>();
         }
         return combo;
     }

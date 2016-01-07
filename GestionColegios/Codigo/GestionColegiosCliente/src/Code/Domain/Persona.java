@@ -5,6 +5,8 @@
  */
 package Code.Domain;
 
+import java.util.Date;
+
 /**
  *
  * @author laynegranadosmogollon
@@ -18,7 +20,7 @@ public class Persona {
     private String nombre2;
     private String apellido1;
     private String apellido2;
-    private String fechaNacimiento;
+    private Date fechaNacimiento;
     private String genero;
     private String direccionResidencia;
     private String telefonoResidencia;
@@ -33,6 +35,7 @@ public class Persona {
     private Etnia etnia;
     private Resguardo resguardo;
     private String foto;
+    private String tipoPersona;
 
     public int getId() {
         return id;
@@ -82,11 +85,11 @@ public class Persona {
         this.apellido2 = apellido2;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -209,6 +212,15 @@ public class Persona {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+    public String getTipoPersona() {
+        return tipoPersona;
+    }
+
+    public void setTipoPersona(String tipoPersona) {
+        this.tipoPersona = tipoPersona;
+    }
+    
     
     
     

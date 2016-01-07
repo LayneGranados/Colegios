@@ -6,6 +6,10 @@
 package Code.DAO;
 
 import Code.Domain.Departamento;
+import Code.Domain.Etnia;
+import Code.Domain.Municipio;
+import Code.Domain.Resguardo;
+import Code.Domain.TipoDocumento;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -211,8 +215,8 @@ public class AuxiliaresDAOImpl {
         return all;
     }
     
-    public ArrayList<String> getAllDepartamentos() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<Departamento> getAllDepartamentos() throws SQLException{
+        ArrayList<Departamento> all = new ArrayList<Departamento>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -220,32 +224,43 @@ public class AuxiliaresDAOImpl {
         {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosDepartamentos);
+            Departamento d = new Departamento();
+            d.setId(-1);
+            d.setNombre("No seleccionado");
+            all.add(d);
             while (rs.next())
-            {
-                int id = rs.getInt("departamento_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                d = new Departamento();
+                d.setId(rs.getInt("departamento_id"));
+                d.setNombre(rs.getString("nombre"));
+                all.add(d);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllMunicipiosPorDepartamento(int d) throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<Municipio> getAllMunicipiosPorDepartamento(int d) throws SQLException{
+        ArrayList<Municipio> all = new ArrayList<Municipio>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
-            
             ResultSet rs = st.executeQuery(this.todosMunicipiosPorDepartamento+d);
+            Municipio m = new Municipio();
+            m.setId(-1);
+            m.setNombre("No Seleccionado");
+            m.setCodigoDANE("");
+            all.add(m);
             while (rs.next())
-            {   
-                int id = rs.getInt("municipio_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {
+                m = new Municipio();
+                m.setId(rs.getInt("municipio_id"));
+                m.setNombre(rs.getString("nombre"));
+                m.setCodigoDANE(rs.getString("codigo_dane"));
+                all.add(m);
             }
             st.close();
         }else{
@@ -454,8 +469,8 @@ public class AuxiliaresDAOImpl {
         return all;
     }
     
-    public ArrayList<String> getAllResguardo() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<Resguardo> getAllResguardo() throws SQLException{
+        ArrayList<Resguardo> all = new ArrayList<Resguardo>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -463,19 +478,24 @@ public class AuxiliaresDAOImpl {
         {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosResguardo);
+            Resguardo r = new Resguardo();
+            r.setId(-1);
+            r.setNombre("No Aplica");
+            all.add(r);
             while (rs.next())
-            {
-                int id = rs.getInt("resguardo_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                r = new Resguardo();
+                r.setId(rs.getInt("resguardo_id"));
+                r.setNombre(rs.getString("nombre"));
+                all.add(r);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllEtnia() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<Etnia> getAllEtnia() throws SQLException{
+        ArrayList<Etnia> all = new ArrayList<Etnia>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -483,19 +503,25 @@ public class AuxiliaresDAOImpl {
         {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosEtnia);
+            Etnia e = new Etnia();
+            e.setId(-1);
+            e.setNombre("No Aplica");
+            all.add(e);
+            
             while (rs.next())
-            {
-                int id = rs.getInt("etnia_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                e = new Etnia();
+                e.setId(rs.getInt("etnia_id"));
+                e.setNombre(rs.getString("nombre"));
+                all.add(e);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllTipoDocumento() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<TipoDocumento> getAllTipoDocumento() throws SQLException{
+        ArrayList<TipoDocumento> all = new ArrayList<TipoDocumento>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -503,11 +529,18 @@ public class AuxiliaresDAOImpl {
         {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosTipoDocumento);
+            
+            TipoDocumento tipo = new TipoDocumento();
+            tipo.setId(-1);
+            tipo.setNombre("No Seleccionado");
+            all.add(tipo);
+            
             while (rs.next())
             {
-                int id = rs.getInt("tipo_documento_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+                tipo = new TipoDocumento();
+                tipo.setId(rs.getInt("tipo_documento_id"));
+                tipo.setNombre(rs.getString("nombre"));
+                all.add(tipo);
             }
             st.close();
         }
