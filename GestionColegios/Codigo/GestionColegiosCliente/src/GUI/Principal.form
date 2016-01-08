@@ -1126,6 +1126,7 @@
                                                       <Component id="cmbMunicipioExpedicion" min="-2" pref="260" max="-2" attributes="0"/>
                                                       <Component id="txtNumeroDocumentoIdentificacion" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
                                                       <Component id="cmbTipoPersonaRegistrar" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
@@ -1214,6 +1215,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLabel40" min="-2" pref="27" max="-2" attributes="0"/>
                                       </Group>
+
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -1325,6 +1327,7 @@
                                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                           <Component id="txtRutaFoto" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="btnBuscarFoto" alignment="3" min="-2" max="-2" attributes="0"/>
+
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -1334,6 +1337,7 @@
                                       <Component id="btnLimpiarCamposEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnVerListadoPersonas" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+
                                   </Group>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1697,6 +1701,7 @@
                         <Component class="javax.swing.JTextField" name="txtRutaFoto">
                         </Component>
                         <Component class="javax.swing.JButton" name="btnBuscarFoto">
+
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Buscar foto"/>
                           </Properties>
@@ -1707,6 +1712,7 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbTipoPersonaRegistrar">
+
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="4">

@@ -584,6 +584,7 @@ public class Principal extends javax.swing.JFrame {
         cmbGenero = new javax.swing.JComboBox();
         txtDireccion = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
+
         cmbEtnia = new GUI.Util.JComboBox();
         jLabel71 = new javax.swing.JLabel();
         cmbResguardo = new GUI.Util.JComboBox();
@@ -593,6 +594,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel117 = new javax.swing.JLabel();
         jLabel118 = new javax.swing.JLabel();
         jLabel120 = new javax.swing.JLabel();
+
         cmbDepartamentoExpedicion = new GUI.Util.JComboBox();
         cmbMunicipioExpedicion = new GUI.Util.JComboBox();
         jLabel122 = new javax.swing.JLabel();
@@ -1346,7 +1348,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel60.setText("Dirección");
 
         jLabel63.setText("Sisben");
-
         cmbSisben.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No Seleccionado", "1", "2", "3", "4" }));
         cmbSisben.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1526,6 +1527,7 @@ public class Principal extends javax.swing.JFrame {
                                     .addComponent(cmbDepartamentoNacimiento, 0, 260, Short.MAX_VALUE)
                                     .addComponent(cmbTipoDocumentoIdentificacion, 0, 260, Short.MAX_VALUE)
                                     .addComponent(cmbNacimientPersona, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+
                             .addComponent(jLabel126, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1540,6 +1542,7 @@ public class Principal extends javax.swing.JFrame {
                                     .addComponent(cmbMunicipioExpedicion, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtNumeroDocumentoIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cmbTipoPersonaRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+
                             .addGroup(jPanel22Layout.createSequentialGroup()
                                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1593,6 +1596,7 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(btnLimpiarCamposEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel117, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(10, Short.MAX_VALUE))
+
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3425,7 +3429,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -3526,7 +3529,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
