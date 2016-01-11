@@ -11,6 +11,7 @@ import Code.Business.ConfiguracionBusiness;
 import Code.Business.EstudianteBusiness;
 import Code.Business.MatriculaBusiness;
 import Code.Business.PersonaBusiness;
+import Code.Domain.CertificacionOldstyle;
 import Code.Domain.Departamento;
 import Code.Domain.Etnia;
 import Code.Domain.Municipio;
@@ -84,6 +85,10 @@ public class ControllerCombo {
     public void llenarMunicipioResidencia(int id){
         ArrayList<Municipio> municipios = this.auxiliaresBusiness.getAllMunicipiosPorDepartamento(id);
         this.myPrincipal.cmbMunicipioResidencia.setModel(new ToComboBoxModel(municipios, "getNombre"));
+    }
+    
+    public void llenarCertificadosAntiguos(ArrayList<CertificacionOldstyle> certs){
+        this.myPrincipal.cmbResultadosCertificadosAntiguos.setModel(new ToComboBoxModel(certs, "getComboAntiguo"));
     }
     
 

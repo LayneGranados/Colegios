@@ -37,15 +37,14 @@ public class ConfiguracionBusiness {
         }
         
         PDFUtil pdf = new PDFUtil();
-        pdf.create(this.getRutaResources()+"/ejemplo.pdf");
+        
         return msg;
     }
     
     public String getIp(){
         String ip="";
         try{
-            String rutaProyecto = System.getProperty("user.dir");
-            ArrayList<String> lineas =  UtilidadesArchivo.leerLineasArchivo(rutaProyecto+"/properties.txt");  
+            ArrayList<String> lineas =  UtilidadesArchivo.leerLineasArchivo(this.getRutaResources()+"/properties.txt");  
             if(!lineas.isEmpty()){
                 ip=lineas.get(lineas.size()-1);
                 ip = ip.replaceAll("IP=","");

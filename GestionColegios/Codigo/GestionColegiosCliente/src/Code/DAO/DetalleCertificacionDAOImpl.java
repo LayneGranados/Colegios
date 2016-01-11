@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +19,7 @@ public class DetalleCertificacionDAOImpl {
             + "(cer_old_id,nombre_detalle,valor_detalle) "
             + "values"
             + "(";
+    String detalleCertificacionOLD="select * from det_cer_old where cer_old_id=";
     
     
     public Boolean guardarCertificacion(DetalleCertificadoOld detCer){      
@@ -48,5 +50,38 @@ public class DetalleCertificacionDAOImpl {
         catch(Exception exception){
         }
         return result;
+    }
+    
+    public ArrayList<DetalleCertificadoOld> getDetalleCertificadoOLD(int id){
+        ArrayList<DetalleCertificadoOld> detalle = new ArrayList<DetalleCertificadoOld>();
+        String cadena=this.detalleCertificacionOLD+""+id;
+        
+        
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        Boolean result=false;
+        
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(cadena);
+                while (rs.next())
+                {   DetalleCertificadoOld d = new DetalleCertificadoOld();
+                    d.setCer_old_id(rs.getInt("det_cer_old_id"));
+                    d.setDet_cer_old_id(rs.getInt("cer_old_id"));
+                    d.setNombre_detalle(rs.getString("nombre_detalle"));
+                    d.setValor_detalle(rs.getString("valor_detalle"));
+                    detalle.add(d);
+                }
+        }
+        }catch(SQLException sqlException){
+            
+        }catch(NullPointerException nullPointerException){
+        }
+        catch(Exception exception){
+        }
+        return detalle;
+    
     }
 }
