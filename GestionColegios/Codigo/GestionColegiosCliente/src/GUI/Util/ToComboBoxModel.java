@@ -26,6 +26,7 @@ public class ToComboBoxModel<T> extends AbstractListModel implements ComboBoxMod
     private T selectedItem;
     private ArrayList<T> lstObjects;    
     private String nameMethod;
+    private String nameCompare;
 
     /**
      *
@@ -38,6 +39,7 @@ public class ToComboBoxModel<T> extends AbstractListModel implements ComboBoxMod
     public ToComboBoxModel(ArrayList<T> lstObjects, String nameMethod) {
         this.lstObjects = lstObjects;
         this.nameMethod = nameMethod;
+        this.nameCompare = "getId";
         this.lstObjects = lstObjects;
 
         if (!lstObjects.isEmpty()) {
@@ -63,6 +65,19 @@ public class ToComboBoxModel<T> extends AbstractListModel implements ComboBoxMod
 
             if (getValue(object).equals(anItem)) {
                 selectedItem = object;
+            }
+        }
+    }
+
+    
+    
+    public void setSelectedItemCustomize(Object anItem) {
+
+        for (T object : lstObjects) {
+            T o = (T)anItem;
+            if (getValueCompare(object).equals(getValueCompare(o))) {
+                selectedItem = object;
+                break;
             }
         }
     }
@@ -105,7 +120,29 @@ public class ToComboBoxModel<T> extends AbstractListModel implements ComboBoxMod
 
         try {
             Class classExam = object.getClass();
-            return classExam.getMethod(nameMethod, null).invoke(object, null);
+            Object ob = classExam.getMethod(this.nameMethod, null).invoke(object, null);
+            return ob;
+
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(ToComboBoxModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(ToComboBoxModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(ToComboBoxModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(ToComboBoxModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            Logger.getLogger(ToComboBoxModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private Object getValueCompare(T object) {
+
+        try {
+            Class classExam = object.getClass();
+            Object ob = classExam.getMethod(this.nameCompare, null).invoke(object, null);
+            return ob;
 
         } catch (IllegalAccessException ex) {
             Logger.getLogger(ToComboBoxModel.class.getName()).log(Level.SEVERE, null, ex);

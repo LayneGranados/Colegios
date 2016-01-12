@@ -15,9 +15,11 @@ public class InstitucionEducativa {
     private String nombre;
     private String codigoDANEActual;
     private String codigoDANEAnterior;
-    private Municipio municipio;
-    private Boolean actual;
+    private int municipio;
     private String rutaLogo;
+    private String rutaArchivosGenerados;
+    private String telefono;
+    private String direccion;
 
     public int getId() {
         return id;
@@ -51,18 +53,44 @@ public class InstitucionEducativa {
         this.codigoDANEAnterior = codigoDANEAnterior;
     }
 
-    public Municipio getMunicipio() {
+    public int getMunicipio() {
         return municipio;
     }
 
-    public void setMunicipio(Municipio municipio) {
+    public void setMunicipio(int municipio) {
         this.municipio = municipio;
     }
-    
-    
-    
-    
-    
-    
+
+    public String getRutaLogo() {
+        return rutaLogo;
+    }
+
+    public void setRutaLogo(String rutaLogo) {
+        this.rutaLogo = rutaLogo;
+    }
+
+    public String getRutaArchivosGenerados() {
+        return rutaArchivosGenerados;
+    }
+
+    public void setRutaArchivosGenerados(String rutaArchivosGenerados) {
+        this.rutaArchivosGenerados = rutaArchivosGenerados;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
     
 }

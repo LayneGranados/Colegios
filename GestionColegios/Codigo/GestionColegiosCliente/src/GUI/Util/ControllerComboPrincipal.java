@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
  *
  * @author Administrador
  */
-public class ControllerCombo {
+public class ControllerComboPrincipal {
 
     private Principal myPrincipal;
     public CertificacionBusiness certificacionBusiness;
@@ -39,7 +39,7 @@ public class ControllerCombo {
     public PersonaBusiness personaBusiness;
     public AuxiliaresBusiness auxiliaresBusiness;
 
-    public ControllerCombo(Principal myPrincipal) {
+    public ControllerComboPrincipal(Principal myPrincipal) {
         this.myPrincipal = myPrincipal;
         
         /** INICIALIZACION DE OBJETOS DEL NEGOCIO**/
@@ -63,6 +63,7 @@ public class ControllerCombo {
         this.myPrincipal.cmbDepartamentoExpedicion.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbDepartamentoNacimiento.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbDepartamentoResidencia.setModel(new ToComboBoxModel(departamentos, "getNombre"));
+        this.myPrincipal.cmbDepartamentoColegio.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbEtnia.setModel(new ToComboBoxModel(etnias, "getNombre"));
         this.myPrincipal.cmbResguardo.setModel(new ToComboBoxModel(resguardos, "getNombre"));
         
@@ -87,9 +88,14 @@ public class ControllerCombo {
         this.myPrincipal.cmbMunicipioResidencia.setModel(new ToComboBoxModel(municipios, "getNombre"));
     }
     
+    public void llenarMunicipioColegio(int id){
+        ArrayList<Municipio> municipios = this.auxiliaresBusiness.getAllMunicipiosPorDepartamento(id);
+        this.myPrincipal.cmbMunicipioColegio.setModel(new ToComboBoxModel(municipios, "getNombre"));
+    }
+    
     public void llenarCertificadosAntiguos(ArrayList<CertificacionOldstyle> certs){
         this.myPrincipal.cmbResultadosCertificadosAntiguos.setModel(new ToComboBoxModel(certs, "getComboAntiguo"));
     }
     
-
+    
 }

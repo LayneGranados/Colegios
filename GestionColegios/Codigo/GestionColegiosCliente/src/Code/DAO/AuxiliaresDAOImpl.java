@@ -37,7 +37,9 @@ public class AuxiliaresDAOImpl {
     String todosCondicionAnioAnterior="select * from condicion_anio_anterior";
     String todosFuentesRecursos="select * from fuentes_recursos";
     String todosDepartamentos="select * from departamento";
+    String departamentoPorID="select * from departamento where departamento_id=";
     String todosMunicipiosPorDepartamento="select * from municipio where departamento_id=";
+    String municipioPorID="select * from municipio where municipio_id=";
     String todosColegios="select * from colegio";
     String todosSedePorColegio="select * from sede where colegio_id=";
     String todosAnioPorSede="select * from anio where sede_id=";
@@ -240,6 +242,27 @@ public class AuxiliaresDAOImpl {
         return all;
     }
     
+    public Departamento getDepartamentoPorId(int id) throws SQLException{
+        Departamento d = new Departamento();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.departamentoPorID+""+id);
+
+            while (rs.next())
+            {   
+                d = new Departamento();
+                d.setId(rs.getInt("departamento_id"));
+                d.setNombre(rs.getString("nombre"));
+            }
+            st.close();
+        }
+        return d;
+    }
+    
     public ArrayList<Municipio> getAllMunicipiosPorDepartamento(int d) throws SQLException{
         ArrayList<Municipio> all = new ArrayList<Municipio>();
         Connection miConexion;
@@ -266,6 +289,29 @@ public class AuxiliaresDAOImpl {
         }else{
         }
         return all;
+    }
+    
+    public Municipio getMunicipioPorId(int d) throws SQLException{
+        Municipio m = new Municipio();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.municipioPorID+""+d);
+            while (rs.next())
+            {
+                m = new Municipio();
+                m.setId(rs.getInt("municipio_id"));
+                m.setNombre(rs.getString("nombre"));
+                m.setCodigoDANE(rs.getString("codigo_dane"));
+                m.setDepartamentoId(rs.getInt("departamento_id"));
+            }
+            st.close();
+        }else{
+        }
+        return m;
     }
     
     public ArrayList<String> getAllSituacionesAnteriores() throws SQLException{
