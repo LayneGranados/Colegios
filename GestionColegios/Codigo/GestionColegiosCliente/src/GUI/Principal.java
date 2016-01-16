@@ -1161,10 +1161,25 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnAnios.setText("Años");
+        btnAnios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAniosActionPerformed(evt);
+            }
+        });
 
         btnJornadas.setText("Jornadas");
+        btnJornadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJornadasActionPerformed(evt);
+            }
+        });
 
         btnPeriodos.setText("Periodos");
+        btnPeriodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPeriodosActionPerformed(evt);
+            }
+        });
 
         btnGrados.setText("Grados");
 
@@ -3258,6 +3273,24 @@ public class Principal extends javax.swing.JFrame {
         SedeModal sedeModal = new SedeModal(this, true);
         sedeModal.setVisible(true);
     }//GEN-LAST:event_btnSedesActionPerformed
+
+    private void btnAniosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniosActionPerformed
+        // TODO add your handling code here:
+        AnioModal anio = new AnioModal(this, true);
+        anio.setVisible(true);
+    }//GEN-LAST:event_btnAniosActionPerformed
+
+    private void btnJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJornadasActionPerformed
+        // TODO add your handling code here:
+        JornadaModal jornada = new JornadaModal(this, true);
+        jornada.setVisible(true);
+    }//GEN-LAST:event_btnJornadasActionPerformed
+
+    private void btnPeriodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeriodosActionPerformed
+        // TODO add your handling code here:
+        PeriodoModal periodo = new PeriodoModal(this, true);
+        periodo.setVisible(true);
+    }//GEN-LAST:event_btnPeriodosActionPerformed
 
     /**
      * @param args the command line arguments

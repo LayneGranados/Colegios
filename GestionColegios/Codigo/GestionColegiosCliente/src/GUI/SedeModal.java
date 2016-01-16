@@ -14,12 +14,7 @@ import Code.Domain.Municipio;
 import Code.Domain.Sede;
 import GUI.Util.ControllerComboSede;
 import java.awt.Dimension;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import javax.swing.ComboBoxModel;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -57,11 +52,9 @@ public class SedeModal extends javax.swing.JDialog {
         sedes =this.sedeBusiness.selectAllSedes(actual.getId());
         this.sedeActual = new Sede();
         
-        Object[][] data = this.dataTable();
-
-        JTable jTable2 = this.createJTable(data);
+        JTable jtable = this.createJTable(this.dataTable());
         
-        this.scrollPaneListadoSede.setViewportView(jTable2);
+        this.scrollPaneListadoSede.setViewportView(jtable);
     }
 
     private void getSedeSelected(JTable table, int row) {
@@ -89,22 +82,6 @@ public class SedeModal extends javax.swing.JDialog {
             this.controller.setSelectedItemDepartamento(departamento);
             this.controller.llenarMunicipioSede(departamento.getId());
             this.controller.setSelectedItemMunicipio(municipio);
-            
-            
-            /*
-            int num = this.cmbMunicipioSede.getItemCount();
-            // Get items
-            for (int i = 0; i < num; i++) {
-                Object item = this.cmbMunicipioSede.getItemAt(i);
-                Municipio muni = (Municipio)item;
-                if(muni.getId()==this.sedeActual.getId()){
-                    System.out.println("es el seleccionado"+muni.getNombre());
-                }else{
-                    System.out.println("NOOOO es el seleccionado"+muni.getNombre());
-                }
-              
-            }*/
-            
             
         }
         
@@ -330,15 +307,9 @@ public class SedeModal extends javax.swing.JDialog {
         this.lblIdSede.setText(String.valueOf(this.sedeActual.getId()));
         this.scrollPaneListadoSede.setViewportView(null);
         
-        Object[][] data = this.dataTable();
-
-        JTable jTable2 = this.createJTable(data);
+        JTable jTable2 = this.createJTable(this.dataTable());
         
-        //Create the scroll pane and add the table to it.
         this.scrollPaneListadoSede.setViewportView(jTable2);
-
-        //Add the scroll pane to this panel.
-      
     }//GEN-LAST:event_btnGuardarSedeActionPerformed
 
     private void btnLimparCamposSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCamposSedeActionPerformed
@@ -430,13 +401,13 @@ public class SedeModal extends javax.swing.JDialog {
     }
     
     private JTable createJTable(Object[][] data){
-        JTable jTable2 = new JTable(data, columnNames);
-        jTable2.setPreferredScrollableViewportSize(new Dimension(500, 70));
-        jTable2.setFillsViewportHeight(true);
-        jTable2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        JTable jTable = new JTable(data, columnNames);
+        jTable.setPreferredScrollableViewportSize(new Dimension(500, 70));
+        jTable.setFillsViewportHeight(true);
+        jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
-        if (ALLOW_ROW_SELECTION) { // true by default
-            ListSelectionModel rowSM = jTable2.getSelectionModel();
+        if (ALLOW_ROW_SELECTION) {
+            ListSelectionModel rowSM = jTable.getSelectionModel();
             rowSM.addListSelectionListener(new ListSelectionListener() {
                 public void valueChanged(ListSelectionEvent e) {
                     
@@ -445,15 +416,15 @@ public class SedeModal extends javax.swing.JDialog {
 
                     ListSelectionModel lsm = (ListSelectionModel)e.getSource();
                     if (!lsm.isSelectionEmpty()) {
-                        getSedeSelected(jTable2, lsm.getMinSelectionIndex());
+                        getSedeSelected(jTable, lsm.getMinSelectionIndex());
                     }
                 }
             });
         } else {
-            jTable2.setRowSelectionAllowed(false);
+            jTable.setRowSelectionAllowed(false);
         }
         
-        return jTable2;
+        return jTable;
     }
     
 }
