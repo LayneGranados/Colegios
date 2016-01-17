@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class ControllerComboAnio {
     
     private AnioModal myAnio;
+    
     public CertificacionBusiness certificacionBusiness;
     public ConfiguracionBusiness configuracionBusiness;
     public MatriculaBusiness matriculaBusiness;
