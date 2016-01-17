@@ -5,11 +5,40 @@
  */
 package GUI;
 
+import Code.Business.AuxiliaresBusiness;
+import Code.Business.InstitucionEducativaBusiness;
+import Code.Business.SedeBusiness;
+import Code.Domain.Anio;
+import Code.Domain.Departamento;
+import Code.Domain.InstitucionEducativa;
+import Code.Domain.Municipio;
+import Code.Domain.Sede;
+import GUI.Util.ControllerComboAnio;
+import GUI.Util.ControllerComboSede;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 /**
  *
  * @author laynegranadosmogollon
  */
 public class AnioModal extends javax.swing.JDialog {
+    
+    private boolean ALLOW_ROW_SELECTION = true;
+    
+    ControllerComboAnio controller;
+    SedeBusiness sedeBusiness;
+    AuxiliaresBusiness auxiliaresBusiness;
+    
+    Sede sedeActual;
+    ArrayList<Sede> sedes;
+    
+    Anio anioActual;
+    final String[] columnNames = {"Id", "Año", "Descripcion", "Sede"};
 
     /**
      * Creates new form AnioModal
@@ -17,6 +46,18 @@ public class AnioModal extends javax.swing.JDialog {
     public AnioModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        this.controller= new ControllerComboAnio(this);
+        this.sedeBusiness= new SedeBusiness();
+        this.auxiliaresBusiness = new AuxiliaresBusiness();
+        
+        //this.sedes =this.sedeBusiness.selectAllSedes(actualColegio.getId());
+        
+        this.sedeActual = new Sede();
+        
+        JTable jtable = this.createJTable(this.dataTable());
+        //this.scrollPaneListadoSede.setViewportView(jtable);
+        
     }
 
     /**
@@ -39,7 +80,7 @@ public class AnioModal extends javax.swing.JDialog {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        scrollPaneListadoAnios = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -93,7 +134,7 @@ public class AnioModal extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scrollPaneListadoAnios, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -122,7 +163,7 @@ public class AnioModal extends javax.swing.JDialog {
                     .addComponent(jButton2)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPaneListadoAnios, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -181,8 +222,81 @@ public class AnioModal extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JScrollPane scrollPaneListadoAnios;
     // End of variables declaration//GEN-END:variables
+    
+    private Object[][] dataTable(){
+        int tamSedes = this.sedes.size();
+        Object[][] data = new Object[tamSedes][5];
+        
+        for(int i=0;i<sedes.size();i++){
+           Sede s = sedes.get(i);
+            data[i][0]= s.getId();
+            data[i][1]= s.getNombre();
+            data[i][2]= s.getCodigoDANEantiguo();
+            data[i][3]= s.getMunicipio();
+            data[i][4]= s.getConsecutivo();
+        }
+        return data;
+    }
+    
+    private JTable createJTable(Object[][] data){
+        JTable jTable = new JTable(data, columnNames);
+        jTable.setPreferredScrollableViewportSize(new Dimension(500, 70));
+        jTable.setFillsViewportHeight(true);
+        jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        if (ALLOW_ROW_SELECTION) {
+            ListSelectionModel rowSM = jTable.getSelectionModel();
+            rowSM.addListSelectionListener(new ListSelectionListener() {
+                public void valueChanged(ListSelectionEvent e) {
+                    
+                    if (e.getValueIsAdjusting()) 
+                        return;
+
+                    ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+                    if (!lsm.isSelectionEmpty()) {
+                        getSedeSelected(jTable, lsm.getMinSelectionIndex());
+                    }
+                }
+            });
+        } else {
+            jTable.setRowSelectionAllowed(false);
+        }
+        
+        return jTable;
+    }
+    private void getSedeSelected(JTable table, int row) {
+        int numRows = table.getRowCount();
+
+        if(row<numRows){
+            
+            javax.swing.table.TableModel model = table.getModel();
+            this.sedeActual= new Sede();
+            
+            this.sedeActual.setId((Integer)(model.getValueAt(row,0)));
+            this.sedeActual.setNombre((String)(model.getValueAt(row,1)));
+            this.sedeActual.setCodigoDANEantiguo(((String)model.getValueAt(row,2)));
+            this.sedeActual.setMunicipio((Integer)(model.getValueAt(row,3)));
+            this.sedeActual.setConsecutivo((Integer)(model.getValueAt(row,4)));
+            
+            /*this.txtNombreSede.setText(this.sedeActual.getNombre());
+            this.txtConsecutivoSede.setText(""+this.sedeActual.getConsecutivo());
+            this.txtCodigoDANEAnterior.setText(this.sedeActual.getCodigoDANEantiguo());
+            this.lblIdSede.setText(""+this.sedeActual.getId());*/
+            
+            Municipio municipio = this.auxiliaresBusiness.getMunicipioPorId(this.sedeActual.getMunicipio());
+            Departamento departamento =  this.auxiliaresBusiness.getDepartamentoPorId(municipio.getDepartamentoId());
+            this.controller= new ControllerComboAnio(this);
+            this.controller.setSelectedItemDepartamento(departamento);
+            this.controller.llenarMunicipioSede(departamento.getId());
+            this.controller.setSelectedItemMunicipio(municipio);
+            
+        }
+        
+    }
+    
+
 }

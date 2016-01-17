@@ -18,12 +18,9 @@ import Code.Domain.Municipio;
 import Code.Domain.Resguardo;
 import Code.Domain.TipoDocumento;
 import GUI.Principal;
-import GUI.Util.Objeto;
 import GUI.Util.JComboBox;
 import GUI.Util.ToComboBoxModel;
 import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *

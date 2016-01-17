@@ -13,18 +13,17 @@ import Code.Business.MatriculaBusiness;
 import Code.Business.PersonaBusiness;
 import Code.Domain.Departamento;
 import Code.Domain.Municipio;
+import GUI.AnioModal;
 import GUI.SedeModal;
-import GUI.Util.JComboBox;
-import GUI.Util.ToComboBoxModel;
 import java.util.ArrayList;
 
 /**
  *
- * @author Administrador
+ * @author laygrana
  */
-public class ControllerComboSede {
-
-    private SedeModal mySede;
+public class ControllerComboAnio {
+    
+    private AnioModal myAnio;
     public CertificacionBusiness certificacionBusiness;
     public ConfiguracionBusiness configuracionBusiness;
     public MatriculaBusiness matriculaBusiness;
@@ -32,9 +31,8 @@ public class ControllerComboSede {
     public PersonaBusiness personaBusiness;
     public AuxiliaresBusiness auxiliaresBusiness;
 
-    public ControllerComboSede(SedeModal sedeModal) {
-        this.mySede = sedeModal;
-        
+    public ControllerComboAnio(AnioModal myAnio) {
+        this.myAnio = myAnio;
         /** INICIALIZACION DE OBJETOS DEL NEGOCIO**/
         certificacionBusiness = new CertificacionBusiness();
         configuracionBusiness = new ConfiguracionBusiness();
@@ -45,10 +43,12 @@ public class ControllerComboSede {
         
         this.llenarCombos();
     }
-
+    
+    
+    
     private void llenarCombos() {
         ArrayList<Departamento> departamentos = this.auxiliaresBusiness.getAllDepartamentos();
-        this.mySede.cmbDepartamentoSede.setModel(new ToComboBoxModel(departamentos, "getNombre"));
+        //this.myAnio.cmbDepartamentoSede.setModel(new ToComboBoxModel(departamentos, "getNombre"));
     }
 
     public Object getObjetoSeleccionado(JComboBox combo) {
@@ -56,20 +56,20 @@ public class ControllerComboSede {
     }
     
     public void llenarMunicipioSede(int id){
-        ArrayList<Municipio> municipios = this.auxiliaresBusiness.getAllMunicipiosPorDepartamento(id);
-        this.mySede.cmbMunicipioSede.setModel(new ToComboBoxModel(municipios, "getNombre"));
+        /*ArrayList<Municipio> municipios = this.auxiliaresBusiness.getAllMunicipiosPorDepartamento(id);
+        this.myAnio.cmbMunicipioSede.setModel(new ToComboBoxModel(municipios, "getNombre"));*/
     }
     
     public void setSelectedItemDepartamento(Departamento dep){
-        ToComboBoxModel to = (ToComboBoxModel)this.mySede.cmbDepartamentoSede.getModel(); 
+        /*ToComboBoxModel to = (ToComboBoxModel)this.mySede.cmbDepartamentoSede.getModel(); 
         to.setSelectedItemCustomize(dep);
-        this.mySede.cmbDepartamentoSede.setModel(to);
+        this.myAnio.cmbDepartamentoSede.setModel(to);*/
     }
     
     public void setSelectedItemMunicipio(Municipio mun){
-        ToComboBoxModel to = (ToComboBoxModel)this.mySede.cmbMunicipioSede.getModel(); 
+        /*ToComboBoxModel to = (ToComboBoxModel)this.mySede.cmbMunicipioSede.getModel(); 
         to.setSelectedItemCustomize(mun);
-        this.mySede.cmbMunicipioSede.setModel(to);
+        this.myAnio.cmbMunicipioSede.setModel(to);*/
     }
-     
+    
 }

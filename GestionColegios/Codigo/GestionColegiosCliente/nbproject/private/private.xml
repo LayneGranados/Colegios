@@ -3,38 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/JComboBoxRenderer.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/SedeBusiness.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/AuxiliaresBusiness.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Domain/CertificacionOldstyle.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/CertificacionDAOImpl.java</file>
             <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/AnioModal.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/MatriculaDAOImpl.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/AuxiliaresDAOImpl.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Principal.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/InstitucionEducativaBusiness.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/ToComboBoxModel.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/DetalleCertificacionDAOImpl.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/InstitucionEducativaDAOImpl.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/ConfiguracionBusiness.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/ListenerHideJCombo.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/ToComboBoxModel.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/ControllerComboPrincipal.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/ToJListModel.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/JornadaModal.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/JComboBox.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/CertificacionBusiness.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/EstudianteDAOImpl.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Util/PDFUtil.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/SedeModal.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/ColegioDAOImpl.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/ListadoPersonas.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/MyTable.java</file>
             <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/ControllerComboSede.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Domain/Municipio.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/SedeDAOImpl.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Util/ConexionBD.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/JComboBox.java</file>
+            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/SedeModal.java</file>
+            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/ControllerComboAño.java</file>
         </group>
     </open-files>
 </project-private>
