@@ -12,12 +12,12 @@ package Code.Domain;
 public class Sede {
     
     private int id;
-    private String codigoDANEActual;
     private String codigoDANEantiguo;
-    private Municipio municipio;
-    private InstitucionEducativa institucionEducativa;
+    private int municipio;
     private int consecutivo;
-    private Boolean actual;
+    private int colegio;
+    private String nombre;
+    
 
     public int getId() {
         return id;
@@ -25,14 +25,6 @@ public class Sede {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getCodigoDANEActual() {
-        return codigoDANEActual;
-    }
-
-    public void setCodigoDANEActual(String codigoDANEActual) {
-        this.codigoDANEActual = codigoDANEActual;
     }
 
     public String getCodigoDANEantiguo() {
@@ -43,22 +35,6 @@ public class Sede {
         this.codigoDANEantiguo = codigoDANEantiguo;
     }
 
-    public Municipio getMunicipio() {
-        return municipio;
-    }
-
-    public void setMunicipio(Municipio municipio) {
-        this.municipio = municipio;
-    }
-
-    public InstitucionEducativa getInstitucionEducativa() {
-        return institucionEducativa;
-    }
-
-    public void setInstitucionEducativa(InstitucionEducativa institucionEducativa) {
-        this.institucionEducativa = institucionEducativa;
-    }
-
     public int getConsecutivo() {
         return consecutivo;
     }
@@ -66,7 +42,29 @@ public class Sede {
     public void setConsecutivo(int consecutivo) {
         this.consecutivo = consecutivo;
     }
-    
-    
+
+    public int getColegio() {
+        return colegio;
+    }
+
+    public void setColegio(int colegio) {
+        this.colegio = colegio;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(int municipio) {
+        this.municipio = municipio;
+    }
     
 }

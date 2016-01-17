@@ -13,6 +13,8 @@ import Code.Domain.Resguardo;
 import Code.Domain.TipoDocumento;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -241,5 +243,27 @@ public class AuxiliaresBusiness {
             colegioActual = 1;
         }
         return colegioActual;
+    }
+    
+    public Municipio getMunicipioPorId(int id){
+        Municipio m;
+        try {
+            m = this.auxiliarDAO.getMunicipioPorId(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(AuxiliaresBusiness.class.getName()).log(Level.SEVERE, null, ex);
+            m = new Municipio();
+        }
+        return m;
+    }
+    
+    public Departamento getDepartamentoPorId(int id){
+        Departamento d;
+        try {
+            d = this.auxiliarDAO.getDepartamentoPorId(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(AuxiliaresBusiness.class.getName()).log(Level.SEVERE, null, ex);
+            d = new Departamento();
+        }
+        return d;
     }
 }

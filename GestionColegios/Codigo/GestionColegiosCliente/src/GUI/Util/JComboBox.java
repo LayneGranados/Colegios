@@ -13,4 +13,5 @@ public class JComboBox extends javax.swing.JComboBox {
     public Object getObjectSelected() {
         return ((ToComboBoxModel) dataModel).getSelectedObject();
     }
+    
 }

@@ -187,19 +187,19 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                                      <EmptySpace pref="269" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -219,399 +219,22 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="jPanel8" alignment="0" max="32767" attributes="0"/>
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel81" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Group type="102" attributes="0">
-                                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Component id="cmbInstitucionEducativa" min="-2" pref="360" max="-2" attributes="0"/>
-                                                                      <Component id="txtRutaLogo" alignment="0" min="-2" pref="360" max="-2" attributes="0"/>
-                                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                          <Group type="102" attributes="0">
-                                                                              <Component id="cmbAnioEscolar" pref="180" max="32767" attributes="0"/>
-                                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                                                              <EmptySpace max="-2" attributes="0"/>
-                                                                              <Component id="jTextField7" min="-2" pref="60" max="-2" attributes="0"/>
-                                                                          </Group>
-                                                                          <Component id="cmbSedes" max="32767" attributes="0"/>
-                                                                      </Group>
-                                                                  </Group>
-                                                                  <EmptySpace max="32767" attributes="0"/>
-                                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                      <Component id="btnSeleccionarInstitucionEducativaActual" max="32767" attributes="0"/>
-                                                                      <Component id="btnSeleccionarSedeActual" alignment="0" max="32767" attributes="0"/>
-                                                                      <Component id="btnSeleccionarAnioPeriodos" alignment="0" max="32767" attributes="0"/>
-                                                                      <Component id="btnEscogerLogo" alignment="0" max="32767" attributes="0"/>
-                                                                  </Group>
-                                                              </Group>
-                                                              <Component id="cmbProfesor" min="-2" pref="513" max="-2" attributes="0"/>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                                      <Group type="102" attributes="0">
-                                                                          <Component id="cmbJornada" min="-2" pref="160" max="-2" attributes="0"/>
-                                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                          <Component id="btnPopUpAgregarJornada" max="32767" attributes="0"/>
-                                                                      </Group>
-                                                                      <Group type="102" attributes="0">
-                                                                          <Component id="cmbGrado" min="-2" pref="160" max="-2" attributes="0"/>
-                                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                          <Component id="btnAgregarGrado" min="-2" pref="122" max="-2" attributes="0"/>
-                                                                      </Group>
-                                                                  </Group>
-                                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Group type="102" alignment="0" attributes="0">
-                                                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                                                      </Group>
-                                                                      <Group type="102" alignment="0" attributes="0">
-                                                                          <EmptySpace max="-2" attributes="0"/>
-                                                                          <Component id="jLabel82" min="-2" max="-2" attributes="0"/>
-                                                                      </Group>
-                                                                  </Group>
-                                                                  <EmptySpace max="-2" attributes="0"/>
-                                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Component id="cmbPeriodo" min="-2" pref="160" max="-2" attributes="0"/>
-                                                                      <Component id="cmbCurso" min="-2" pref="160" max="-2" attributes="0"/>
-                                                                  </Group>
-                                                              </Group>
-                                                          </Group>
-                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="btnPopUpAgregarAnio" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="btnGuardarLogo" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="btnModificarSede" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="btnModificarInstitucionEducativa" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="btnPopUpAgregarCurso" max="32767" attributes="0"/>
-                                                              <Component id="jButton13" max="32767" attributes="0"/>
-                                                              <Component id="btnPopUpAgregarCurso1" alignment="0" max="32767" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="jPanel8" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                                  <Component id="cmbInstitucionEducativa" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="btnSeleccionarInstitucionEducativaActual" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="btnModificarInstitucionEducativa" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="cmbSedes" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnSeleccionarSedeActual" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnModificarSede" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cmbAnioEscolar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnSeleccionarAnioPeriodos" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnPopUpAgregarAnio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtRutaLogo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnEscogerLogo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnGuardarLogo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel81" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cmbJornada" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnPopUpAgregarJornada" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel82" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cmbPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnPopUpAgregarCurso1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cmbCurso" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnPopUpAgregarCurso" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cmbGrado" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnAgregarGrado" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cmbProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jButton13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="30" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
                               <SubComponents>
-                                <Component class="javax.swing.JLabel" name="jLabel10">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Instituci&#xf3;n"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel11">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Sede"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel12">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="A&#xf1;o Escolar"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbInstitucionEducativa">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbInstitucionEducativaActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbSedes">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSedesActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbAnioEscolar">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbAnioEscolarActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnGuardarLogo">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Guardar"/>
-                                    <Property name="enabled" type="boolean" value="false"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarLogoActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnSeleccionarAnioPeriodos">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Seleccionar Actual"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel13">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Logo"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="txtRutaLogo">
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnEscogerLogo">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Buscar Logo"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEscogerLogoActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnPopUpAgregarAnio">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Agregar A&#xf1;o"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPopUpAgregarAnioActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnSeleccionarInstitucionEducativaActual">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Seleccionar Actual"/>
-                                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                      <Dimension value="[122, 29]"/>
-                                    </Property>
-                                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                      <Dimension value="[122, 29]"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionarInstitucionEducativaActualActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnSeleccionarSedeActual">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Seleccionar Actual"/>
-                                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                      <Dimension value="[122, 29]"/>
-                                    </Property>
-                                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                      <Dimension value="[122, 29]"/>
-                                    </Property>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnModificarInstitucionEducativa">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Modificar"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarInstitucionEducativaActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnModificarSede">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Modificar"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarSedeActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel14">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Periodos en A&#xf1;o"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="jTextField7">
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel15">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Grado"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbGrado">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="1">
-                                        <StringItem index="0" value=" "/>
-                                      </StringArray>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbGradoActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel16">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Curso"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnAgregarGrado">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Agregar"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarGradoActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbCurso">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnPopUpAgregarCurso">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Agregar"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPopUpAgregarCursoActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel17">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Profesor"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbProfesor">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="jButton13">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Agregar"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel18">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Para seleccionar el Colegio, Sede, A&#xf1;o Escolar con cantidad de Periodos, solamente debe seleccionar uno del listado en cada una de las"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel20">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="opciones y hace clic en el bot&#xf3;n &quot;Seleccionar&quot; correspondiente, una vez seleccionados el sistema va a trabajar con ellos."/>
-                                  </Properties>
-                                </Component>
                                 <Container class="javax.swing.JPanel" name="jPanel8">
                                   <Properties>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -763,58 +386,6 @@
                                     </Component>
                                   </SubComponents>
                                 </Container>
-                                <Component class="javax.swing.JLabel" name="jLabel27">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Lucida Grande" size="11" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Educativa"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel81">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Jornada"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbJornada">
-                                  <Properties>
-                                    <Property name="maximumRowCount" type="int" value="20"/>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbJornadaActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnPopUpAgregarJornada">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Agregar"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPopUpAgregarJornadaActionPerformed"/>
-                                  </Events>
-                                </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel82">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Periodo"/>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JComboBox" name="cmbPeriodo">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="0"/>
-                                    </Property>
-                                  </Properties>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="btnPopUpAgregarCurso1">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Agregar"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPopUpAgregarCurso1ActionPerformed"/>
-                                  </Events>
-                                </Component>
                               </SubComponents>
                             </Container>
                           </SubComponents>
@@ -837,44 +408,30 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="jPanel6" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
-                              <Component id="jButton7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButton8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="381" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jPanel6" max="32767" attributes="0"/>
+                                  <Component id="jPanel24" max="32767" attributes="0"/>
+                                  <Component id="jPanel25" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="106" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="520" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel24" min="-2" pref="262" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel25" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="273" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="jButton7">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jButton7"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jButton8">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jButton8"/>
-                      </Properties>
-                    </Component>
                     <Container class="javax.swing.JPanel" name="jPanel6">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -889,28 +446,20 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jTextField5" min="-2" pref="405" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="txtIP1" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtRutaGeneracionArchivos" min="-2" pref="405" max="-2" attributes="0"/>
+                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jTextField5" min="-2" pref="477" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtIP1" min="-2" pref="479" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -920,11 +469,8 @@
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="btnGuardarRutaArchivosGenerados" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jButton2" min="-2" pref="141" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace pref="158" max="32767" attributes="0"/>
+                                          <Component id="jButton2" min="-2" pref="141" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -933,34 +479,26 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtIP1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnGuardarDireccionIp" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel7" min="-2" pref="16" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jTextField5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtRutaGeneracionArchivos" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnGuardarRutaArchivosGenerados" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="24" max="32767" attributes="0"/>
+                                  <EmptySpace pref="8" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -983,12 +521,7 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel7">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Si desea generar un archivo para guardar un respaldo de la informaci&#xf3;n que se encuentra en"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel8">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="el sistema, presione el bot&#xf3;n &quot;Generar Backup&quot;"/>
+                            <Property name="text" type="java.lang.String" value="Haga clic en el bot&#xf3;n &quot;Generar Backup&quot; para generar un respaldo de la informaci&#xf3;n del Sistema"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton1">
@@ -1011,20 +544,359 @@
                             <Property name="text" type="java.lang.String" value="Importar Backup"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel3">
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="jPanel24">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Configuraci&#xf3;n del Sistema Colegio"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+                      <AccessibilityProperties>
+                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Configuraci&#xf3;n del Colegio"/>
+                      </AccessibilityProperties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel85" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="txtTelefonoColegio" min="-2" pref="240" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="Departamento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="txtColegioDANEActual" min="-2" pref="240" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="cmbDepartamentoColegio" min="-2" pref="240" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                          <Component id="cmbMunicipioColegio" min="-2" pref="240" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="txtRutaGeneracionArchivosColegio" min="-2" pref="644" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="txtNombreColegio" min="-2" pref="644" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                                                  <Component id="txtDireccionColegio" min="-2" pref="240" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel3" min="-2" pref="75" max="-2" attributes="0"/>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="txtCodigoDANEAnterior" min="-2" pref="240" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="jLabel86" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="btnGuardarRutaArchivosGenerados1" min="-2" pref="141" max="-2" attributes="0"/>
+                                              <Component id="txtRutaLogoColegio" min="-2" pref="644" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNombreColegio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCodigoDANEAnterior" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtColegioDANEActual" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="cmbDepartamentoColegio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbMunicipioColegio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Departamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel85" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel86" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtTelefonoColegio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDireccionColegio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Component id="txtRutaLogoColegio" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtRutaGeneracionArchivosColegio" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnGuardarRutaArchivosGenerados1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="jLabel5">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Ruta Generaci&#xf3;n Archivos"/>
+                            <Property name="text" type="java.lang.String" value="Nombre"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtRutaGeneracionArchivos">
+                        <Component class="javax.swing.JTextField" name="txtNombreColegio">
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnGuardarRutaArchivosGenerados">
+                        <Component class="javax.swing.JLabel" name="jLabel43">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="C&#xf3;digo DANE Actual"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel6">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Lucida Grande" size="11" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ruta Generaci&#xf3;n&lt;br /&gt;de Archivos&lt;/html&gt; "/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txtRutaGeneracionArchivosColegio">
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnGuardarRutaArchivosGenerados1">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Guardar"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarRutaArchivosGeneradosActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarRutaArchivosGenerados1ActionPerformed"/>
                           </Events>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel44">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="C&#xf3;digo DANE Anterior"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="cmbDepartamentoColegio">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="0"/>
+                            </Property>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoColegioMousePressed"/>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoColegioMouseClicked"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoColegioActionPerformed"/>
+                          </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="cmbMunicipioColegio">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="0"/>
+                            </Property>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMunicipioColegioActionPerformed"/>
+                          </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="Departamento">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Departamento"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txtCodigoDANEAnterior">
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txtColegioDANEActual">
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtColegioDANEActualActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel3">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Municipio"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel85">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txtDireccionColegio">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel86">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txtTelefonoColegio">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel41">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Lucida Grande" size="11" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ruta Logo&lt;br /&gt;Colegio&lt;/html&gt; "/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txtRutaLogoColegio">
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="jPanel25">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Configuraciones Adicionales"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnSedes" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="btnGrados" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnAnios" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="btnCursos" min="-2" pref="150" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="btnJornadas" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                          <Component id="btnPeriodos" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="btnMaterias" min="-2" pref="150" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnSedes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnAnios" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnJornadas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnPeriodos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnGrados" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnCursos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnMaterias" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="btnSedes">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Sedes"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSedesActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnAnios">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="A&#xf1;os"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAniosActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnJornadas">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Jornadas"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnJornadasActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnPeriodos">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Periodos"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPeriodosActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnGrados">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Grados"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnCursos">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cursos"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnMaterias">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Materias"/>
+                          </Properties>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1054,7 +926,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel22" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="169" max="32767" attributes="0"/>
+                              <EmptySpace pref="228" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1084,7 +956,6 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                                   <Component id="jLabel132" min="-2" max="-2" attributes="0"/>
@@ -1199,20 +1070,12 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel132" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cmbTipoPersonaRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel40" min="-2" pref="27" max="-2" attributes="0"/>
-                                      </Group>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel132" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbTipoPersonaRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jLabel117" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1221,7 +1084,7 @@
                                           <Component id="txtNumeroDocumentoIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="cmbMunicipioExpedicion" min="-2" max="-2" attributes="0"/>
@@ -1230,21 +1093,21 @@
                                       </Group>
                                       <Component id="jLabel120" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtPrimerNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtSegundoNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtPrimerApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtSegundoApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jLabel58" max="32767" attributes="0"/>
@@ -1255,7 +1118,7 @@
                                       </Group>
                                       <Component id="cmbNacimientPersona" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                           <Component id="cmbMunicipioNacimiento" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1267,7 +1130,7 @@
                                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1279,12 +1142,12 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
-                                                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="jLabel128" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel126" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="cmbMunicipioResidencia" min="-2" max="-2" attributes="0"/>
@@ -1306,14 +1169,14 @@
                                       </Group>
                                       <Component id="cmbEstrato" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cmbEtnia" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cmbResguardo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel131" min="-2" max="-2" attributes="0"/>
@@ -1729,19 +1592,6 @@
                         <Component class="javax.swing.JButton" name="jButton3">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Eliminar"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel40">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
-                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                              <Image iconType="3" name="/GUI/Images/guardado.png"/>
-                            </Property>
                           </Properties>
                         </Component>
                         <Component class="com.toedter.calendar.JDateChooser" name="cmbNacimientPersona">
@@ -2718,10 +2568,10 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="lblEstudianteEncontrado" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="867" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanel13" min="-2" pref="859" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>

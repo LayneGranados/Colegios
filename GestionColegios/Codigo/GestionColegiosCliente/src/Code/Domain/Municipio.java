@@ -15,6 +15,7 @@ public class Municipio {
     private String codigoDANE;
     private String nombre;
     private Departamento departamento;
+    private int departamentoId;
 
     public int getId() {
         return id;
@@ -47,8 +48,14 @@ public class Municipio {
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }
-    
-    
+
+    public int getDepartamentoId() {
+        return departamentoId;
+    }
+
+    public void setDepartamentoId(int departamentoId) {
+        this.departamentoId = departamentoId;
+    }
     
     
 }
