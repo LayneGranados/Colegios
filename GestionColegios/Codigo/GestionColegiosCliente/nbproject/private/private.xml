@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/AnioModal.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/ControllerComboSede.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/SedeModal.java</file>
-            <file>file:/Users/laygrana/Documents/Layne/Proyectos/Git/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/ControllerComboAño.java</file>
+            <file>file:/C:/Users/AndresOrlando/Desktop/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/AuxiliaresDAOImpl.java</file>
+            <file>file:/C:/Users/AndresOrlando/Desktop/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Domain/Anio.java</file>
+            <file>file:/C:/Users/AndresOrlando/Desktop/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/SedeModal.java</file>
+            <file>file:/C:/Users/AndresOrlando/Desktop/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/ControllerComboSede.java</file>
+            <file>file:/C:/Users/AndresOrlando/Desktop/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/DAO/AnioDAOImpl.java</file>
+            <file>file:/C:/Users/AndresOrlando/Desktop/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/AnioModal.java</file>
+            <file>file:/C:/Users/AndresOrlando/Desktop/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/GUI/Util/ControllerComboAnio.java</file>
+            <file>file:/C:/Users/AndresOrlando/Desktop/Colegios/GestionColegios/Codigo/GestionColegiosCliente/src/Code/Business/AuxiliaresBusiness.java</file>
         </group>
     </open-files>
 </project-private>

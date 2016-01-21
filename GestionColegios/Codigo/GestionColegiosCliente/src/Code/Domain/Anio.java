@@ -13,8 +13,24 @@ public class Anio {
     
     private int id;
     private int anio;
-    private boolean actual;
+    private String descripcion;
     private Sede sede;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Sede getSede() {
+        return sede;
+    }
+
+    public void setSede(Sede sede) {
+        this.sede = sede;
+    }
 
     public int getId() {
         return id;
@@ -32,21 +48,7 @@ public class Anio {
         this.anio = anio;
     }
 
-    public boolean isActual() {
-        return actual;
-    }
 
-    public void setActual(boolean actual) {
-        this.actual = actual;
-    }
-
-    public Sede getSede() {
-        return sede;
-    }
-
-    public void setSede(Sede sede) {
-        this.sede = sede;
-    }
     
     
     

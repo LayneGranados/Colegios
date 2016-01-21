@@ -25,7 +25,8 @@ public class ConexionBD {
         try
         {   
             Class.forName("com.mysql.jdbc.Driver");
-            String servidor = "jdbc:mysql://"+c.getIp().replace("ip: ", "")+":3306/colegios";
+            String servidor = "jdbc:mysql://192.168.0.21:3306/colegios";
+            //String servidor = "jdbc:mysql://"+c.getIp().replace("ip: ", "")+":3306/colegios";
             String usuarioDB="root";
             String passwordDB="root";
             conexion= (Connection) DriverManager.getConnection(servidor,usuarioDB,passwordDB);
@@ -39,7 +40,7 @@ public class ConexionBD {
         {
             JOptionPane.showMessageDialog(null, ex, "Error2 en la Conexión con la BD "+ex.getMessage(), JOptionPane.ERROR_MESSAGE);
             conexion=null;
-        }
+        } 
         catch(Exception ex)
         {
             JOptionPane.showMessageDialog(null, ex, "Error3 en la Conexión con la BD "+ex.getMessage(), JOptionPane.ERROR_MESSAGE);
