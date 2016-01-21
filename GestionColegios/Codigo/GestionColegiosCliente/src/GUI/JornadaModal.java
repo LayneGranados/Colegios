@@ -5,18 +5,62 @@
  */
 package GUI;
 
+import Code.Business.AuxiliaresBusiness;
+import Code.Business.InstitucionEducativaBusiness;
+import Code.Business.JornadaBusiness;
+import Code.Domain.InstitucionEducativa;
+import Code.Domain.Jornada;
+import GUI.Util.ControllerComboJornada;
+import GUI.Util.Objeto;
+import java.util.ArrayList;
+import javax.swing.JTable;
+
 /**
  *
- * @author laynegranadosmogollon
+ * @author Andres Orduz Grimaldo
  */
 public class JornadaModal extends javax.swing.JDialog {
 
     /**
      * Creates new form JornadaModal
      */
+    
+    private boolean ALLOW_ROW_SELECTION = true;
+    ControllerComboJornada controller;
+    JornadaBusiness jornadaBusiness;
+    InstitucionEducativaBusiness institucionEducativaBusiness;
+    AuxiliaresBusiness auxiliaresBusiness;
+    Jornada jornadaActual;
+    InstitucionEducativa actualColegio;
+    ArrayList<Jornada> jornada;
+    
+    final String[] columnNames = {"Id", "Nombre", "Tipo Jornada", "Año"};
+    
+    
+    //Creates new form JornadaModal
     public JornadaModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.institucionEducativaBusiness = new InstitucionEducativaBusiness();
+        this.actualColegio = this.institucionEducativaBusiness.selectColegio();
+        
+        this.controller = new ControllerComboJornada(this);
+        this.auxiliaresBusiness = new AuxiliaresBusiness();
+        this.jornadaBusiness = new JornadaBusiness();
+        this.jornada = this.jornadaBusiness.selectAllJornada(this.actualColegio.getId());
+        
+        this.jornadaActual = new Jornada();
+        
+        //JTable jtable = this.createJTable(this.dataTable());
+        
+    }
+    
+    public InstitucionEducativa getAcualColegio(){
+        return actualColegio;
+    }
+    
+    public void setActualColegio(InstitucionEducativa actualColegio){
+        this.actualColegio = actualColegio;
     }
 
     /**
@@ -32,10 +76,10 @@ public class JornadaModal extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
+        cmbSedeJornada = new javax.swing.JComboBox();
+        cmbAnioJornada = new javax.swing.JComboBox();
         jTextField1 = new javax.swing.JTextField();
-        btnAgregarJornada = new javax.swing.JButton();
+        btnGuardarJornada = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -53,7 +97,18 @@ public class JornadaModal extends javax.swing.JDialog {
 
         jLabel4.setText("Jornada");
 
-        btnAgregarJornada.setText("Guardar");
+        cmbSedeJornada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSedeJornadaActionPerformed(evt);
+            }
+        });
+
+        btnGuardarJornada.setText("Guardar");
+        btnGuardarJornada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarJornadaActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Nueva Jornada");
 
@@ -90,8 +145,8 @@ public class JornadaModal extends javax.swing.JDialog {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 44, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jComboBox2, 0, 187, Short.MAX_VALUE)
-                                            .addComponent(jComboBox1, 0, 187, Short.MAX_VALUE)
+                                            .addComponent(cmbAnioJornada, 0, 187, Short.MAX_VALUE)
+                                            .addComponent(cmbSedeJornada, 0, 187, Short.MAX_VALUE)
                                             .addComponent(jTextField1)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -99,7 +154,7 @@ public class JornadaModal extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAgregarJornada)))))
+                                .addComponent(btnGuardarJornada)))))
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
@@ -110,11 +165,11 @@ public class JornadaModal extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbSedeJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbAnioJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -128,12 +183,23 @@ public class JornadaModal extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(btnAgregarJornada))
+                    .addComponent(btnGuardarJornada))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarJornadaActionPerformed
+        // TODO add your handling code here:
+        
+         Object sede = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbSedeJornada);
+         //this.jornadaActual.set
+    }//GEN-LAST:event_btnGuardarJornadaActionPerformed
+
+    private void cmbSedeJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSedeJornadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSedeJornadaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,10 +244,10 @@ public class JornadaModal extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarJornada;
+    private javax.swing.JButton btnGuardarJornada;
+    public javax.swing.JComboBox cmbAnioJornada;
+    public javax.swing.JComboBox cmbSedeJornada;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -170,6 +170,9 @@
     <Component class="javax.swing.JTextField" name="txtNombreSede">
     </Component>
     <Component class="javax.swing.JTextField" name="txtCodigoDANEAnterior">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoDANEAnteriorActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGuardarSede">
       <Properties>
@@ -201,8 +204,8 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoSedeMousePressed"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoSedeMouseClicked"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmbDepartamentoSedeMousePressed"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoSedeActionPerformed"/>
       </Events>
       <AuxValues>
