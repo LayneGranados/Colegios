@@ -32,5 +32,13 @@ public class AnioBusiness {
     public Anio updateAnio(Anio a) {
         return this.anioDAOImpl.updateAnio(a);
     }
+    
+    public Anio getAnioPorId (int id){
+        return this.anioDAOImpl.anioPorId(id);
+    }
+    
+    public ArrayList <Anio> getAllAniosPorSede(int id_sede){
+        return this.anioDAOImpl.getAniosPorSede(id_sede);
+    }
        
 }

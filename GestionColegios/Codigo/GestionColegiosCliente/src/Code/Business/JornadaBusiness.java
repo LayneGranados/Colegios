@@ -32,5 +32,9 @@ public class JornadaBusiness {
     public Jornada updateJornada(Jornada j) {
         return this.jornadaDAOImpl.updateJornada(j);
     }
+    
+    public ArrayList<Jornada> getTodasLasJornadas(){
+        return this.jornadaDAOImpl.getTodasLasJornadas();
+    }
      
 }
