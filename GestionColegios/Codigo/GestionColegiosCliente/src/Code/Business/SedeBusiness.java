@@ -29,6 +29,10 @@ public class SedeBusiness {
         return this.sedeDAOImpl.selectAllSedes(colegio);
     }
     
+    public ArrayList<Sede> getTodasLasSedes(){
+        return this.sedeDAOImpl.getTodasLasSedes();
+    }
+    
     public Sede updateSede(Sede s) {
         return this.sedeDAOImpl.updateSede(s);
     }

@@ -34,6 +34,44 @@ public class SedeDAOImpl {
 //        this.prueba = new AuxiliaresDAOImpl();
 //    }
     
+    public ArrayList<Sede> getTodasLasSedes(){
+        
+        ArrayList<Sede> sedes = new ArrayList<Sede>();
+        
+        Connection miConexion;
+
+        miConexion=ConexionBD.GetConnection();
+        String query=this.todasLasSedes;
+        
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next())
+                {
+                    Sede s = new Sede();
+                    s.setColegio(rs.getInt("colegio_id"));
+                    s.setMunicipio(rs.getInt("municipio_id"));
+                    s.setConsecutivo(rs.getInt("consecutivo"));
+                    s.setNombre(rs.getString("nombre"));
+                    s.setCodigoDANEantiguo(rs.getString("antiguo_codigo_dane"));
+                    s.setId(rs.getInt("sede_id"));
+                    
+                    
+                    
+                    sedes.add(s);
+                }
+        }
+        }catch(SQLException sqlException){
+            
+        }catch(NullPointerException nullPointerException){
+        }
+        catch(Exception exception){
+        }
+        return sedes;
+    }
+    
     public ArrayList<Sede> selectAllSedesPorAnio (int anio){
         
         ArrayList<Sede> sedes = new ArrayList<Sede>();

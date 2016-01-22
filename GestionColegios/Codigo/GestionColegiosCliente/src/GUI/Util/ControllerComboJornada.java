@@ -13,8 +13,10 @@ import Code.Business.EstudianteBusiness;
 import Code.Business.MatriculaBusiness;
 import Code.Business.PersonaBusiness;
 import Code.Business.SedeBusiness;
+import Code.Business.TipoJornadaBusiness;
 import Code.Domain.Anio;
 import Code.Domain.Sede;
+import Code.Domain.TipoJornada;
 import GUI.AnioModal;
 import GUI.JornadaModal;
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
  */
 public class ControllerComboJornada {
     
+    private TipoJornadaBusiness tipoJornadaBusiness;
     private JornadaModal myJornada;
     private AnioModal myAnio;
     public CertificacionBusiness certificacionBusiness;
@@ -48,8 +51,9 @@ public class ControllerComboJornada {
         this.estudianteBusiness = new EstudianteBusiness();
         this.sedeBusiness = new SedeBusiness();
         this.anioBusiness = new AnioBusiness();
+        this.tipoJornadaBusiness = new TipoJornadaBusiness();
         
-        this.llenarComboSedes();
+        this.llenarCombos();
         
     }
     
@@ -57,20 +61,25 @@ public class ControllerComboJornada {
         return ((JComboBox)combo).getObjectSelected();
     }
     
-    private void llenarCombos() {
-        //ArrayList<Sede> sedes = this.auxiliaresBusiness.getAllSedes(this.myAnio.getActualColegio().getId());
-        //this.myJornada.cmbSedeJornada.setModel(new ToComboBoxModel(sedes, "getNombre"));
-    }
-    
-    private void llenarComboSedes(){
-        ArrayList<Sede> sedes = this.sedeBusiness.selectAllSedes(this.myJornada.getAcualColegio().getId());
+    public void llenarCombos() {
+        ArrayList<Sede> sedes = this.sedeBusiness.getTodasLasSedes();
         this.myJornada.cmbSedeJornada.setModel(new ToComboBoxModel(sedes, "getNombre"));
+        
+        ArrayList<TipoJornada> tipoJornada = this.tipoJornadaBusiness.getTodasLosTipoJornada();
+        this.myJornada.cmbTipoDeJornada.setModel(new ToComboBoxModel(tipoJornada, "getNombre"));
     }
     
-    private void llenarComboAnio(){
-        
-        ArrayList<Anio> anios = this.anioBusiness.selectAllAnios();
+         
+    public void llenarAnioJornada(int id_sede){
+       ArrayList<Anio> anios = this.anioBusiness.getAllAniosPorSede(id_sede);
         this.myJornada.cmbAnioJornada.setModel(new ToComboBoxModel(anios, "getAnio"));
+    }
+    
+    public void setSelectedItemTipoJornada (TipoJornada tj){
+        
+        ToComboBoxModel to = (ToComboBoxModel)this.myJornada.cmbTipoDeJornada.getModel();
+        to.setSelectedItemCustomize(tj);
+        this.myJornada.cmbTipoDeJornada.setModel(to);
     }
     
     public void setSelectedItemSede (Sede sede){
