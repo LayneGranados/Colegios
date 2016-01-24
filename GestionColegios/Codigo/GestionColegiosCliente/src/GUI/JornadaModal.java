@@ -151,8 +151,6 @@ public class JornadaModal extends javax.swing.JDialog {
         txtDescripcionJornada.setRows(5);
         jScrollPane1.setViewportView(txtDescripcionJornada);
 
-        jLabel8.setText("jLabel8");
-
         jLabel9.setText("Tipo de Jornada");
 
         cmbTipoDeJornada.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +211,7 @@ public class JornadaModal extends javax.swing.JDialog {
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIdJornada)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -243,7 +241,7 @@ public class JornadaModal extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel7)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

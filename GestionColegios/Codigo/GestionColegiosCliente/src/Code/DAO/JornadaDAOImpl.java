@@ -24,11 +24,46 @@ public class JornadaDAOImpl {
     String todasLasJornadas="select * from jornada";
     String jornadaPorTipoJornada="select * from jornada where tipo_jornada_id=";
     String jornadaPorAnio_id="select * from jornada where anio_id=";
-    String jornadaPorId="select * from sede where jornada_id=";
+    String jornadaPorId="select * from jornada where jornada_id=";
     String insert="insert into jornada (nombre, tipo_jornada_id, anio_id)"
             + "values (";
     String update="update jornada set";
     
+    
+    public Jornada getJornadaPorId(int id_jorn){
+        
+        Jornada j = new Jornada();
+        
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        String query=this.jornadaPorId+""+id_jorn;
+        
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next())
+                {
+                    
+                    TipoJornada tj = new TipoJornada();
+                    j.setAnioId(rs.getInt("anio_id"));
+                    tj.setNombre(rs.getString("nombre"));
+                    tj.setId(rs.getInt("tipo_jornada_id"));
+                    j.setTipoJornada(tj);
+                    j.setNombre(rs.getString("nombre"));
+                    j.setId(rs.getInt("jornada_id"));
+                    
+                }
+        }
+        }catch(SQLException sqlException){
+            
+        }catch(NullPointerException nullPointerException){
+        }
+        catch(Exception exception){
+        }
+        return j;
+    }
     
     public ArrayList<Jornada> getTodasLasJornadas(){
         
