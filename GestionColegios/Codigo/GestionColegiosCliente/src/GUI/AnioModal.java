@@ -377,6 +377,7 @@ public class AnioModal extends javax.swing.JDialog {
             int idSede = ((Integer)model.getValueAt(row,3));
             Sede s = this.sedeBusiness.sedePorId(idSede);
             this.anioActual.setSede((Sede)(s));   
+            
             this.lblIdAnio.setText(""+this.anioActual.getId());
             this.txtNumAnio.setText(String.valueOf(this.anioActual.getAnio()));
             this.txtDescripcionAnio.setText(String.valueOf(this.anioActual.getDescripcion()));

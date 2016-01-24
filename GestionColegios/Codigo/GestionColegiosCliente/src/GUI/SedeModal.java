@@ -270,6 +270,7 @@ public class SedeModal extends javax.swing.JDialog {
         this.sedeActual.setCodigoDANEantiguo(this.txtCodigoDANEAnterior.getText());
         this.sedeActual.setConsecutivo(Integer.parseInt(this.txtConsecutivoSede.getText()));
         
+        
         if(this.sedeActual.getId()>0){
             this.sedeActual = this.sedeBusiness.updateSede(sedeActual);
             for(int i=0;i<this.sedes.size();i++){
@@ -299,6 +300,7 @@ public class SedeModal extends javax.swing.JDialog {
         this.txtNombreSede.setText("");
         this.txtConsecutivoSede.setText("");
         this.txtCodigoDANEAnterior.setText("");
+        
     }//GEN-LAST:event_btnLimparCamposSedeActionPerformed
 
     private void txtCodigoDANEAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoDANEAnteriorActionPerformed

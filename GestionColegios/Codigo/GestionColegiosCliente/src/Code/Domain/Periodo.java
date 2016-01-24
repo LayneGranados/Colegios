@@ -14,7 +14,7 @@ import java.util.Date;
 public class Periodo {
     
     private int id;
-    private int jornadaId;
+    private Jornada jornada;
     private Date fechaInicio;
     private Date fechaFin;
     private String comentario ;
@@ -27,12 +27,12 @@ public class Periodo {
         this.id = id;
     }
 
-    public int getJornadaId() {
-        return jornadaId;
+    public Jornada getJornada() {
+        return jornada;
     }
 
-    public void setJornadaId(int jornadaId) {
-        this.jornadaId = jornadaId;
+    public void setJornada(Jornada jornada) {
+        this.jornada = jornada;
     }
 
     public Date getFechaInicio() {

@@ -21,6 +21,10 @@ public class JornadaBusiness {
         this.jornadaDAOImpl = new JornadaDAOImpl();
     }
     
+    public Jornada JornadaPorId(int id_jor){
+        return this.jornadaDAOImpl.getJornadaPorId(id_jor);
+    }
+    
     public Jornada guardarJornada(Jornada j) {      
        return this.jornadaDAOImpl.guardarJornada(j);
     }

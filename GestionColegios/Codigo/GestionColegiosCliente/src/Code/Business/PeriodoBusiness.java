@@ -21,11 +21,11 @@ public class PeriodoBusiness {
         this.PeriodoDAOImpl = new PeriodoDAOImpl();
     }
     
-    public Periodo guardarSede(Periodo p) {      
+    public Periodo guardarPeriodo(Periodo p) {      
        return this.PeriodoDAOImpl.guardarPeriodo(p);
     }
     
-    public ArrayList<Periodo> selectAllSedes(int colegio){
+    public ArrayList<Periodo> selectAllPeriodo(int colegio){
         return this.PeriodoDAOImpl.selectAllPeriodos(colegio);
     }
     
@@ -33,6 +33,8 @@ public class PeriodoBusiness {
         return this.PeriodoDAOImpl.updatePeriodo(p);
     }
     
-    
+    public ArrayList<Periodo> getTodosLosPeriodos(){
+        return this.PeriodoDAOImpl.getTodosLosPeriodos();
+    }
     
 }
