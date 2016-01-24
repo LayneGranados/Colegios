@@ -10,6 +10,7 @@ import Code.Domain.Departamento;
 import Code.Domain.Etnia;
 import Code.Domain.Municipio;
 import Code.Domain.Resguardo;
+import Code.Domain.Sede;
 import Code.Domain.TipoDocumento;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -106,6 +107,16 @@ public class AuxiliaresBusiness {
             combo = this.auxiliarDAO.getAllDepartamentos();
         }catch(SQLException e){
             combo = new ArrayList<Departamento>();
+        }
+        return combo;
+    }
+    
+    public ArrayList<String> getAllSedesPorAnio(int d){
+        ArrayList<String> combo;
+        try{
+            combo = this.auxiliarDAO.getAllSedes(d);
+        }catch (SQLException e){
+            combo = new ArrayList<String>();
         }
         return combo;
     }
@@ -243,6 +254,18 @@ public class AuxiliaresBusiness {
             colegioActual = 1;
         }
         return colegioActual;
+    }
+    
+        public Sede getSedePorAnio (int d){
+    
+        Sede sede;
+        try{
+            sede = this.auxiliarDAO.getSedePorId(d);
+        }catch (SQLException ex){
+            Logger.getLogger(AuxiliaresBusiness.class.getName()).log(Level.SEVERE, null, ex);
+            sede = new Sede();
+        }
+        return sede;
     }
     
     public Municipio getMunicipioPorId(int id){

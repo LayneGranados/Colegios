@@ -9,6 +9,7 @@ import Code.Domain.Departamento;
 import Code.Domain.Etnia;
 import Code.Domain.Municipio;
 import Code.Domain.Resguardo;
+import Code.Domain.Sede;
 import Code.Domain.TipoDocumento;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
@@ -40,6 +41,7 @@ public class AuxiliaresDAOImpl {
     String departamentoPorID="select * from departamento where departamento_id=";
     String todosMunicipiosPorDepartamento="select * from municipio where departamento_id=";
     String municipioPorID="select * from municipio where municipio_id=";
+    String sedePorId = "select * from sede where anio_id=";
     String todosColegios="select * from colegio";
     String todosSedePorColegio="select * from sede where colegio_id=";
     String todosAnioPorSede="select * from anio where sede_id=";
@@ -290,7 +292,30 @@ public class AuxiliaresDAOImpl {
         }
         return all;
     }
-    
+    public Sede getSedePorId (int d) throws SQLException{
+        
+        Sede s = new Sede();
+        Connection miConexion;
+        miConexion = ConexionBD.GetConnection();
+        
+        if(miConexion!=null){
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.sedePorId+""+d);
+            while (rs.next()){
+                s = new Sede();
+                s.setId(rs.getInt("sede_id"));
+                s.setColegio(rs.getInt("colegio_id"));
+                s.setMunicipio(rs.getInt("municipio_id"));
+                s.setCodigoDANEantiguo(rs.getString("antiguo_colegio_dane"));
+                s.setConsecutivo(rs.getInt("consecutivo"));
+                s.setNombre(rs.getString("nombre"));
+            }
+            st.close();
+        }else{
+            
+        }
+        return s;
+    }
     public Municipio getMunicipioPorId(int d) throws SQLException{
         Municipio m = new Municipio();
         Connection miConexion;

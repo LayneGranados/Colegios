@@ -5,6 +5,7 @@
  */
 package Code.DAO;
 
+import Code.Domain.Municipio;
 import Code.Domain.Sede;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
@@ -19,19 +20,137 @@ import java.util.ArrayList;
  */
 public class SedeDAOImpl {
     
-    String todosLasSedes="select * from sede";
+//    AuxiliaresDAOImpl prueba;
+    
+    String sedesPorAnio = "select * from sede where sede_id=";
+    String todasLasSedes="select * from sede";
     String sedePorColegio="select * from sede where colegio_id=";
     String sedePorId="select * from sede where sede_id=";
     String insert="insert into sede (colegio_id, municipio_id, antiguo_codigo_dane, consecutivo, nombre)"
             + "values (";
     String update="update sede set";
+
+//    public SedeDAOImpl() {
+//        this.prueba = new AuxiliaresDAOImpl();
+//    }
     
+    public ArrayList<Sede> getTodasLasSedes(){
+        
+        ArrayList<Sede> sedes = new ArrayList<Sede>();
+        
+        Connection miConexion;
+
+        miConexion=ConexionBD.GetConnection();
+        String query=this.todasLasSedes;
+        
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next())
+                {
+                    Sede s = new Sede();
+                    s.setColegio(rs.getInt("colegio_id"));
+                    s.setMunicipio(rs.getInt("municipio_id"));
+                    s.setConsecutivo(rs.getInt("consecutivo"));
+                    s.setNombre(rs.getString("nombre"));
+                    s.setCodigoDANEantiguo(rs.getString("antiguo_codigo_dane"));
+                    s.setId(rs.getInt("sede_id"));
+                    
+                    
+                    
+                    sedes.add(s);
+                }
+        }
+        }catch(SQLException sqlException){
+            
+        }catch(NullPointerException nullPointerException){
+        }
+        catch(Exception exception){
+        }
+        return sedes;
+    }
     
+    public ArrayList<Sede> selectAllSedesPorAnio (int anio){
+        
+        ArrayList<Sede> sedes = new ArrayList<Sede>();
+        
+        Connection miConexion;
+
+        miConexion=ConexionBD.GetConnection();
+        String query=this.sedesPorAnio+""+anio;
+        
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next())
+                {
+                    Sede s = new Sede();
+                    //Municipio m = new Municipio();
+                    //m = this.prueba.getMunicipioPorId(rs.getInt("municipio_id"));
+                    //s.setMunicipio(m);
+                    s.setColegio(rs.getInt("colegio_id"));
+                    s.setMunicipio(rs.getInt("municipio_id"));
+                    s.setConsecutivo(rs.getInt("consecutivo"));
+                    s.setNombre(rs.getString("nombre"));
+                    s.setCodigoDANEantiguo(rs.getString("antiguo_codigo_dane"));
+                    s.setId(rs.getInt("sede_id"));
+                    
+                    
+                    
+                    sedes.add(s);
+                }
+        }
+        }catch(SQLException sqlException){
+            
+        }catch(NullPointerException nullPointerException){
+        }
+        catch(Exception exception){
+        }
+        return sedes;
+    }
+    
+     public Sede sedePorid (int id_s){
+         
+         Sede s = new Sede();
+         Connection miConexion;
+         miConexion=ConexionBD.GetConnection();
+         String query="";
+         query=this.sedePorId+""+id_s;
+         
+         System.out.println("query: "+query);
+         
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next())
+                {
+                    s.setColegio(rs.getInt("colegio_id"));
+                    s.setMunicipio(rs.getInt("municipio_id"));
+                    s.setConsecutivo(rs.getInt("consecutivo"));
+                    s.setNombre(rs.getString("nombre"));
+                    s.setCodigoDANEantiguo(rs.getString("antiguo_codigo_dane"));
+                    s.setId(rs.getInt("sede_id"));          
+                }
+        }
+        }catch(SQLException sqlException){
+            
+        }catch(NullPointerException nullPointerException){
+        }
+        catch(Exception exception){
+        }
+        return s;
+                 
+     }    
      public Sede guardarSede(Sede s) {      
        
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         String query="";
         query=this.insert+""+
                 s.getColegio()+","+
@@ -101,6 +220,7 @@ public class SedeDAOImpl {
         ArrayList<Sede> sedes = new ArrayList<Sede>();
         
         Connection miConexion;
+
         miConexion=ConexionBD.GetConnection();
         Boolean result=false;
         String query=this.sedePorColegio+""+colegio;
@@ -113,12 +233,18 @@ public class SedeDAOImpl {
                 while (rs.next())
                 {
                     Sede s = new Sede();
+                    //Municipio m = new Municipio();
+                    //m = this.prueba.getMunicipioPorId(rs.getInt("municipio_id"));
+                    //s.setMunicipio(m);
                     s.setColegio(rs.getInt("colegio_id"));
                     s.setMunicipio(rs.getInt("municipio_id"));
                     s.setConsecutivo(rs.getInt("consecutivo"));
                     s.setNombre(rs.getString("nombre"));
                     s.setCodigoDANEantiguo(rs.getString("antiguo_codigo_dane"));
                     s.setId(rs.getInt("sede_id"));
+                    
+                    
+                    
                     sedes.add(s);
                 }
         }

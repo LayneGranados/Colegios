@@ -29,11 +29,9 @@ public class SedeModal extends javax.swing.JDialog {
     private boolean ALLOW_ROW_SELECTION = true;
     
     ControllerComboSede controller;
-    
     SedeBusiness sedeBusiness;
     InstitucionEducativaBusiness institucionEducativaBusiness;
     AuxiliaresBusiness auxiliaresBusiness;
-    
     Sede sedeActual;
     InstitucionEducativa actualColegio;
     ArrayList<Sede> sedes;
@@ -113,6 +111,12 @@ public class SedeModal extends javax.swing.JDialog {
 
         jLabel10.setText("Departamento");
 
+        txtCodigoDANEAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoDANEAnteriorActionPerformed(evt);
+            }
+        });
+
         btnGuardarSede.setText("Guardar Cambios");
         btnGuardarSede.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,11 +134,11 @@ public class SedeModal extends javax.swing.JDialog {
         });
 
         cmbDepartamentoSede.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                cmbDepartamentoSedeMousePressed(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cmbDepartamentoSedeMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cmbDepartamentoSedeMousePressed(evt);
             }
         });
         cmbDepartamentoSede.addActionListener(new java.awt.event.ActionListener() {
@@ -266,6 +270,7 @@ public class SedeModal extends javax.swing.JDialog {
         this.sedeActual.setCodigoDANEantiguo(this.txtCodigoDANEAnterior.getText());
         this.sedeActual.setConsecutivo(Integer.parseInt(this.txtConsecutivoSede.getText()));
         
+        
         if(this.sedeActual.getId()>0){
             this.sedeActual = this.sedeBusiness.updateSede(sedeActual);
             for(int i=0;i<this.sedes.size();i++){
@@ -295,7 +300,12 @@ public class SedeModal extends javax.swing.JDialog {
         this.txtNombreSede.setText("");
         this.txtConsecutivoSede.setText("");
         this.txtCodigoDANEAnterior.setText("");
+        
     }//GEN-LAST:event_btnLimparCamposSedeActionPerformed
+
+    private void txtCodigoDANEAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoDANEAnteriorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoDANEAnteriorActionPerformed
 
     /**
      * @param args the command line arguments
