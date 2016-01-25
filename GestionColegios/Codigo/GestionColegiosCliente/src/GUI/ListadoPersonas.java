@@ -5,11 +5,9 @@
  */
 package GUI;
 
+import Code.Domain.Persona;
 import java.awt.Dimension;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -20,117 +18,51 @@ import javax.swing.event.ListSelectionListener;
  * @author laygrana
  */
 public class ListadoPersonas extends javax.swing.JDialog {
-    private boolean DEBUG = false;
-    private boolean ALLOW_COLUMN_SELECTION = false;
     private boolean ALLOW_ROW_SELECTION = true;
-    Object[][] contenido;
     
+    private ArrayList<Persona> personas;
+    private Persona personaSelected;
+    private int idPersona;
+
+    final String[] columnNames = {"Tipo Persona","Id", "Nombres y Apellidos", "Identificación", "Género", "Fecha Nacimiento"};
 
     /**
      * Creates new form ListadoPersonas
+     * @param parent
+     * @param modal
+     * @param personas;
      */
-    public ListadoPersonas(java.awt.Frame parent, boolean modal ) {
+    public ListadoPersonas(java.awt.Frame parent, boolean modal, ArrayList<Persona> personas) {
         super(parent, modal);
-        final String[] columnNames = {"First Name",
-                                      "Last Name",
-                                      "Sport",
-                                      "# of Years",
-                                      "Vegetarian"};
-
-        final Object[][] data = {
-	    {"Kathy", "Smith", "Snowboarding", new Integer(5), new Boolean(false)},
-	    {"John", "Doe", "Rowing", new Integer(3), new Boolean(true)},
-	    {"Sue", "Black", "Knitting", new Integer(2), new Boolean(false)},
-	    {"Jane", "White", "Speed reading", new Integer(20), new Boolean(true)},
-	    {"Joe", "Brown", "Pool", new Integer(10), new Boolean(false)}
-        };
-        contenido=data;
-
-        final JTable table = new JTable(data, columnNames);
-        table.setPreferredScrollableViewportSize(new Dimension(500, 70));
-        table.setFillsViewportHeight(true);
-
-        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        if (ALLOW_ROW_SELECTION) { // true by default
-            ListSelectionModel rowSM = table.getSelectionModel();
-            rowSM.addListSelectionListener(new ListSelectionListener() {
-                public void valueChanged(ListSelectionEvent e) {
-                    //Ignore extra messages.
-                    if (e.getValueIsAdjusting()) return;
-
-                    ListSelectionModel lsm = (ListSelectionModel)e.getSource();
-                    if (lsm.isSelectionEmpty()) {
-                        System.out.println("No rows are selected.");
-                    } else {
-                        int selectedRow = lsm.getMinSelectionIndex();
-                        
-                        System.out.println("Row " + selectedRow + " is now selected.");
-                    }
-                }
-            });
-        } else {
-            table.setRowSelectionAllowed(false);
-        }
-
-        if (ALLOW_COLUMN_SELECTION) { // false by default
-            if (ALLOW_ROW_SELECTION) {
-                //We allow both row and column selection, which
-                //implies that we *really* want to allow individual
-                //cell selection.
-                table.setCellSelectionEnabled(true);
-            }
-            table.setColumnSelectionAllowed(true);
-            ListSelectionModel colSM =
-                table.getColumnModel().getSelectionModel();
-            colSM.addListSelectionListener(new ListSelectionListener() {
-                public void valueChanged(ListSelectionEvent e) {
-                    //Ignore extra messages.
-                    if (e.getValueIsAdjusting()) return;
-
-                    ListSelectionModel lsm = (ListSelectionModel)e.getSource();
-                    if (lsm.isSelectionEmpty()) {
-                        System.out.println("No columns are selected.");
-                    } else {
-                        int selectedCol = lsm.getMinSelectionIndex();
-                        System.out.println("Column " + selectedCol + " is now selected.");
-                        
-                    }
-                }
-            });
-        }
-
-        if (DEBUG) {
-            table.addMouseListener(new MouseAdapter() {
-                public void mouseClicked(MouseEvent e) {
-                    //printDebugData(table);
-                }
-            });
-        }
-
-        //Create the scroll pane and add the table to it.
-        JScrollPane scrollPane = new JScrollPane(table);
-
-        //Add the scroll pane to this panel.
-        add(scrollPane);
-    }
-    
-    private static void createAndShowGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("SimpleTableSelectionDemo");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //Create and set up the content pane.
-        ListadoPersonas newContentPane = new ListadoPersonas();
-        //newContentPane.setOpaque(true); //content panes must be opaque
-        frame.setContentPane(newContentPane);
-
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        initComponents();
+        this.personas = personas;
+        JTable jtable = this.createJTable(this.dataTable());
+        this.jScrollPane1.setViewportView(jtable);
+        
     }
 
-    private ListadoPersonas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Persona> getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(ArrayList<Persona> personas) {
+        this.personas = personas;
+    }
+
+    public Persona getPersonaSelected() {
+        return personaSelected;
+    }
+
+    public void setPersonaSelected(Persona personaSelected) {
+        this.personaSelected = personaSelected;
+    }
+
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
     }
 
     /**
@@ -142,21 +74,62 @@ public class ListadoPersonas extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        btnSeleccionarPersona = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel1.setText("Listado de Personas");
+
+        btnSeleccionarPersona.setText("Seleccionar");
+        btnSeleccionarPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarPersonaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSeleccionarPersona)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addComponent(jLabel1)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSeleccionarPersona)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSeleccionarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarPersonaActionPerformed
+        // TODO add your handling code here:
+        for(Persona p: this.getPersonas()){
+            if(p.getId()==this.idPersona){
+                this.personaSelected = p;
+            }
+        }
+        this.dispose();
+    }//GEN-LAST:event_btnSeleccionarPersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,11 +161,89 @@ public class ListadoPersonas extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                createAndShowGUI();
+                ListadoPersonas dialog = new ListadoPersonas(new javax.swing.JFrame(), true, null);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSeleccionarPersona;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private Object[][] dataTable(){
+        int tamSedes = this.personas.size();
+        Object[][] data = new Object[tamSedes][6];
+        
+        for(int i=0;i<personas.size();i++){
+           Persona p = personas.get(i);
+           String tipoP = "Estudiante";
+           if(p.getTipoPersona().equalsIgnoreCase("A")){
+               tipoP = "Administrativo";
+           } else if (p.getTipoPersona().equalsIgnoreCase("P")){
+               tipoP = "Profesor";
+           }
+            data[i][0]= tipoP;
+            data[i][1]= p.getId();
+            
+            data[i][2]= p.getNombre1()+" "+p.getNombre2()+" "+p.getApellido1()+" "+p.getApellido2();
+            data[i][3]= p.getTipoDocumento().getNombre()+ " "+ p.getDocumento();
+            String genero = "Femenino";
+            if(p.getGenero().equalsIgnoreCase("M")){
+                genero = "Masculino";
+            }
+            data[i][4]= genero;
+            data[i][5]= p.getFechaNacimiento().toString();
+            
+            
+        }
+        return data;
+    }
+    
+    private JTable createJTable(Object[][] data){
+        JTable jTable = new JTable(data, columnNames);
+        jTable.setPreferredScrollableViewportSize(new Dimension(500, 70));
+        jTable.setFillsViewportHeight(true);
+        jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        if (ALLOW_ROW_SELECTION) {
+            ListSelectionModel rowSM = jTable.getSelectionModel();
+            rowSM.addListSelectionListener(new ListSelectionListener() {
+                public void valueChanged(ListSelectionEvent e) {
+                    
+                    if (e.getValueIsAdjusting()) 
+                        return;
+
+                    ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+                    if (!lsm.isSelectionEmpty()) {
+                        getSedeSelected(jTable, lsm.getMinSelectionIndex());
+                    }
+                }
+            });
+        } else {
+            jTable.setRowSelectionAllowed(false);
+        }
+        
+        return jTable;
+    }
+    
+    private void getSedeSelected(JTable table, int row) {
+        int numRows = table.getRowCount();
+
+        if(row<numRows){
+            javax.swing.table.TableModel model = table.getModel();
+            this.idPersona = (Integer) model.getValueAt(row,1);
+            System.out.println("idPersona: "+idPersona);
+        }
+    }
+
+
 }
