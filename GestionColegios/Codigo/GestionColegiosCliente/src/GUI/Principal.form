@@ -1407,14 +1407,17 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblEstudianteEncontrado" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace pref="867" max="32767" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jPanel13" min="-2" pref="859" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblEstudianteEncontrado" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtEstudianteMatricular" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jPanel13" min="-2" pref="859" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="89" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1422,8 +1425,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Component id="lblEstudianteEncontrado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblEstudianteEncontrado" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEstudianteMatricular" pref="22" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="251" max="32767" attributes="0"/>
                           </Group>
@@ -2254,6 +2260,15 @@
                     <Component class="javax.swing.JLabel" name="lblEstudianteEncontrado">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Estudiante:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="txtEstudianteMatricular">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                            <LineBorder/>
+                          </Border>
+                        </Property>
                       </Properties>
                     </Component>
                   </SubComponents>
