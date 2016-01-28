@@ -21,6 +21,7 @@ import GUI.Principal;
 import GUI.Util.JComboBox;
 import GUI.Util.ToComboBoxModel;
 import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
 
 /**
  *
@@ -92,6 +93,66 @@ public class ControllerComboPrincipal {
     
     public void llenarCertificadosAntiguos(ArrayList<CertificacionOldstyle> certs){
         this.myPrincipal.cmbResultadosCertificadosAntiguos.setModel(new ToComboBoxModel(certs, "getComboAntiguo"));
+    }
+    
+    public void setSelectedItemTipoIdentificacion(TipoDocumento tipoDocumento){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbTipoDocumentoIdentificacion.getModel(); 
+        to.setSelectedItemCustomize(tipoDocumento);
+        this.myPrincipal.cmbTipoDocumentoIdentificacion.setModel(to);
+    }
+    
+    public void setSelectedItemDepartamentoExpedicion(Departamento departamento){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbDepartamentoExpedicion.getModel(); 
+        to.setSelectedItemCustomize(departamento);
+        this.myPrincipal.cmbDepartamentoExpedicion.setModel(to);
+    }
+    
+    public void setSelectedItemMunicipioExpedicion(Municipio municipio){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbMunicipioExpedicion.getModel(); 
+        to.setSelectedItemCustomize(municipio);
+        this.myPrincipal.cmbMunicipioExpedicion.setModel(to);
+    }
+    
+    public void setSelectedItemDepartamentoNacimiento(Departamento departamento){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbDepartamentoNacimiento.getModel(); 
+        to.setSelectedItemCustomize(departamento);
+        this.myPrincipal.cmbDepartamentoNacimiento.setModel(to);
+    }
+    
+    public void setSelectedItemMunicipioNacimiento(Municipio municipio){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbMunicipioNacimiento.getModel(); 
+        to.setSelectedItemCustomize(municipio);
+        this.myPrincipal.cmbMunicipioNacimiento.setModel(to);
+    }
+    
+    public void setSelectedItemDepartamentoResidencia(Departamento departamento){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbDepartamentoResidencia.getModel(); 
+        to.setSelectedItemCustomize(departamento);
+        this.myPrincipal.cmbDepartamentoResidencia.setModel(to);
+    }
+    
+    public void setSelectedItemMunicipioResidencia(Municipio municipio){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbMunicipioResidencia.getModel(); 
+        to.setSelectedItemCustomize(municipio);
+        this.myPrincipal.cmbMunicipioResidencia.setModel(to);
+    }
+    
+    public void setSelectedItemEtnia(Etnia etnia){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbEtnia.getModel(); 
+        to.setSelectedItemCustomize(etnia);
+        this.myPrincipal.cmbEtnia.setModel(to);
+    }
+    
+    public void setSelectedItemResguardo(Resguardo resguardo){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbResguardo.getModel(); 
+        to.setSelectedItemCustomize(resguardo);
+        this.myPrincipal.cmbResguardo.setModel(to);
+    }
+    
+    public void setSelectedItemGenero(String nombre){
+        ComboBoxModel to = this.myPrincipal.cmbGenero.getModel();
+        to.setSelectedItem(nombre);
+        this.myPrincipal.cmbGenero.setModel(to);
     }
     
     

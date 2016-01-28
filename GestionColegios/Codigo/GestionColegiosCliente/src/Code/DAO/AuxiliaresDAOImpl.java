@@ -24,6 +24,7 @@ import java.util.ArrayList;
  */
 public class AuxiliaresDAOImpl {
     
+    String todos="select * from ";
     String todosTipoDocumento="select * from tipo_documento";
     String todosEtnia="select * from etnia";
     String todosResguardo="select * from resguardo";
@@ -38,10 +39,6 @@ public class AuxiliaresDAOImpl {
     String todosCondicionAnioAnterior="select * from condicion_anio_anterior";
     String todosFuentesRecursos="select * from fuentes_recursos";
     String todosDepartamentos="select * from departamento";
-    String departamentoPorID="select * from departamento where departamento_id=";
-    String todosMunicipiosPorDepartamento="select * from municipio where departamento_id=";
-    String municipioPorID="select * from municipio where municipio_id=";
-    String sedePorId = "select * from sede where anio_id=";
     String todosColegios="select * from colegio";
     String todosSedePorColegio="select * from sede where colegio_id=";
     String todosAnioPorSede="select * from anio where sede_id=";
@@ -49,7 +46,14 @@ public class AuxiliaresDAOImpl {
     String todosPeriodoPorJornada="select * from periodo where jornada_id=";
     String todosGradoPorJornada="select * from grado where jornada_id=";
     String todosCursoPorGrado="select * from curso where grado_id=";
-    String todos="select * from ";
+    String departamentoPorID="select * from departamento where departamento_id=";
+    String todosMunicipiosPorDepartamento="select * from municipio where departamento_id=";
+    String municipioPorID="select * from municipio where municipio_id=";
+    String sedePorId = "select * from sede where anio_id=";
+    String etniaPorId = "select * from etnia where etnia_id=";
+    String resguardoPorId = "select * from resguardo where resguardo_id=";
+    
+    
     
     public ArrayList<String> getAll() throws SQLException{
         ArrayList<String> all = new ArrayList<String>();
@@ -316,6 +320,7 @@ public class AuxiliaresDAOImpl {
         }
         return s;
     }
+    
     public Municipio getMunicipioPorId(int d) throws SQLException{
         Municipio m = new Municipio();
         Connection miConexion;
@@ -634,6 +639,46 @@ public class AuxiliaresDAOImpl {
             st.close();
         }
         return codigoColegio;
+    }
+    
+    public Resguardo getResguardoPorId(int d) throws SQLException{
+        Resguardo r = new Resguardo();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.resguardoPorId+""+d);
+            while (rs.next())
+            {
+                r.setId(rs.getInt("resguardo_id"));
+                r.setNombre(rs.getString("nombre"));
+            }
+            st.close();
+        }else{
+        }
+        return r;
+    }
+    
+    public Etnia getEtniaPorId(int d) throws SQLException{
+        Etnia e = new Etnia();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.etniaPorId+""+d);
+            while (rs.next())
+            {
+                e.setId(rs.getInt("etnia_id"));
+                e.setNombre(rs.getString("nombre"));
+            }
+            st.close();
+        }else{
+        }
+        return e;
     }
     
 }

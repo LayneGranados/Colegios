@@ -5,7 +5,9 @@
  */
 package Code.DAO;
 
+import Code.Domain.Etnia;
 import Code.Domain.Persona;
+import Code.Domain.Resguardo;
 import Code.Domain.TipoDocumento;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
@@ -15,7 +17,6 @@ import java.sql.Statement;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 
 /**
  *
@@ -23,7 +24,7 @@ import java.util.Locale;
  */
 public class PersonaDAOImpl {
     
-    String todosLasPersonas="select * from persona";
+    String todosLasPersonas="select p.*, t.tipo_documento_id , t.nombre as tipo_documento_nombre, e.etnia_id, e.nombre as etnia_nombre, r.resguardo_id, r.nombre as resguardo_nombre from persona p , tipo_documento t, etnia e, resguardo r  where p.tipo_documento_id = t.tipo_documento_id and e.etnia_id=p.etnia_id and r.resguardo_id = p.resguardo_id";
     String personaPorId="SELECT * FROM persona WHERE persona_id=";
     String personaPorIdentificacion="SELECT * FROM persona WHERE tipo_documento_id=";
     String buscarPersonaArgumentos="SELECT * FROM persona where ";
@@ -194,142 +195,64 @@ public class PersonaDAOImpl {
         String query=" ";
         if(p.getTipoDocumento()!=null){
             if(p.getTipoDocumento().getId()>0){
-                query+="tipo_documento_id="+p.getTipoDocumento().getId();
+                query+=" and t.tipo_documento_id="+p.getTipoDocumento().getId();
                 i++;
             }
         }
         if(!p.getDocumento().isEmpty()&&!p.getDocumento().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="documento='"+p.getDocumento()+"'";
-            
-            i++;
+            query+=" and documento='"+p.getDocumento()+"'";
         }
         if(p.getTipoPersona()!=null){
             if(!p.getTipoPersona().isEmpty()){
-                if(i>0){
-                    query+=" and ";
-                }
-                query+="tipo_persona='"+p.getTipoPersona()+"'";
-                i++;
+                query+=" and tipo_persona='"+p.getTipoPersona()+"'";
             }
         }
         
         if(!p.getNombre1().isEmpty()&&!p.getNombre1().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="nombre1='"+p.getNombre1()+"'";
-            
-            i++;
+            query+=" and nombre1='"+p.getNombre1()+"'";
         }
         if(!p.getNombre2().isEmpty()&&!p.getNombre2().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="nombre2='"+p.getNombre2()+"'";
-            
-            i++;
+            query+=" and nombre2='"+p.getNombre2()+"'";
         }
         if(!p.getApellido1().isEmpty()&&!p.getApellido1().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="apellido1='"+p.getApellido1()+"'";
-            
-            i++;
+            query+=" and apellido1='"+p.getApellido1()+"'";
         }
         if(!p.getGenero().isEmpty()&&!p.getGenero().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="genero='"+p.getGenero()+"'";
-            
-            i++;
+            query+=" and genero='"+p.getGenero()+"'";
         }
         if(!p.getApellido2().isEmpty()&&!p.getApellido2().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="apellido2='"+p.getApellido2()+"'";
-            i++;
+            query+=" and apellido2='"+p.getApellido2()+"'";
         }
         if(p.getSisben()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="sisben='"+p.getSisben()+"'";
-    
-            i++;
+            query+=" and sisben='"+p.getSisben()+"'";
         }
         if(p.getEstrato()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query="estrato='"+p.getEstrato()+"'";
-
-            i++;
+            query=" and estrato='"+p.getEstrato()+"'";
         }
         if(p.getDepartamentoNacimiento()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="nac_depto="+p.getDepartamentoNacimiento();
-            
-            i++;
+            query+=" and nac_depto="+p.getDepartamentoNacimiento();
         }
         if(p.getDepartamentoResidencia()>0){
-            query+="res_depto="+p.getDepartamentoResidencia();
-            if(i>0){
-                query+=" and ";
-            }
-            i++;
+            query+=" and res_depto="+p.getDepartamentoResidencia();
         }
         if(p.getDepartamentoExpedicion()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="exp_depto="+p.getDepartamentoExpedicion();
-           
-            i++;
+            query+=" and exp_depto="+p.getDepartamentoExpedicion();
         }
         if(p.getMunicipioNacimiento()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="nac_mun="+p.getMunicipioNacimiento();
-            
-            i++;
+            query+=" and nac_mun="+p.getMunicipioNacimiento();
         }
         if(p.getMunicipioResidencia()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="res_mun="+p.getMunicipioResidencia();
-           
-            i++;
+            query+=" and res_mun="+p.getMunicipioResidencia();
         }
         if(p.getMunicipioExpedicion()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="exp_mun="+p.getMunicipioExpedicion();
-            
-            i++;
+            query+=" and exp_mun="+p.getMunicipioExpedicion();
         }
         
-        String cadena="";
-        if(i>0){
-            cadena = this.todosLasPersonas+ " where "+query;
-        }
-        else{
-            cadena = this.todosLasPersonas;
-        }
+        String cadena = this.todosLasPersonas+ " "+query;
         
+        System.out.println("cadena persona: "+cadena);
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         
         try{
             if(miConexion!=null)
@@ -340,7 +263,9 @@ public class PersonaDAOImpl {
                 {   Persona persona = new Persona(); 
                     TipoDocumento tipo = new TipoDocumento();
                     tipo.setId(rs.getInt("tipo_documento_id"));
+                    tipo.setNombre(rs.getString("tipo_documento_nombre"));
                     persona.setTipoDocumento(tipo);
+                    persona.setTipoPersona(rs.getString("tipo_persona"));
                     persona.setDocumento(rs.getString("documento"));
                     persona.setId(rs.getInt("persona_id"));
                     persona.setNombre1(rs.getString("nombre1"));
@@ -351,6 +276,24 @@ public class PersonaDAOImpl {
                     persona.setSisben(Integer.parseInt(rs.getString("sisben")));
                     persona.setEstrato(Integer.parseInt(rs.getString("estrato")));
                     persona.setGenero(rs.getString("genero"));
+                    persona.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+                    persona.setDepartamentoExpedicion(rs.getInt("exp_depto"));
+                    persona.setMunicipioExpedicion(rs.getInt("exp_mun"));
+                    persona.setDepartamentoResidencia(rs.getInt("res_depto"));
+                    persona.setMunicipioResidencia(rs.getInt("res_mun"));
+                    persona.setDepartamentoNacimiento(rs.getInt("nac_depto"));
+                    persona.setMunicipioNacimiento(rs.getInt("nac_mun"));
+                    Etnia e = new Etnia();
+                    e.setId(rs.getInt("etnia_id"));
+                    e.setNombre(rs.getString("etnia_nombre"));
+                    persona.setEtnia(e);
+                    
+                    Resguardo r = new Resguardo();
+                    r.setId(rs.getInt("resguardo_id"));
+                    r.setNombre(rs.getString("resguardo_nombre"));
+                    persona.setResguardo(r);
+                    
+                    persona.setTelefonoResidencia(rs.getString("telefono_residencia"));
                     personas.add(persona);
                 }
         }

@@ -289,4 +289,26 @@ public class AuxiliaresBusiness {
         }
         return d;
     }
+    
+    public Resguardo getResguardoPorId(int id){
+        Resguardo r;
+        try {
+            r = this.auxiliarDAO.getResguardoPorId(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(AuxiliaresBusiness.class.getName()).log(Level.SEVERE, null, ex);
+            r = new Resguardo();
+        }
+        return r;
+    }
+    
+    public Etnia getEtniaPorId(int id){
+        Etnia e;
+        try {
+            e = this.auxiliarDAO.getEtniaPorId(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(AuxiliaresBusiness.class.getName()).log(Level.SEVERE, null, ex);
+            e = new Etnia();
+        }
+        return e;
+    }
 }

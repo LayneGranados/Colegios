@@ -57,7 +57,6 @@ public class SedeModal extends javax.swing.JDialog {
         JTable jtable = this.createJTable(this.dataTable());
         this.scrollPaneListadoSede.setViewportView(jtable);
     }
-
     
     /**
      * This method is called from within the constructor to initialize the form.
