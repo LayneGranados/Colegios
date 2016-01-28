@@ -200,124 +200,52 @@ public class PersonaDAOImpl {
             }
         }
         if(!p.getDocumento().isEmpty()&&!p.getDocumento().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="documento='"+p.getDocumento()+"'";
-            
-            i++;
+            query+=" and documento='"+p.getDocumento()+"'";
         }
         if(p.getTipoPersona()!=null){
             if(!p.getTipoPersona().isEmpty()){
-                if(i>0){
-                    query+=" and ";
-                }
-                query+="tipo_persona='"+p.getTipoPersona()+"'";
-                i++;
+                query+=" and tipo_persona='"+p.getTipoPersona()+"'";
             }
         }
         
         if(!p.getNombre1().isEmpty()&&!p.getNombre1().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="nombre1='"+p.getNombre1()+"'";
-            
-            i++;
+            query+=" and nombre1='"+p.getNombre1()+"'";
         }
         if(!p.getNombre2().isEmpty()&&!p.getNombre2().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="nombre2='"+p.getNombre2()+"'";
-            
-            i++;
+            query+=" and nombre2='"+p.getNombre2()+"'";
         }
         if(!p.getApellido1().isEmpty()&&!p.getApellido1().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="apellido1='"+p.getApellido1()+"'";
-            
-            i++;
+            query+=" and apellido1='"+p.getApellido1()+"'";
         }
         if(!p.getGenero().isEmpty()&&!p.getGenero().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="genero='"+p.getGenero()+"'";
-            
-            i++;
+            query+=" and genero='"+p.getGenero()+"'";
         }
         if(!p.getApellido2().isEmpty()&&!p.getApellido2().equalsIgnoreCase("")){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="apellido2='"+p.getApellido2()+"'";
-            i++;
+            query+=" and apellido2='"+p.getApellido2()+"'";
         }
         if(p.getSisben()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="sisben='"+p.getSisben()+"'";
-    
-            i++;
+            query+=" and sisben='"+p.getSisben()+"'";
         }
         if(p.getEstrato()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query="estrato='"+p.getEstrato()+"'";
-
-            i++;
+            query=" and estrato='"+p.getEstrato()+"'";
         }
         if(p.getDepartamentoNacimiento()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="nac_depto="+p.getDepartamentoNacimiento();
-            
-            i++;
+            query+=" and nac_depto="+p.getDepartamentoNacimiento();
         }
         if(p.getDepartamentoResidencia()>0){
-            query+="res_depto="+p.getDepartamentoResidencia();
-            if(i>0){
-                query+=" and ";
-            }
-            i++;
+            query+=" and res_depto="+p.getDepartamentoResidencia();
         }
         if(p.getDepartamentoExpedicion()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="exp_depto="+p.getDepartamentoExpedicion();
-           
-            i++;
+            query+=" and exp_depto="+p.getDepartamentoExpedicion();
         }
         if(p.getMunicipioNacimiento()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="nac_mun="+p.getMunicipioNacimiento();
-            
-            i++;
+            query+=" and nac_mun="+p.getMunicipioNacimiento();
         }
         if(p.getMunicipioResidencia()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="res_mun="+p.getMunicipioResidencia();
-           
-            i++;
+            query+=" and res_mun="+p.getMunicipioResidencia();
         }
         if(p.getMunicipioExpedicion()>0){
-            if(i>0){
-                query+=" and ";
-            }
-            query+="exp_mun="+p.getMunicipioExpedicion();
-            
-            i++;
+            query+=" and exp_mun="+p.getMunicipioExpedicion();
         }
         
         String cadena = this.todosLasPersonas+ " "+query;
@@ -325,7 +253,6 @@ public class PersonaDAOImpl {
         System.out.println("cadena persona: "+cadena);
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         
         try{
             if(miConexion!=null)

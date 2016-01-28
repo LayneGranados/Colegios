@@ -723,17 +723,6 @@
                                                       <Component id="jLabel63" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel60" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtDireccion" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="cmbSisben" alignment="0" pref="260" max="32767" attributes="0"/>
-                                                          <Component id="cmbEtnia" alignment="0" max="32767" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="cmbDepartamentoResidencia" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                                  <Component id="jLabel71" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -746,7 +735,6 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel126" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                               <Group type="102" attributes="0">
@@ -754,66 +742,86 @@
                                                                   <Component id="jLabel58" min="-2" pref="106" max="-2" attributes="0"/>
                                                               </Group>
                                                               <Component id="jLabel118" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
+                                                              <Component id="jLabel126" alignment="0" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="cmbDepartamentoExpedicion" max="32767" attributes="0"/>
-                                                              <Component id="txtPrimerNombre" max="32767" attributes="0"/>
-                                                              <Component id="txtPrimerApellido" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="cmbDepartamentoNacimiento" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="cmbTipoDocumentoIdentificacion" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="cmbNacimientPersona" alignment="0" pref="260" max="32767" attributes="0"/>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Component id="jLabel8" min="-2" pref="103" max="-2" attributes="0"/>
-                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel131" min="-2" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="cmbDepartamentoResidencia" min="-2" pref="260" max="-2" attributes="0"/>
+                                                              <Component id="txtDireccion" min="-2" pref="259" max="-2" attributes="0"/>
+                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                                  <Component id="cmbDepartamentoExpedicion" pref="260" max="32767" attributes="0"/>
+                                                                  <Component id="txtPrimerNombre" pref="260" max="32767" attributes="0"/>
+                                                                  <Component id="txtPrimerApellido" alignment="0" max="32767" attributes="0"/>
+                                                                  <Component id="cmbDepartamentoNacimiento" alignment="0" max="32767" attributes="0"/>
+                                                                  <Component id="cmbTipoDocumentoIdentificacion" alignment="0" pref="260" max="32767" attributes="0"/>
+                                                                  <Component id="cmbNacimientPersona" alignment="0" pref="260" max="32767" attributes="0"/>
+                                                                  <Group type="102" alignment="0" attributes="0">
+                                                                      <Component id="jLabel8" min="-2" pref="103" max="-2" attributes="0"/>
+                                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel131" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
                                                               </Group>
+                                                              <Component id="cmbSisben" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                                              <Component id="cmbEtnia" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel124" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel59" min="-2" pref="69" max="-2" attributes="0"/>
                                                       <Component id="jLabel53" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                                      <Component id="jLabel64" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel124" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel59" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel128" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel130" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel128" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel130" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel71" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="cmbGenero" alignment="1" pref="260" max="32767" attributes="0"/>
-                                                      <Component id="txtSegundoApellido" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="cmbGenero" alignment="1" max="32767" attributes="0"/>
                                                       <Component id="cmbMunicipioNacimiento" alignment="1" max="32767" attributes="0"/>
                                                       <Component id="txtTelefono" alignment="1" max="32767" attributes="0"/>
                                                       <Component id="cmbMunicipioResidencia" alignment="1" max="32767" attributes="0"/>
                                                       <Component id="cmbEstrato" alignment="1" max="32767" attributes="0"/>
                                                       <Component id="cmbResguardo" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="txtSegundoApellido" min="-2" pref="260" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Component id="jLabel122" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel117" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="441" max="-2" attributes="0"/>
+                                                  <Component id="jLabel117" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="340" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel120" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel132" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel120" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtSegundoNombre" min="-2" pref="261" max="-2" attributes="0"/>
-                                                      <Component id="cmbMunicipioExpedicion" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Component id="txtNumeroDocumentoIdentificacion" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
-                                                      <Component id="cmbTipoPersonaRegistrar" min="-2" pref="260" max="-2" attributes="0"/>
+                                                      <Group type="102" attributes="0">
+                                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                                          <Component id="txtSegundoNombre" min="-2" pref="261" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="cmbMunicipioExpedicion" alignment="1" min="-2" pref="260" max="-2" attributes="0"/>
+                                                              <Component id="txtNumeroDocumentoIdentificacion" alignment="1" min="-2" pref="260" max="-2" attributes="0"/>
+                                                              <Component id="cmbTipoPersonaRegistrar" alignment="1" min="-2" pref="260" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
-                                                  <Component id="txtRutaFoto" min="-2" pref="413" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="btnBuscarFoto" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="txtRutaFotoPersona" min="-2" pref="413" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="btnBuscarFoto" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
@@ -831,10 +839,12 @@
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel131" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtRutaFoto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtRutaFotoPersona" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="btnBuscarFoto" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel132" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="cmbTipoPersonaRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -854,11 +864,11 @@
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="cmbMunicipioExpedicion" min="-2" max="-2" attributes="0"/>
                                           <Component id="cmbDepartamentoExpedicion" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel118" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jLabel120" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbMunicipioExpedicion" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -870,22 +880,27 @@
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtPrimerApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtSegundoApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel58" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel64" alignment="3" max="32767" attributes="0"/>
-                                              <Component id="cmbGenero" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jLabel58" max="32767" attributes="0"/>
+                                                  <Component id="cmbGenero" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="cmbNacimientPersona" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="cmbNacimientPersona" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                           <Component id="cmbMunicipioNacimiento" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -901,31 +916,33 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
+                                  <EmptySpace type="separate" pref="19" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="cmbMunicipioResidencia" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel128" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel126" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jLabel128" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="cmbDepartamentoResidencia" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel126" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="cmbMunicipioResidencia" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
                                           </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="cmbDepartamentoResidencia" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -939,11 +956,11 @@
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cmbEtnia" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cmbResguardo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnBuscarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnGuardarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1310,12 +1327,15 @@
                             <Property name="text" type="java.lang.String" value="Foto"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtRutaFoto">
+                        <Component class="javax.swing.JTextField" name="txtRutaFotoPersona">
                         </Component>
                         <Component class="javax.swing.JButton" name="btnBuscarFoto">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Buscar foto"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarFotoActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel132">
                           <Properties>
@@ -1359,6 +1379,14 @@
                                 <LineBorder/>
                               </Border>
                             </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel10">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Lucida Grande" size="10" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="*La foto de la persona se guardar&#xe1; usando como nombre el tipo de documento y n&#xfa;mero de identificaci&#xf3;n."/>
                           </Properties>
                         </Component>
                       </SubComponents>
