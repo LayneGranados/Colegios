@@ -771,6 +771,7 @@ public class Principal extends javax.swing.JFrame {
         btnGenerarCertificado = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         lblEstudianteEncontrado = new javax.swing.JLabel();
+        txtEstudianteMatricular = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         scrollPaneCalificaciones = new javax.swing.JScrollPane();
         jPanel15 = new javax.swing.JPanel();
@@ -2091,24 +2092,30 @@ public class Principal extends javax.swing.JFrame {
 
         lblEstudianteEncontrado.setText("Estudiante:");
 
+        txtEstudianteMatricular.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
         jPanel23Layout.setHorizontalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel23Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblEstudianteEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(867, Short.MAX_VALUE))
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblEstudianteEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEstudianteMatricular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 89, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(lblEstudianteEncontrado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblEstudianteEncontrado)
+                    .addComponent(txtEstudianteMatricular, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(251, Short.MAX_VALUE))
         );
@@ -3047,18 +3054,15 @@ public class Principal extends javax.swing.JFrame {
         Persona p = this.obtenerPersona();
         ArrayList<Persona> personas = this.personaBusiness.buscarPersonasPorArgumentos(p);
         if(!personas.isEmpty()){
-            if(personas.size()==1){
-                p = personas.get(0);
-            }else{
-                ListadoPersonas listado = new ListadoPersonas(this, true, personas);
-                listado.setVisible(true);
-                for(Persona per: personas){
-                    if(per.getId()==listado.getIdPersona()){
-                        p = per;
-                    }
+            ListadoPersonas listado = new ListadoPersonas(this, true, personas);
+            listado.setVisible(true);
+            for(Persona per: personas){
+                if(per.getId()==listado.getIdPersona()){
+                    p = per;
                 }
             }
             ponerPersona(p);
+            this.personaActual = p;
         }
     }//GEN-LAST:event_btnBuscarEstudianteActionPerformed
 
@@ -3137,6 +3141,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnMatricularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatricularActionPerformed
         // TODO add your handling code here:
+        this.PanelTabs.setSelectedIndex(2);
+        this.txtEstudianteMatricular.setText(this.personaActual.getNombre1()+" "+this.personaActual.getNombre2()+" "+this.personaActual.getApellido1()+" "+this.personaActual.getApellido2()+" "+this.personaActual.getTipoDocumento().getNombre()+" "+this.personaActual.getDocumento());
         
     }//GEN-LAST:event_btnMatricularActionPerformed
 
@@ -3550,6 +3556,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txtCursoCerAnt;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtDireccionColegio;
+    private javax.swing.JLabel txtEstudianteMatricular;
     private javax.swing.JTextField txtFechaMatricula;
     private javax.swing.JTextField txtGradoCerAnt;
     private javax.swing.JTextField txtIP1;
