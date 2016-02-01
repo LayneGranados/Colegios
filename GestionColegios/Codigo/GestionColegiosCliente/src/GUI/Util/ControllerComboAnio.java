@@ -50,7 +50,6 @@ public class ControllerComboAnio {
     }
     
     
-    
     private void llenarCombos() {
         ArrayList<Sede> sedes = this.sedeBusiness.selectAllSedes(this.myAnio.getActualColegio().getId());
         this.myAnio.cmbSedeAnio.setModel(new ToComboBoxModel(sedes, "getNombre"));
@@ -60,13 +59,7 @@ public class ControllerComboAnio {
         return ((JComboBox) combo).getObjectSelected();
     }
     
-    public void llenarSedes(int id){
-//        ArrayList<Municipio> municipios = this.auxiliaresBusiness.getAllMunicipiosPorDepartamento(id);
-//        this.myAnio.cmbMunicipioSede.setModel(new ToComboBoxModel(municipios, "getNombre"));
-        
-        ArrayList<String> sedes = this.auxiliaresBusiness.getAllSedesPorAnio(id);
-        this.myAnio.cmbSedeAnio.setModel(new ToComboBoxModel(sedes,"getNombre"));
-    }
+
     
     public void setSelectedItemSede(Sede sede){
         /*ToComboBoxModel to = (ToComboBoxModel)this.mySede.cmbDepartamentoSede.getModel(); 

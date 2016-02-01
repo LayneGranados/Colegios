@@ -25,8 +25,8 @@ public class CursoBusiness {
        return this.CursoDAOImpl.guardarCurso(c);
     }
     
-    public ArrayList<Curso> selectAllCursos(int colegio){
-        return this.CursoDAOImpl.selectAllCursos(colegio);
+    public ArrayList<Curso> selectAllCursosPorGrado(int grado){
+        return this.CursoDAOImpl.selectAllCursosPorGrado(grado);
     }
     
     public Curso updateCurso(Curso c) {

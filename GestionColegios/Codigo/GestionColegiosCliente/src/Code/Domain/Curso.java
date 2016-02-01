@@ -14,9 +14,9 @@ public class Curso {
     private int Id;
     private int gradoId;
     private String nombre;
-    private int caracterId;
-    private int especialidadId;
-    private int metodologiaId;
+    private Caracter caracter;
+    private Especialidad especialidad;
+    private Metodologia metodologia;
 
     public int getId() {
         return Id;
@@ -42,29 +42,30 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public int getCaracterId() {
-        return caracterId;
+    public Caracter getCaracter() {
+        return caracter;
     }
 
-    public void setCaracterId(int caracterId) {
-        this.caracterId = caracterId;
+    public void setCaracter(Caracter caracter) {
+        this.caracter = caracter;
     }
 
-    public int getEspecialidadId() {
-        return especialidadId;
+    public Especialidad getEspecialidad() {
+        return especialidad;
     }
 
-    public void setEspecialidadId(int especialidadId) {
-        this.especialidadId = especialidadId;
+    public void setEspecialidad(Especialidad especialidad) {
+        this.especialidad = especialidad;
     }
 
-    public int getMetodologiaId() {
-        return metodologiaId;
+    public Metodologia getMetodologia() {
+        return metodologia;
     }
 
-    public void setMetodologiaId(int metodologiaId) {
-        this.metodologiaId = metodologiaId;
+    public void setMetodologia(Metodologia metodologia) {
+        this.metodologia = metodologia;
     }
+    
     
     
 }

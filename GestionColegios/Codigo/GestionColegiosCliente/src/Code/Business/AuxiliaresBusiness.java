@@ -6,11 +6,20 @@
 package Code.Business;
 
 import Code.DAO.AuxiliaresDAOImpl;
+import Code.Domain.CapacidadExcepcional;
+import Code.Domain.Caracter;
+import Code.Domain.CondicionAnioAnterior;
 import Code.Domain.Departamento;
+import Code.Domain.Especialidad;
 import Code.Domain.Etnia;
+import Code.Domain.FuenteRecursos;
+import Code.Domain.InstitucionFamiliarOrigen;
+import Code.Domain.Metodologia;
 import Code.Domain.Municipio;
+import Code.Domain.PoblacionVictimaConflicto;
 import Code.Domain.Resguardo;
-import Code.Domain.Sede;
+import Code.Domain.SituacionAnioAnterior;
+import Code.Domain.TipoDiscapacidad;
 import Code.Domain.TipoDocumento;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,78 +37,10 @@ public class AuxiliaresBusiness {
     public AuxiliaresBusiness() {
         this.auxiliarDAO = new AuxiliaresDAOImpl();
     }
+   
     
-    
-    public ArrayList<String> getAllCursoPorGrado(int g) throws SQLException{
-        ArrayList<String> combo;
-        try{
-            combo = this.auxiliarDAO.getAllCursoPorGrado(g);
-        }catch(SQLException e){
-            combo = new ArrayList<String>();
-        }
-        return combo;
-    }
-    
-    public ArrayList<String> getAllGradoPorJornada(int g) throws SQLException{
-        ArrayList<String> combo;
-        try{
-            combo = this.auxiliarDAO.getAllGradoPorJornada(g);
-        }catch(SQLException e){
-            combo = new ArrayList<String>();
-        }
-        return combo;
-    }
-    
-    public ArrayList<String> getAllPeriodoPorJornada(int p) throws SQLException{
-        ArrayList<String> combo;
-        try{
-            combo = this.auxiliarDAO.getAllPeriodoPorJornada(p);
-        }catch(SQLException e){
-            combo = new ArrayList<String>();
-        }
-        return combo;
-    }
-    
-    public ArrayList<String> getAllJornadaPorAnio(int j) throws SQLException{
-        ArrayList<String> combo;
-        try{
-            combo = this.auxiliarDAO.getAllJornadaPorAnio(j);
-        }catch(SQLException e){
-            combo = new ArrayList<String>();
-        }
-        return combo;
-    }
-    
-    public ArrayList<String> getAllAnio(int a) throws SQLException{
-        ArrayList<String> combo;
-        try{
-            combo = this.auxiliarDAO.getAllAnio(a);
-        }catch(SQLException e){
-            combo = new ArrayList<String>();
-        }
-        return combo;
-    }
-    
-    public ArrayList<String> getAllSedes(int c) throws SQLException{
-        ArrayList<String> combo;
-        try{
-            combo = this.auxiliarDAO.getAllSedes(c);
-        }catch(SQLException e){
-            combo = new ArrayList<String>();
-        }
-        return combo;
-        
-    }
-    
-    public ArrayList<String> getAllColegios() throws SQLException{
-        ArrayList<String> combo;
-        try{
-            combo = this.auxiliarDAO.getAllColegios();
-        }catch(SQLException e){
-            combo = new ArrayList<String>();
-        }
-        return combo;
-    } 
+   
+   
     
     public ArrayList<Departamento> getAllDepartamentos(){
         ArrayList<Departamento> combo;
@@ -111,15 +52,7 @@ public class AuxiliaresBusiness {
         return combo;
     }
     
-    public ArrayList<String> getAllSedesPorAnio(int d){
-        ArrayList<String> combo;
-        try{
-            combo = this.auxiliarDAO.getAllSedes(d);
-        }catch (SQLException e){
-            combo = new ArrayList<String>();
-        }
-        return combo;
-    }
+  
     public ArrayList<Municipio> getAllMunicipiosPorDepartamento(int d){
         ArrayList<Municipio> combo;
         try{
@@ -129,93 +62,93 @@ public class AuxiliaresBusiness {
         }
         return combo;
     }
-    public ArrayList<String> getAllSituacionesAnteriores(){
-        ArrayList<String> combo;
+    public ArrayList<SituacionAnioAnterior> getAllSituacionesAnteriores(){
+        ArrayList<SituacionAnioAnterior> combo;
         try{
             combo = this.auxiliarDAO.getAllSituacionesAnteriores();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<SituacionAnioAnterior>();
         }
         return combo;
     }
-    public ArrayList<String> getAllCondicionesAnteriores(){
-        ArrayList<String> combo;
+    public ArrayList<CondicionAnioAnterior> getAllCondicionesAnteriores(){
+        ArrayList<CondicionAnioAnterior> combo;
         try{
             combo = this.auxiliarDAO.getAllCondicionesAnteriores();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<CondicionAnioAnterior>();
         }
         return combo;
     }
-    public ArrayList<String> getAllFuentesRecursos(){
-        ArrayList<String> combo;
+    public ArrayList<FuenteRecursos> getAllFuentesRecursos(){
+        ArrayList<FuenteRecursos> combo;
         try{
             combo = this.auxiliarDAO.getAllFuentesRecursos();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<FuenteRecursos>();
         }
         return combo;
     }
-    public ArrayList<String> getAllInstitucionFamiliar(){
-        ArrayList<String> combo;
+    public ArrayList<InstitucionFamiliarOrigen> getAllInstitucionFamiliar(){
+        ArrayList<InstitucionFamiliarOrigen> combo;
         try{
             combo = this.auxiliarDAO.getAllInstitucionFamiliar();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<InstitucionFamiliarOrigen>();
         }
         return combo;
     }
-    public ArrayList<String> getAllCapacidadExcepcional(){
-        ArrayList<String> combo;
+    public ArrayList<CapacidadExcepcional> getAllCapacidadExcepcional(){
+        ArrayList<CapacidadExcepcional> combo;
         try{
             combo = this.auxiliarDAO.getAllCapacidadExcepcional();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<CapacidadExcepcional>();
         }
         return combo;
     }
-    public ArrayList<String> getAllTipDiscapacidad(){
-        ArrayList<String> combo;
+    public ArrayList<TipoDiscapacidad> getAllTipDiscapacidad(){
+        ArrayList<TipoDiscapacidad> combo;
         try{
             combo = this.auxiliarDAO.getAllTipoDiscapacidad();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<TipoDiscapacidad>();
         }
         return combo;
     }
-    public ArrayList<String> getAllPoblacionVictima(){
-        ArrayList<String> combo;
+    public ArrayList<PoblacionVictimaConflicto> getAllPoblacionVictima(){
+        ArrayList<PoblacionVictimaConflicto> combo;
         try{
             combo = this.auxiliarDAO.getAllPoblacionVictima();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<PoblacionVictimaConflicto>();
         }
         return combo;
     }
-    public ArrayList<String> getAllCaracter(){
-        ArrayList<String> combo;
+    public ArrayList<Caracter> getAllCaracter(){
+        ArrayList<Caracter> combo;
         try{
             combo = this.auxiliarDAO.getAllCaracter();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<Caracter>();
         }
         return combo;
     }
-    public ArrayList<String> getAllMetodologia(){
-        ArrayList<String> combo;
+    public ArrayList<Metodologia> getAllMetodologia(){
+        ArrayList<Metodologia> combo;
         try{
             combo = this.auxiliarDAO.getAllMetodologia();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<Metodologia>();
         }
         return combo;
     }
-    public ArrayList<String> getAllEspecialidad(){
-        ArrayList<String> combo;
+    public ArrayList<Especialidad> getAllEspecialidad(){
+        ArrayList<Especialidad> combo;
         try{
             combo = this.auxiliarDAO.getAllEspecialidad();
         }catch(SQLException e){
-            combo = new ArrayList<String>();
+            combo = new ArrayList<Especialidad>();
         }
         return combo;
     }
@@ -256,17 +189,7 @@ public class AuxiliaresBusiness {
         return colegioActual;
     }
     
-        public Sede getSedePorAnio (int d){
-    
-        Sede sede;
-        try{
-            sede = this.auxiliarDAO.getSedePorId(d);
-        }catch (SQLException ex){
-            Logger.getLogger(AuxiliaresBusiness.class.getName()).log(Level.SEVERE, null, ex);
-            sede = new Sede();
-        }
-        return sede;
-    }
+        
     
     public Municipio getMunicipioPorId(int id){
         Municipio m;

@@ -5,30 +5,40 @@
  */
 package Code.Domain;
 
+import java.util.Date;
+
 /**
  *
  * @author laynegranadosmogollon
  */
 public class Matricula {
     
+    private Estudiante estudiante;
+    private Date fechaMatricula;
+    
     private int curso;
     private int caracter;
-    private int metodologia;
     private int especialidad;
-    private String codigo;
+    private int metodologia;
     private int victimaConflicto;
-    private int instutionFamiliar;
     private int tipoDiscapacidad;
     private int capacidadExcepcional;
-    private int municipioExpulsor;
+    private int instutionFamiliar;
     private int departamentoExpulsor;
+    private int municipioExpulsor;
     private int situacionAnterior;
     private int condicionAnterior;
     private int fuenteRecursos;
+    
+    private String codigo;
+    private String numeroMatricula;
     private String zonaAlumno;
+    
+    
     private Boolean nuevo;
     private Boolean repitente;
     private Boolean subsidiado;
+    private Boolean promovido;
     private Boolean provienteOtroMunicipio;
     private Boolean provieneSectorPrivado;
     private Boolean beneficiarioMadreFamilia;
@@ -36,7 +46,8 @@ public class Matricula {
     private Boolean beneficiarioHeroeNacional;
     private Boolean beneficiarioCabezaFamilia;
     private Boolean retirado;
-    private Estudiante estudiante;
+    private Boolean poblacionVictimaConflicto;
+    
 
     public int getCurso() {
         return curso;
@@ -245,7 +256,37 @@ public class Matricula {
     public void setEstudiante(Estudiante estudiante) {
         this.estudiante = estudiante;
     }
-    
-    
+
+    public String getNumeroMatricula() {
+        return numeroMatricula;
+    }
+
+    public void setNumeroMatricula(String numeroMatricula) {
+        this.numeroMatricula = numeroMatricula;
+    }
+
+    public Boolean getPromovido() {
+        return promovido;
+    }
+
+    public void setPromovido(Boolean promovido) {
+        this.promovido = promovido;
+    }
+
+    public Boolean getPoblacionVictimaConflicto() {
+        return poblacionVictimaConflicto;
+    }
+
+    public void setPoblacionVictimaConflicto(Boolean poblacionVictimaConflicto) {
+        this.poblacionVictimaConflicto = poblacionVictimaConflicto;
+    }
+
+    public Date getFechaMatricula() {
+        return fechaMatricula;
+    }
+
+    public void setFechaMatricula(Date fechaMatricula) {
+        this.fechaMatricula = fechaMatricula;
+    }
     
 }

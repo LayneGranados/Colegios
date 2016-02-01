@@ -29,8 +29,8 @@ public class JornadaBusiness {
        return this.jornadaDAOImpl.guardarJornada(j);
     }
     
-    public ArrayList<Jornada> selectAllJornada(int colegio){
-        return this.jornadaDAOImpl.selectAllJornada(colegio);
+    public ArrayList<Jornada> selectAllJornadaPorAnio(int anio){
+        return this.jornadaDAOImpl.selectAllJornadaPorAnio(anio);
     }
     
     public Jornada updateJornada(Jornada j) {

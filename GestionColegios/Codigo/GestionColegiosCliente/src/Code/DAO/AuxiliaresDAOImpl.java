@@ -5,11 +5,20 @@
  */
 package Code.DAO;
 
+import Code.Domain.CapacidadExcepcional;
+import Code.Domain.Caracter;
+import Code.Domain.CondicionAnioAnterior;
 import Code.Domain.Departamento;
+import Code.Domain.Especialidad;
 import Code.Domain.Etnia;
+import Code.Domain.FuenteRecursos;
+import Code.Domain.InstitucionFamiliarOrigen;
+import Code.Domain.Metodologia;
 import Code.Domain.Municipio;
+import Code.Domain.PoblacionVictimaConflicto;
 import Code.Domain.Resguardo;
-import Code.Domain.Sede;
+import Code.Domain.SituacionAnioAnterior;
+import Code.Domain.TipoDiscapacidad;
 import Code.Domain.TipoDocumento;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
@@ -40,16 +49,9 @@ public class AuxiliaresDAOImpl {
     String todosFuentesRecursos="select * from fuentes_recursos";
     String todosDepartamentos="select * from departamento";
     String todosColegios="select * from colegio";
-    String todosSedePorColegio="select * from sede where colegio_id=";
-    String todosAnioPorSede="select * from anio where sede_id=";
-    String todosJornadaPorAnio="select * from jornada where anio_id=";
-    String todosPeriodoPorJornada="select * from periodo where jornada_id=";
-    String todosGradoPorJornada="select * from grado where jornada_id=";
-    String todosCursoPorGrado="select * from curso where grado_id=";
     String departamentoPorID="select * from departamento where departamento_id=";
     String todosMunicipiosPorDepartamento="select * from municipio where departamento_id=";
     String municipioPorID="select * from municipio where municipio_id=";
-    String sedePorId = "select * from sede where anio_id=";
     String etniaPorId = "select * from etnia where etnia_id=";
     String resguardoPorId = "select * from resguardo where resguardo_id=";
     
@@ -74,154 +76,8 @@ public class AuxiliaresDAOImpl {
         }
         return all;
     }
-    public ArrayList<String> getAllCursoPorGrado(int c) throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-      
-        if(miConexion!=null)
-        {
-            Statement st = miConexion.createStatement();
-            ResultSet rs = st.executeQuery(this.todosCursoPorGrado+c);
-            while (rs.next())
-            {
-                int id = rs.getInt("curso_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
-            }
-            st.close();
-        }
-        return all;
-    }
+  
     
-    public ArrayList<String> getAllGradoPorJornada(int g) throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-      
-        if(miConexion!=null)
-        {
-            Statement st = miConexion.createStatement();
-            System.out.println("grado por jornada:"+this.todosGradoPorJornada+g);
-            ResultSet rs = st.executeQuery(this.todosGradoPorJornada+g);
-            while (rs.next())
-            {
-                int id = rs.getInt("grado_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
-            }
-            st.close();
-        }
-        return all;
-    }
-    
-    public ArrayList<String> getAllPeriodoPorJornada(int p) throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-      
-        if(miConexion!=null)
-        {
-            //Statement st = miConexion.createStatement();
-            //ResultSet rs = st.executeQuery(this.todosGradoPorJornada+p);
-            //while (rs.next())
-            //{
-                //int id = rs.getInt("periodo_id");
-                //String nombre = rs.getString("nombre");
-                //all.add(id+"-"+nombre);
-                
-            //}
-            all.add("PERIODO - 1");
-            all.add("PERIODO - 2");
-            all.add("PERIODO - 3");
-            all.add("PERIODO - 4");
-            //st.close();
-        }
-        return all;
-    }
-    
-    public ArrayList<String> getAllJornadaPorAnio(int j) throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-      
-        if(miConexion!=null)
-        {
-            Statement st = miConexion.createStatement();
-            System.out.println(this.todosJornadaPorAnio+j);
-            ResultSet rs = st.executeQuery(this.todosJornadaPorAnio+j);
-            while (rs.next())
-            {
-                int id = rs.getInt("jornada_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
-            }
-            st.close();
-        }
-        return all;
-    }
-    
-    public ArrayList<String> getAllAnio(int a) throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-      
-        if(miConexion!=null)
-        {
-            Statement st = miConexion.createStatement();
-            System.out.println(this.todosAnioPorSede+a);
-            ResultSet rs = st.executeQuery(this.todosAnioPorSede+a);
-            while (rs.next())
-            {   System.out.println("imp");
-                int id = rs.getInt("anio_id");
-                String nombre = rs.getString("anio");
-                all.add(id+"-"+nombre);
-            }
-            st.close();
-        }
-        return all;
-    }
-    
-    public ArrayList<String> getAllSedes(int c) throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-      
-        if(miConexion!=null)
-        {
-            Statement st = miConexion.createStatement();
-            ResultSet rs = st.executeQuery(this.todosSedePorColegio+c);
-            while (rs.next())
-            {
-                int id = rs.getInt("sede_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
-            }
-            st.close();
-        }
-        return all;
-    }
-    
-    public ArrayList<String> getAllColegios() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-      
-        if(miConexion!=null)
-        {
-            Statement st = miConexion.createStatement();
-            ResultSet rs = st.executeQuery(this.todosColegios);
-            while (rs.next())
-            {
-                int id = rs.getInt("colegio_id");
-                String nombre = rs.getString("nombre");
-                Boolean actual = rs.getBoolean("actual");
-                all.add(id+"-"+nombre+"-"+actual);
-            }
-            st.close();
-        }
-        return all;
-    }
     
     public ArrayList<Departamento> getAllDepartamentos() throws SQLException{
         ArrayList<Departamento> all = new ArrayList<Departamento>();
@@ -296,31 +152,7 @@ public class AuxiliaresDAOImpl {
         }
         return all;
     }
-    public Sede getSedePorId (int d) throws SQLException{
-        
-        Sede s = new Sede();
-        Connection miConexion;
-        miConexion = ConexionBD.GetConnection();
-        
-        if(miConexion!=null){
-            Statement st = miConexion.createStatement();
-            ResultSet rs = st.executeQuery(this.sedePorId+""+d);
-            while (rs.next()){
-                s = new Sede();
-                s.setId(rs.getInt("sede_id"));
-                s.setColegio(rs.getInt("colegio_id"));
-                s.setMunicipio(rs.getInt("municipio_id"));
-                s.setCodigoDANEantiguo(rs.getString("antiguo_colegio_dane"));
-                s.setConsecutivo(rs.getInt("consecutivo"));
-                s.setNombre(rs.getString("nombre"));
-            }
-            st.close();
-        }else{
-            
-        }
-        return s;
-    }
-    
+  
     public Municipio getMunicipioPorId(int d) throws SQLException{
         Municipio m = new Municipio();
         Connection miConexion;
@@ -344,8 +176,8 @@ public class AuxiliaresDAOImpl {
         return m;
     }
     
-    public ArrayList<String> getAllSituacionesAnteriores() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<SituacionAnioAnterior> getAllSituacionesAnteriores() throws SQLException{
+        ArrayList<SituacionAnioAnterior> all = new ArrayList<SituacionAnioAnterior>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -354,18 +186,19 @@ public class AuxiliaresDAOImpl {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosSituacionAcademicaAnioAnterior);
             while (rs.next())
-            {
-                int id = rs.getInt("sit_acad_anio_ant");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                SituacionAnioAnterior s = new SituacionAnioAnterior();
+                s.setId(rs.getInt("sit_acad_anio_ant"));
+                s.setNombre(rs.getString("nombre"));
+                all.add(s);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllCondicionesAnteriores() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<CondicionAnioAnterior> getAllCondicionesAnteriores() throws SQLException{
+        ArrayList<CondicionAnioAnterior> all = new ArrayList<CondicionAnioAnterior>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -374,18 +207,19 @@ public class AuxiliaresDAOImpl {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosCondicionAnioAnterior);
             while (rs.next())
-            {
-                int id = rs.getInt("condicion_anio_anterior_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                CondicionAnioAnterior c = new CondicionAnioAnterior();
+                c.setId(rs.getInt("condicion_anio_anterior_id"));
+                c.setNombre(rs.getString("nombre"));
+                all.add(c);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllFuentesRecursos() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<FuenteRecursos> getAllFuentesRecursos() throws SQLException{
+        ArrayList<FuenteRecursos> all = new ArrayList<FuenteRecursos>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -394,18 +228,19 @@ public class AuxiliaresDAOImpl {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosFuentesRecursos);
             while (rs.next())
-            {
-                int id = rs.getInt("fuentes_recursos_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                FuenteRecursos f = new FuenteRecursos();
+                f.setId(rs.getInt("fuentes_recursos_id"));
+                f.setNombre(rs.getString("nombre"));
+                all.add(f);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllInstitucionFamiliar() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<InstitucionFamiliarOrigen> getAllInstitucionFamiliar() throws SQLException{
+        ArrayList<InstitucionFamiliarOrigen> all = new ArrayList<InstitucionFamiliarOrigen>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -414,10 +249,11 @@ public class AuxiliaresDAOImpl {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosInstitucionFamiliar);
             while (rs.next())
-            {
-                int id = rs.getInt("institucion_familiar_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                InstitucionFamiliarOrigen i = new InstitucionFamiliarOrigen();
+                i.setId(rs.getInt("institucion_familiar_id"));
+                i.setNombre(rs.getString("nombre"));
+                all.add(i);
             }
             st.close();
         }
@@ -425,8 +261,8 @@ public class AuxiliaresDAOImpl {
         return all;
     }
     
-    public ArrayList<String> getAllCapacidadExcepcional() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<CapacidadExcepcional> getAllCapacidadExcepcional() throws SQLException{
+        ArrayList<CapacidadExcepcional> all = new ArrayList<CapacidadExcepcional>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -435,18 +271,19 @@ public class AuxiliaresDAOImpl {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosCapacidadExcepcional);
             while (rs.next())
-            {
-                int id = rs.getInt("capacidad_excepcional_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                CapacidadExcepcional c = new CapacidadExcepcional();
+                c.setId(rs.getInt("capacidad_excepcional_id"));
+                c.setNombre(rs.getString("nombre"));
+                all.add(c);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllTipoDiscapacidad() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<TipoDiscapacidad> getAllTipoDiscapacidad() throws SQLException{
+        ArrayList<TipoDiscapacidad> all = new ArrayList<TipoDiscapacidad>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -455,18 +292,19 @@ public class AuxiliaresDAOImpl {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosTipoDiscapacidad);
             while (rs.next())
-            {
-                int id = rs.getInt("tipo_discapacidad_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                TipoDiscapacidad t = new TipoDiscapacidad();
+                t.setId(rs.getInt("tipo_discapacidad_id"));
+                t.setNombre(rs.getString("nombre"));
+                all.add(t);
             }
             st.close();
         }
         return all;
     }
         
-    public ArrayList<String> getAllPoblacionVictima() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<PoblacionVictimaConflicto> getAllPoblacionVictima() throws SQLException{
+        ArrayList<PoblacionVictimaConflicto> all = new ArrayList<PoblacionVictimaConflicto>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -476,17 +314,18 @@ public class AuxiliaresDAOImpl {
             ResultSet rs = st.executeQuery(this.todosPoblacionVictima);
             while (rs.next())
             {
-                int id = rs.getInt("poblacion_victima_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+                PoblacionVictimaConflicto p = new PoblacionVictimaConflicto();
+                p.setId(rs.getInt("poblacion_victima_id"));
+                p.setNombre(rs.getString("nombre"));
+                all.add(p);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllCaracter() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<Caracter> getAllCaracter() throws SQLException{
+        ArrayList<Caracter> all = new ArrayList<Caracter>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -495,18 +334,19 @@ public class AuxiliaresDAOImpl {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosCaracteres);
             while (rs.next())
-            {
-                int id = rs.getInt("caracter_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                Caracter c = new Caracter();
+                c.setId(rs.getInt("caracter_id"));
+                c.setNombre(rs.getString("nombre"));
+                all.add(c);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllMetodologia() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<Metodologia> getAllMetodologia() throws SQLException{
+        ArrayList<Metodologia> all = new ArrayList<Metodologia>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -515,18 +355,19 @@ public class AuxiliaresDAOImpl {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosMetodologias);
             while (rs.next())
-            {
-                int id = rs.getInt("metodologia_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                Metodologia m = new Metodologia();
+                m.setId(rs.getInt("metodologia_id"));
+                m.setNombre(rs.getString("nombre"));
+                all.add(m);
             }
             st.close();
         }
         return all;
     }
     
-    public ArrayList<String> getAllEspecialidad() throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
+    public ArrayList<Especialidad> getAllEspecialidad() throws SQLException{
+        ArrayList<Especialidad> all = new ArrayList<Especialidad>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
       
@@ -535,10 +376,11 @@ public class AuxiliaresDAOImpl {
             Statement st = miConexion.createStatement();
             ResultSet rs = st.executeQuery(this.todosEspecialiades);
             while (rs.next())
-            {
-                int id = rs.getInt("especialidad_id");
-                String nombre = rs.getString("nombre");
-                all.add(id+"-"+nombre);
+            {   
+                Especialidad e = new Especialidad();
+                e.setId(rs.getInt("especialidad_id"));
+                e.setNombre(rs.getString("nombre"));
+                all.add(e);
             }
             st.close();
         }
