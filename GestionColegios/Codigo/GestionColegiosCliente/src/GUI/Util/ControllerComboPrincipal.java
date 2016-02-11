@@ -21,6 +21,7 @@ import GUI.Principal;
 import GUI.Util.JComboBox;
 import GUI.Util.ToComboBoxModel;
 import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
 
 /**
  *
@@ -146,6 +147,12 @@ public class ControllerComboPrincipal {
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbResguardo.getModel(); 
         to.setSelectedItemCustomize(resguardo);
         this.myPrincipal.cmbResguardo.setModel(to);
+    }
+    
+    public void setSelectedItemGenero(String nombre){
+        ComboBoxModel to = this.myPrincipal.cmbGenero.getModel();
+        to.setSelectedItem(nombre);
+        this.myPrincipal.cmbGenero.setModel(to);
     }
     
     
