@@ -5,21 +5,42 @@
  */
 package GUI.Util;
 
+import Code.Business.AnioBusiness;
 import Code.Business.AuxiliaresBusiness;
 import Code.Business.CertificacionBusiness;
 import Code.Business.ConfiguracionBusiness;
+import Code.Business.CursoBusiness;
 import Code.Business.EstudianteBusiness;
+import Code.Business.GradoBusiness;
+import Code.Business.JornadaBusiness;
 import Code.Business.MatriculaBusiness;
 import Code.Business.PersonaBusiness;
+import Code.Business.SedeBusiness;
+import Code.Domain.Anio;
+import Code.Domain.CapacidadExcepcional;
+import Code.Domain.Caracter;
 import Code.Domain.CertificacionOldstyle;
+import Code.Domain.CondicionAnioAnterior;
+import Code.Domain.Curso;
 import Code.Domain.Departamento;
+import Code.Domain.Especialidad;
 import Code.Domain.Etnia;
+import Code.Domain.FuenteRecursos;
+import Code.Domain.Grado;
+import Code.Domain.InstitucionFamiliarOrigen;
+import Code.Domain.Jornada;
+import Code.Domain.Metodologia;
 import Code.Domain.Municipio;
+import Code.Domain.PoblacionVictimaConflicto;
 import Code.Domain.Resguardo;
+import Code.Domain.Sede;
+import Code.Domain.SituacionAnioAnterior;
+import Code.Domain.TipoDiscapacidad;
 import Code.Domain.TipoDocumento;
 import GUI.Principal;
 import GUI.Util.JComboBox;
 import GUI.Util.ToComboBoxModel;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
 
@@ -36,17 +57,27 @@ public class ControllerComboPrincipal {
     public EstudianteBusiness estudianteBusiness;
     public PersonaBusiness personaBusiness;
     public AuxiliaresBusiness auxiliaresBusiness;
+    public SedeBusiness sedeBusiness;
+    public AnioBusiness anioBusiness;
+    public JornadaBusiness jornadaBusiness;
+    public GradoBusiness gradoBusiness;
+    public CursoBusiness cursoBusiness;
 
     public ControllerComboPrincipal(Principal myPrincipal) {
         this.myPrincipal = myPrincipal;
         
         /** INICIALIZACION DE OBJETOS DEL NEGOCIO**/
-        certificacionBusiness = new CertificacionBusiness();
-        configuracionBusiness = new ConfiguracionBusiness();
-        matriculaBusiness = new MatriculaBusiness();
-        auxiliaresBusiness= new AuxiliaresBusiness();
-        personaBusiness=new PersonaBusiness();
+        this.certificacionBusiness = new CertificacionBusiness();
+        this.configuracionBusiness = new ConfiguracionBusiness();
+        this.matriculaBusiness = new MatriculaBusiness();
+        this.auxiliaresBusiness= new AuxiliaresBusiness();
+        this.personaBusiness=new PersonaBusiness();
         this.estudianteBusiness = new EstudianteBusiness();
+        this.anioBusiness = new AnioBusiness();
+        this.jornadaBusiness = new JornadaBusiness();
+        this.gradoBusiness = new GradoBusiness();
+        this.cursoBusiness = new CursoBusiness();
+        this.sedeBusiness = new SedeBusiness();
         
         this.llenarCombos();
     }
@@ -62,8 +93,55 @@ public class ControllerComboPrincipal {
         this.myPrincipal.cmbDepartamentoNacimiento.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbDepartamentoResidencia.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbDepartamentoColegio.setModel(new ToComboBoxModel(departamentos, "getNombre"));
+        this.myPrincipal.cmbDepartamentoExpulsor.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbEtnia.setModel(new ToComboBoxModel(etnias, "getNombre"));
         this.myPrincipal.cmbResguardo.setModel(new ToComboBoxModel(resguardos, "getNombre"));
+        
+        /** ------INICIO DE COMBOS DE MATRICULA----**/
+        ArrayList<Sede> sedes = this.sedeBusiness.selectAllSedes(this.myPrincipal.getInstitucionEducativaActual().getId());
+        this.myPrincipal.cmbSedeMatricula.setModel(new ToComboBoxModel(sedes, "getNombre"));
+        ArrayList<Caracter> caracteres = this.auxiliaresBusiness.getAllCaracter();
+        this.myPrincipal.cmbCaracterMatricula.setModel(new ToComboBoxModel(caracteres, "getNombre"));
+        this.myPrincipal.cmbCaracterMatricula.setPreferredSize(new Dimension(170,this.myPrincipal.cmbCaracterMatricula.getPreferredSize().height));
+        
+        ArrayList<Especialidad> especialidades = this.auxiliaresBusiness.getAllEspecialidad();
+        this.myPrincipal.cmbEspecialidad.setModel(new ToComboBoxModel(especialidades, "getNombre"));
+        this.myPrincipal.cmbEspecialidad.setPreferredSize(new Dimension(170, this.myPrincipal.cmbEspecialidad.getPreferredSize().height));
+        
+        ArrayList<Metodologia> metodologias = this.auxiliaresBusiness.getAllMetodologia();
+        this.myPrincipal.cmbMetodologia.setModel(new ToComboBoxModel(metodologias, "getNombre"));
+        this.myPrincipal.cmbMetodologia.setPreferredSize(new Dimension(170, this.myPrincipal.cmbMetodologia.getPreferredSize().height));
+        
+        ArrayList<PoblacionVictimaConflicto> poblaciones = this.auxiliaresBusiness.getAllPoblacionVictima();
+        this.myPrincipal.cmbVictimaConflicto.setModel(new ToComboBoxModel(poblaciones, "getNombre"));
+        this.myPrincipal.cmbVictimaConflicto.setPreferredSize(new Dimension(170, this.myPrincipal.cmbVictimaConflicto.getPreferredSize().height));
+        
+        ArrayList<TipoDiscapacidad> discapacidades = this.auxiliaresBusiness.getAllTipDiscapacidad();
+        this.myPrincipal.cmbTipoDiscapacidad.setModel(new ToComboBoxModel(discapacidades, "getNombre"));
+        this.myPrincipal.cmbTipoDiscapacidad.setPreferredSize(new Dimension(170, this.myPrincipal.cmbTipoDiscapacidad.getPreferredSize().height));
+        
+        ArrayList<CapacidadExcepcional> capacidades = this.auxiliaresBusiness.getAllCapacidadExcepcional();
+        this.myPrincipal.cmbCapacidadExcepcional.setModel(new ToComboBoxModel(capacidades, "getNombre"));
+        this.myPrincipal.cmbCapacidadExcepcional.setPreferredSize(new Dimension(170, this.myPrincipal.cmbCapacidadExcepcional.getPreferredSize().height));
+        
+        ArrayList<InstitucionFamiliarOrigen> instituciones = this.auxiliaresBusiness.getAllInstitucionFamiliar();
+        this.myPrincipal.cmbInstitucionFamiliarOrigen.setModel(new ToComboBoxModel(instituciones, "getNombre"));
+        this.myPrincipal.cmbInstitucionFamiliarOrigen.setPreferredSize(new Dimension(170, this.myPrincipal.cmbInstitucionFamiliarOrigen.getPreferredSize().height));
+        
+        ArrayList<SituacionAnioAnterior> situaciones = this.auxiliaresBusiness.getAllSituacionesAnteriores();
+        this.myPrincipal.cmbSituacionAnioAnterior.setModel(new ToComboBoxModel(situaciones, "getNombre"));
+        this.myPrincipal.cmbSituacionAnioAnterior.setPreferredSize(new Dimension(170, this.myPrincipal.cmbSituacionAnioAnterior.getPreferredSize().height));
+        
+        ArrayList<CondicionAnioAnterior> condiciones = this.auxiliaresBusiness.getAllCondicionesAnteriores();
+        this.myPrincipal.cmbCondicionAnioAnterior.setModel(new ToComboBoxModel(condiciones, "getNombre"));
+        this.myPrincipal.cmbCondicionAnioAnterior.setPreferredSize(new Dimension(170, this.myPrincipal.cmbCondicionAnioAnterior.getPreferredSize().height));
+        
+        ArrayList<FuenteRecursos> fuentes = this.auxiliaresBusiness.getAllFuentesRecursos();
+        this.myPrincipal.cmbFuenteRecursos.setModel(new ToComboBoxModel(fuentes, "getNombre"));
+        this.myPrincipal.cmbFuenteRecursos.setPreferredSize(new Dimension(170, this.myPrincipal.cmbFuenteRecursos.getPreferredSize().height));
+        
+        /** ------FINAL DE COMBOS DE MATRICULA----**/
+        
         
     }
 
@@ -89,6 +167,11 @@ public class ControllerComboPrincipal {
     public void llenarMunicipioColegio(int id){
         ArrayList<Municipio> municipios = this.auxiliaresBusiness.getAllMunicipiosPorDepartamento(id);
         this.myPrincipal.cmbMunicipioColegio.setModel(new ToComboBoxModel(municipios, "getNombre"));
+    }
+    
+    public void llenarMunicipioMatricula(int id){
+        ArrayList<Municipio> municipios = this.auxiliaresBusiness.getAllMunicipiosPorDepartamento(id);
+        this.myPrincipal.cmbMunicipioExpulsor.setModel(new ToComboBoxModel(municipios, "getNombre"));
     }
     
     public void llenarCertificadosAntiguos(ArrayList<CertificacionOldstyle> certs){
@@ -153,6 +236,25 @@ public class ControllerComboPrincipal {
         ComboBoxModel to = this.myPrincipal.cmbGenero.getModel();
         to.setSelectedItem(nombre);
         this.myPrincipal.cmbGenero.setModel(to);
+    }
+    
+    public void llenarAnioMatricula(int id_sede){
+       ArrayList<Anio> anios = this.anioBusiness.getAllAniosPorSede(id_sede);
+        this.myPrincipal.cmbAnioMatricula.setModel(new ToComboBoxModel(anios, "getAnio"));
+    }
+    public void llenarJornadaMatricula(int anio){
+       ArrayList<Jornada> jornadas = this.jornadaBusiness.selectAllJornadaPorAnio(anio);
+        this.myPrincipal.cmbJornadaMatricula.setModel(new ToComboBoxModel(jornadas, "getNombre"));
+    }
+    
+    public void llenarGradoMatricula(int jornada){
+       ArrayList<Grado> grados = this.gradoBusiness.selectAllGradosPorJornada(jornada);
+        this.myPrincipal.cmbGradoMatricula.setModel(new ToComboBoxModel(grados, "getNombre"));
+    }
+    
+    public void llenarCursoMatricula(int grado){
+       ArrayList<Curso> cursos = this.cursoBusiness.selectAllCursosPorGrado(grado);
+        this.myPrincipal.cmbCursoMatricula.setModel(new ToComboBoxModel(cursos, "getNombre"));
     }
     
     

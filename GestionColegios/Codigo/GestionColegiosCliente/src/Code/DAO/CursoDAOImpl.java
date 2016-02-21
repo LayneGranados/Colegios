@@ -5,7 +5,10 @@
  */
 package Code.DAO;
 
+import Code.Domain.Caracter;
 import Code.Domain.Curso;
+import Code.Domain.Especialidad;
+import Code.Domain.Metodologia;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,7 +23,7 @@ import java.util.ArrayList;
 public class CursoDAOImpl {
     
     String todosLosCursos="select * from curso";
-    String cursoPorGrado="select * from curso where grado_id=";
+    String cursoPorGrado="select cr.*, m.nombre as metodologia_nombre, c.nombre as caracter_nombre, e.nombre as especialidad_nombre from curso cr, metodologia m, caracter c, especialidad e where cr.caracter_id = c.caracter_id and cr.especialidad_id = e.especialidad_id and cr.metodologia_id=m.metodologia_id and grado_id=";
     String cursoPorCaracter="select * from curso where caracter_id=";
     String cursoPorEspecialidad="select * from curso where especialidad_id=";
     String cursoPorMetodologia="select * from curso where metodologia_id=";
@@ -38,10 +41,10 @@ public class CursoDAOImpl {
         String query="";
         query=this.insert+""+
                 c.getGradoId()+","+
-                c.getNombre()+",'"+
-                c.getCaracterId()+"',"+
-                c.getEspecialidadId()+",'"+
-                c.getMetodologiaId()+"')";
+                c.getNombre()+","+
+                c.getCaracter().getId()+","+
+                c.getEspecialidad().getId()+","+
+                c.getMetodologia().getId()+")";
         System.out.println("query: "+query);
          
         try{
@@ -74,9 +77,9 @@ public class CursoDAOImpl {
         query=this.update+" "+
                 "grado_id="+c.getGradoId()+", "+
                 "nombre='"+c.getNombre()+"', "+
-                "caracter_id="+c.getCaracterId()+", "+
-                "especialidad_id="+c.getEspecialidadId()+", "+
-                "metodologia_id="+c.getMetodologiaId()+", "+
+                "caracter_id="+c.getCaracter().getId()+", "+
+                "especialidad_id="+c.getEspecialidad().getId()+", "+
+                "metodologia_id="+c.getMetodologia().getId()+", "+
                 "where sede_id="+c.getId();
         System.out.println("query: "+query);
          
@@ -101,14 +104,14 @@ public class CursoDAOImpl {
         return c;
     }
     
-    public ArrayList<Curso> selectAllCursos(int colegio){
+    public ArrayList<Curso> selectAllCursosPorGrado(int grado){
         
         ArrayList<Curso> cursos = new ArrayList<Curso>();
         
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
-        String query=this.cursoPorGrado+""+colegio;
+        String query=this.cursoPorGrado+""+grado;
+        System.out.println(query);
         
         try{
             if(miConexion!=null)
@@ -118,11 +121,18 @@ public class CursoDAOImpl {
                 while (rs.next())
                 {
                     Curso c = new Curso();
+                    Caracter caracter = new Caracter();
+                    Especialidad especialidad = new Especialidad();
+                    Metodologia metodologia = new Metodologia();
+                    
                     c.setGradoId(rs.getInt("grado_id"));
                     c.setNombre(rs.getString("nombre"));
-                    c.setCaracterId(rs.getInt("caracter_id"));
-                    c.setEspecialidadId(rs.getInt("especialidad_id"));
-                    c.setMetodologiaId(rs.getInt("metodologia_id"));
+                    caracter.setId(rs.getInt("caracter_id"));
+                    caracter.setNombre(rs.getString("caracter_nombre"));
+                    especialidad.setId(rs.getInt("especialidad_id"));
+                    especialidad.setNombre(rs.getString("especialidad_nombre"));
+                    metodologia.setId(rs.getInt("metodologia_id"));
+                    metodologia.setNombre(rs.getString("metodologia_nombre"));
                     c.setId(rs.getInt("curso_id"));
                     cursos.add(c);
                 }

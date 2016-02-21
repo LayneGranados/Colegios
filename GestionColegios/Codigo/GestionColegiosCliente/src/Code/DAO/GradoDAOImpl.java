@@ -90,14 +90,13 @@ public class GradoDAOImpl {
         return g;
     }
     
-    public ArrayList<Grado> selectAllGrados(int colegio){
+    public ArrayList<Grado> selectAllGradosPorJornada(int jornada){
         
         ArrayList<Grado> grados = new ArrayList<Grado>();
         
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
-        String query=this.gradoPorJornada+""+colegio;
+        String query=this.gradoPorJornada+""+jornada;
         
         try{
             if(miConexion!=null)
@@ -107,7 +106,7 @@ public class GradoDAOImpl {
                 while (rs.next())
                 {
                     Grado g = new Grado();                    
-                    g.setNombre(rs.getString("municipio_id"));
+                    g.setNombre(rs.getString("nombre"));
                     g.setJornadaId(rs.getInt("jornada_id"));
                     g.setId(rs.getInt("grado_id"));
                     grados.add(g);

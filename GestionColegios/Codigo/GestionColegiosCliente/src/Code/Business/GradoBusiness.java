@@ -25,8 +25,8 @@ public class GradoBusiness {
        return this.gradoDAOImpl.guardarGrado(g);
     }
     
-    public ArrayList<Grado> selectAllGrados(int colegio){
-        return this.gradoDAOImpl.selectAllGrados(colegio);
+    public ArrayList<Grado> selectAllGradosPorJornada(int jornada){
+        return this.gradoDAOImpl.selectAllGradosPorJornada(jornada);
     }
     
     public Grado updateGrado(Grado g) {
