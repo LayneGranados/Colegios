@@ -168,7 +168,7 @@ public class JornadaDAOImpl {
         return j;
     }
     
-    public ArrayList<Jornada> selectAllJornada(int anio){
+    public ArrayList<Jornada> selectAllJornadaPorAnio(int anio){
         
         ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         

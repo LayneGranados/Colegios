@@ -1407,14 +1407,17 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblEstudianteEncontrado" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace pref="867" max="32767" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jPanel13" min="-2" pref="859" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblEstudianteEncontrado" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtEstudianteMatricular" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jPanel13" min="-2" pref="859" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="89" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1422,10 +1425,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Component id="lblEstudianteEncontrado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblEstudianteEncontrado" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEstudianteMatricular" pref="22" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="251" max="32767" attributes="0"/>
+                              <EmptySpace pref="267" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1449,13 +1455,15 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                       <Group type="102" alignment="1" attributes="0">
                                                           <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace min="-2" pref="530" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
                                                       <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabel94" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
                                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                               <Group type="102" attributes="0">
                                                                   <Component id="jLabel92" min="-2" pref="65" max="-2" attributes="0"/>
@@ -1481,14 +1489,24 @@
                                                       <Group type="102" attributes="0">
                                                           <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace max="32767" attributes="0"/>
-                                                          <Component id="cmbJornadaMatricula" min="-2" pref="180" max="-2" attributes="0"/>
+                                                          <Component id="cmbJornadaMatricula" min="-2" pref="202" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="chkSubsidiadoMatricula" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="chkBenMadreFamiliaMatricula" min="-2" max="-2" attributes="0"/>
                                                               <Component id="chkProvieneSectorPrivadoMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="chkRepitenteMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="chkBenMadreFamiliaMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="chkPromovido" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                                  <Component id="chkSubsidiadoMatricula" min="-2" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="chkNuevoMatricula" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Component id="chkRepitenteMatricula" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Component id="chkRetiradoMatricula" min="-2" max="-2" attributes="0"/>
+                                                              </Group>
                                                           </Group>
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
@@ -1501,23 +1519,17 @@
                                                           <EmptySpace min="490" pref="490" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" attributes="0">
-                                                          <Group type="103" groupAlignment="1" attributes="0">
-                                                              <Group type="102" alignment="1" attributes="0">
-                                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Component id="jLabel94" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                      <Component id="jLabel98" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                  </Group>
-                                                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Component id="cmbFuenteRecursos" alignment="1" max="32767" attributes="0"/>
-                                                                      <Component id="cmbSituacionAnioAnterior" max="32767" attributes="0"/>
-                                                                      <Component id="txtFechaMatricula" alignment="1" max="32767" attributes="0"/>
-                                                                  </Group>
-                                                              </Group>
-                                                              <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" attributes="0">
                                                                   <Group type="103" groupAlignment="1" attributes="0">
-                                                                      <Component id="chkRetiradoMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                      <Component id="jLabel54" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Group type="102" alignment="1" attributes="0">
+                                                                          <Component id="jLabel98" min="-2" max="-2" attributes="0"/>
+                                                                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                                              <Component id="cmbFuenteRecursos" alignment="1" max="32767" attributes="0"/>
+                                                                              <Component id="cmbSituacionAnioAnterior" max="32767" attributes="0"/>
+                                                                          </Group>
+                                                                      </Group>
                                                                       <Group type="102" alignment="0" attributes="0">
                                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
@@ -1542,15 +1554,24 @@
                                                                                   <Component id="cmbVictimaConflicto" max="32767" attributes="0"/>
                                                                                   <Component id="cmbGradoMatricula" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                                                                               </Group>
-                                                                              <Component id="cmbSedeMatricula" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                                                              <Component id="cmbSedeMatricula" alignment="0" max="32767" attributes="0"/>
                                                                               <Component id="cmbCapacidadExcepcional" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                                                                           </Group>
                                                                       </Group>
+                                                                      <Group type="102" alignment="0" attributes="0">
+                                                                          <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
+                                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                                          <Component id="cmbFechaMatricula" max="32767" attributes="0"/>
+                                                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                                      </Group>
                                                                   </Group>
-                                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="chkPoblacionVictimaConflicto" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="32767" attributes="0"/>
                                                               </Group>
                                                           </Group>
-                                                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                               <Group type="102" attributes="0">
                                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1587,27 +1608,31 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel69" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace max="32767" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="txtCodigo" min="-2" pref="180" max="-2" attributes="0"/>
-                                                              <Component id="cmbCaracterMatricula" min="-2" pref="180" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
                                                               <Component id="chkProvieneOtroMunicipioMatricula" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="chkNuevoMatricula" min="-2" max="-2" attributes="0"/>
                                                               <Component id="chkBenHeroeNacionalMatricula" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel69" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                              <Component id="cmbCaracterMatricula" pref="202" max="32767" attributes="0"/>
+                                                              <Component id="txtCodigoMatricula" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jLabel89" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="txtNumeroMatricula" max="32767" attributes="0"/>
+                                                      </Group>
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="btnGuardarMatricula" min="-2" max="-2" attributes="0"/>
@@ -1639,7 +1664,7 @@
                                       <Component id="jLabel67" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cmbJornadaMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1652,16 +1677,16 @@
                                           <Component id="cmbCursoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cmbEspecialidad" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cmbMetodologia" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel69" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCodigoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                           <Component id="jLabel72" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1669,11 +1694,10 @@
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="cmbTipoDiscapacidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="chkNuevoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="cmbTipoDiscapacidad" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel84" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel89" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtNumeroMatricula" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                       </Group>
@@ -1683,7 +1707,9 @@
                                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="cmbInstitucionFamiliarOrigen" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="chkProvieneSectorPrivadoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="chkNuevoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="chkRepitenteMatricula" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                              <Component id="chkRetiradoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                                       </Group>
@@ -1697,69 +1723,77 @@
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel90" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="cmbMunicipioExpulsor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="chkRepitenteMatricula" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="jLabel92" alignment="0" pref="30" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel90" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="cmbMunicipioExpulsor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="chkPromovido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="chkSubsidiadoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="cmbDepartamentoExpulsor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="cmbDepartamentoExpulsor" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel92" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="cmbSituacionAnioAnterior" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="cmbCondicionAnioAnterior" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="chkBenMadreFamiliaMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="chkProvieneSectorPrivadoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel94" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jLabel96" min="-2" pref="28" max="-2" attributes="0"/>
                                       </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel94" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel98" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="cmbZonaAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="chkSubsidiadoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="chkBenMadreFamiliaMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="cmbFuenteRecursos" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel100" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="chkBenVeteranoFuerzasMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtFechaMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="chkProvieneOtroMunicipioMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="chkBenVeteranoFuerzasMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="chkProvieneOtroMunicipioMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="cmbFechaMatricula" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="chkRetiradoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="chkBenHeroeNacionalMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="chkBenHeroeNacionalMatricula" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="chkCabezaFamiliaMatricula" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="chkPoblacionVictimaConflicto" min="-2" max="-2" attributes="0"/>
+                                              <Component id="chkCabezaFamiliaMatricula" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                                  <EmptySpace pref="25" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnLimpiarCamposMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1770,7 +1804,7 @@
                                           <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                                  <EmptySpace pref="14" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1868,6 +1902,10 @@
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSedeMatriculaActionPerformed"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbAnioMatricula">
                           <Properties>
@@ -1881,6 +1919,10 @@
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbAnioMatriculaActionPerformed"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbGradoMatricula">
                           <Properties>
@@ -1894,6 +1936,10 @@
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbGradoMatriculaActionPerformed"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbTipoDiscapacidad">
                           <Properties>
@@ -1904,6 +1950,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbEspecialidad">
                           <Properties>
@@ -1914,6 +1964,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel23">
                           <Properties>
@@ -1956,6 +2010,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbMetodologia">
                           <Properties>
@@ -1966,6 +2024,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbCaracterMatricula">
                           <Properties>
@@ -1978,6 +2040,10 @@
                               </StringArray>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel72">
                           <Properties>
@@ -1999,6 +2065,10 @@
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbJornadaMatriculaActionPerformed"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbCapacidadExcepcional">
                           <Properties>
@@ -2006,6 +2076,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbInstitucionFamiliarOrigen">
                           <Properties>
@@ -2013,6 +2087,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbFuenteRecursos">
                           <Properties>
@@ -2020,6 +2098,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbCondicionAnioAnterior">
                           <Properties>
@@ -2027,6 +2109,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbZonaAlumno">
                           <Properties>
@@ -2047,6 +2133,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JButton" name="btnGuardarMatricula">
                           <Properties>
@@ -2129,6 +2219,10 @@
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDepartamentoExpulsorActionPerformed"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel92">
                           <Properties>
@@ -2144,6 +2238,10 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel94">
                           <Properties>
@@ -2186,6 +2284,13 @@
                               <StringArray count="0"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCursoMatriculaActionPerformed"/>
+                          </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new GUI.Util.JComboBox()"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel68">
                           <Properties>
@@ -2203,7 +2308,7 @@
                             <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtCodigo">
+                        <Component class="javax.swing.JTextField" name="txtCodigoMatricula">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Lucida Grande" size="12" style="0"/>
@@ -2226,8 +2331,6 @@
                             <Property name="text" type="java.lang.String" value="Fecha Matricula"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtFechaMatricula">
-                        </Component>
                         <Component class="javax.swing.JButton" name="btnBuscarEstudianteMatriculado">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Buscar"/>
@@ -2249,11 +2352,53 @@
                             <Property name="text" type="java.lang.String" value="Generar Carnet "/>
                           </Properties>
                         </Component>
+                        <Component class="com.toedter.calendar.JDateChooser" name="cmbFechaMatricula">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel89">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Lucida Grande" size="11" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;N&#xfa;mero&lt;br /&gt;Matricula&lt;/html&gt;"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txtNumeroMatricula">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Lucida Grande" size="12" style="0"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JCheckBox" name="chkPromovido">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Promovido"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkPromovidoActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JCheckBox" name="chkPoblacionVictimaConflicto">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Poblacion Victima de Conflicto"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkPoblacionVictimaConflictoActionPerformed"/>
+                          </Events>
+                        </Component>
                       </SubComponents>
                     </Container>
                     <Component class="javax.swing.JLabel" name="lblEstudianteEncontrado">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Estudiante:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="txtEstudianteMatricular">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                            <LineBorder/>
+                          </Border>
+                        </Property>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2307,7 +2452,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                       <Component id="jPanel19" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="114" max="32767" attributes="0"/>
+                                      <EmptySpace pref="144" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2328,7 +2473,6 @@
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jScrollPane10" min="-2" pref="777" max="-2" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2344,13 +2488,14 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jButton23" min="-2" pref="158" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jButton24" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jButton24" min="-2" pref="134" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jButton5" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                                  <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jButton5" min="-2" pref="196" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jButton6" min="-2" pref="200" max="-2" attributes="0"/>
                                               </Group>
+                                              <Component id="jScrollPane2" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace pref="16" max="32767" attributes="0"/>
                                       </Group>
@@ -2369,8 +2514,8 @@
                                               <Component id="jLabel80" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jComboBox30" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane10" min="-2" pref="402" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane2" min="-2" pref="402" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jButton24" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2411,72 +2556,6 @@
                                     <Property name="text" type="java.lang.String" value="Buscar"/>
                                   </Properties>
                                 </Component>
-                                <Container class="javax.swing.JScrollPane" name="jScrollPane10">
-                                  <AuxValues>
-                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                                  </AuxValues>
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                                  <SubComponents>
-                                    <Component class="javax.swing.JTable" name="jTable1">
-                                      <Properties>
-                                        <Property name="autoCreateRowSorter" type="boolean" value="true"/>
-                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                            <LineBorder roundedCorners="true"/>
-                                          </Border>
-                                        </Property>
-                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                          <Table columnCount="6" rowCount="0">
-                                            <Column editable="true" title="C&#xf3;digo" type="java.lang.String"/>
-                                            <Column editable="true" title="Nombres y Apellidos" type="java.lang.Object"/>
-                                            <Column editable="true" title="Matematicas" type="java.lang.Object"/>
-                                            <Column editable="true" title="Espa&#xf1;ol" type="java.lang.Object"/>
-                                            <Column editable="true" title="Sociales" type="java.lang.Object"/>
-                                            <Column editable="true" title="Fisica" type="java.lang.Object"/>
-                                          </Table>
-                                        </Property>
-                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                                          <TableColumnModel selectionModel="0">
-                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title/>
-                                              <Editor/>
-                                              <Renderer/>
-                                            </Column>
-                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title/>
-                                              <Editor/>
-                                              <Renderer/>
-                                            </Column>
-                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title/>
-                                              <Editor/>
-                                              <Renderer/>
-                                            </Column>
-                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title/>
-                                              <Editor/>
-                                              <Renderer/>
-                                            </Column>
-                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title/>
-                                              <Editor/>
-                                              <Renderer/>
-                                            </Column>
-                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title/>
-                                              <Editor/>
-                                              <Renderer/>
-                                            </Column>
-                                          </TableColumnModel>
-                                        </Property>
-                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                                        </Property>
-                                      </Properties>
-                                    </Component>
-                                  </SubComponents>
-                                </Container>
                                 <Component class="javax.swing.JLabel" name="jLabel80">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Periodo"/>
@@ -2496,14 +2575,18 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="jButton5">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Generar PDF Calificaciones Grupales"/>
+                                    <Property name="text" type="java.lang.String" value="PDF Calificaciones Listado"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JButton" name="jButton6">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Generar PDF Boletines Individuales"/>
+                                    <Property name="text" type="java.lang.String" value="PDF Boletines Individuales"/>
                                   </Properties>
                                 </Component>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                </Container>
                               </SubComponents>
                             </Container>
                           </SubComponents>

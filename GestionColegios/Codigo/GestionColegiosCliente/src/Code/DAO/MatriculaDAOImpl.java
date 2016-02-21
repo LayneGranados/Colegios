@@ -7,11 +7,14 @@ package Code.DAO;
 
 import Code.Domain.Estudiante;
 import Code.Domain.Matricula;
+import Code.Domain.Persona;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -21,6 +24,7 @@ import java.util.ArrayList;
 public class MatriculaDAOImpl {
     
     String getMatricula="select * from matricula where";
+    
     String insertMatricula="insert into matricula ("
             +"estudiante_id,"
             + "curso_id,"
@@ -45,6 +49,10 @@ public class MatriculaDAOImpl {
             +"sit_acad_anio_ant_id,"
             +"fuentes_recursos_id,"
             +"zona_alumno,"
+            +"numero_matricula,"
+            +"promovido,"
+            +"pob_vict_conf,"
+            +"fecha_matricula,"
             +"condicion_anio_anterior_id) values (";
     
     public Matricula getMatriculaPorEstudianteCurso(int idEstudiante, int idCurso){      
@@ -100,10 +108,11 @@ public class MatriculaDAOImpl {
     }
     
     public Boolean insertMatricula(Matricula m) throws SQLException{
-        ArrayList<String> all = new ArrayList<String>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         boolean x=false;
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha = formatter.format(m.getFechaMatricula());
         if(miConexion!=null)
         {   String cadena = this.insertMatricula
                 +m.getEstudiante().getId()+","
@@ -128,7 +137,11 @@ public class MatriculaDAOImpl {
                 +m.getMetodologia()+","
                 +m.getSituacionAnterior()+","
                 +m.getFuenteRecursos()+",'"
-                +m.getZonaAlumno()+"',"
+                +m.getZonaAlumno()+"','"
+                +m.getNumeroMatricula()+"',"
+                +m.getPromovido()+","
+                +m.getPoblacionVictimaConflicto()+",str_to_date('"+
+                fecha+"','%d/%m/%Y'),"+
                 +m.getCondicionAnterior()+")";
             System.out.println("cadena-insert:"+cadena);
             Statement st = miConexion.createStatement();

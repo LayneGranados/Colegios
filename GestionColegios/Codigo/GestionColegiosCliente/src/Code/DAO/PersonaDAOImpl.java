@@ -88,7 +88,14 @@ public class PersonaDAOImpl {
                 String q = this.guardarPersona+""+consulta;
                 System.out.println("query de insert persona: "+q);
                 Statement st = miConexion.createStatement();
-                result = st.execute(q);
+                int id = st.executeUpdate(q, Statement.RETURN_GENERATED_KEYS);
+                p.setId(id);
+                if(p.getTipoPersona().equalsIgnoreCase("E")){
+                    String insertPersona ="insert into estudiante (codigo, persona_id) values ('',"+p.getId()+")";
+                    int idEstudiante = st.executeUpdate(insertPersona, Statement.RETURN_GENERATED_KEYS);
+                }
+                
+                
                 st.close();
                 }
         }catch(SQLException sqlException){
