@@ -222,7 +222,7 @@ public class AuxiliaresDAOImpl {
         ArrayList<FuenteRecursos> all = new ArrayList<FuenteRecursos>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-      
+        boolean noAplica = false;
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
@@ -232,6 +232,15 @@ public class AuxiliaresDAOImpl {
                 FuenteRecursos f = new FuenteRecursos();
                 f.setId(rs.getInt("fuentes_recursos_id"));
                 f.setNombre(rs.getString("nombre"));
+                all.add(f);
+                if(f.getNombre().trim().equalsIgnoreCase("No Aplica")){
+                    noAplica = true;
+                }
+            }
+            if(!noAplica){
+                FuenteRecursos f = new FuenteRecursos();
+                f.setId(-1);
+                f.setNombre("No Aplica");
                 all.add(f);
             }
             st.close();
@@ -243,7 +252,7 @@ public class AuxiliaresDAOImpl {
         ArrayList<InstitucionFamiliarOrigen> all = new ArrayList<InstitucionFamiliarOrigen>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-      
+        boolean noAplica = false;
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
@@ -253,6 +262,15 @@ public class AuxiliaresDAOImpl {
                 InstitucionFamiliarOrigen i = new InstitucionFamiliarOrigen();
                 i.setId(rs.getInt("institucion_familiar_id"));
                 i.setNombre(rs.getString("nombre"));
+                all.add(i);
+                if(i.getNombre().trim().equalsIgnoreCase("No Aplica")){
+                    noAplica = true;
+                }
+            }
+            if(!noAplica){
+                InstitucionFamiliarOrigen i = new InstitucionFamiliarOrigen();
+                i.setId(-1);
+                i.setNombre("No Aplica");
                 all.add(i);
             }
             st.close();
@@ -265,7 +283,7 @@ public class AuxiliaresDAOImpl {
         ArrayList<CapacidadExcepcional> all = new ArrayList<CapacidadExcepcional>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-      
+        boolean noAplica = false;
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
@@ -275,6 +293,15 @@ public class AuxiliaresDAOImpl {
                 CapacidadExcepcional c = new CapacidadExcepcional();
                 c.setId(rs.getInt("capacidad_excepcional_id"));
                 c.setNombre(rs.getString("nombre"));
+                all.add(c);
+                if(c.getNombre().trim().equalsIgnoreCase("No Aplica")){
+                    noAplica = true;
+                }
+            }
+            if(!noAplica){
+                CapacidadExcepcional c = new CapacidadExcepcional();
+                c.setId(-1);
+                c.setNombre("No Aplica");
                 all.add(c);
             }
             st.close();
@@ -286,7 +313,7 @@ public class AuxiliaresDAOImpl {
         ArrayList<TipoDiscapacidad> all = new ArrayList<TipoDiscapacidad>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-      
+        boolean noAplica = false;
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
@@ -296,6 +323,15 @@ public class AuxiliaresDAOImpl {
                 TipoDiscapacidad t = new TipoDiscapacidad();
                 t.setId(rs.getInt("tipo_discapacidad_id"));
                 t.setNombre(rs.getString("nombre"));
+                all.add(t);
+                if(t.getNombre().trim().equalsIgnoreCase("No Aplica")){
+                    noAplica = true;
+                }
+            }
+            if(!noAplica){
+                TipoDiscapacidad t = new TipoDiscapacidad();
+                t.setId(-1);
+                t.setNombre("No Aplica");
                 all.add(t);
             }
             st.close();
@@ -307,7 +343,7 @@ public class AuxiliaresDAOImpl {
         ArrayList<PoblacionVictimaConflicto> all = new ArrayList<PoblacionVictimaConflicto>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-      
+        boolean noAplica = false;
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
@@ -317,6 +353,15 @@ public class AuxiliaresDAOImpl {
                 PoblacionVictimaConflicto p = new PoblacionVictimaConflicto();
                 p.setId(rs.getInt("poblacion_victima_id"));
                 p.setNombre(rs.getString("nombre"));
+                all.add(p);
+                if(p.getNombre().trim().equalsIgnoreCase("No Aplica")){
+                    noAplica = true;
+                }
+            }
+            if(!noAplica){
+                PoblacionVictimaConflicto p = new PoblacionVictimaConflicto();
+                p.setId(-1);
+                p.setNombre("No Aplica");
                 all.add(p);
             }
             st.close();
@@ -328,7 +373,7 @@ public class AuxiliaresDAOImpl {
         ArrayList<Caracter> all = new ArrayList<Caracter>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-      
+        boolean noAplica =false;
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
@@ -337,9 +382,19 @@ public class AuxiliaresDAOImpl {
             {   
                 Caracter c = new Caracter();
                 c.setId(rs.getInt("caracter_id"));
-                c.setNombre(rs.getString("nombre"));
+                c.setNombre(rs.getString("nombre"));                
+                all.add(c);
+                if(c.getNombre().trim().equalsIgnoreCase("No Aplica")){
+                    noAplica = true;
+                }
+            }
+            if(!noAplica){
+                Caracter c = new Caracter();
+                c.setId(-1);
+                c.setNombre("No Aplica");
                 all.add(c);
             }
+            
             st.close();
         }
         return all;
@@ -349,6 +404,7 @@ public class AuxiliaresDAOImpl {
         ArrayList<Metodologia> all = new ArrayList<Metodologia>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
+        boolean noAplica = false;
       
         if(miConexion!=null)
         {
@@ -360,6 +416,15 @@ public class AuxiliaresDAOImpl {
                 m.setId(rs.getInt("metodologia_id"));
                 m.setNombre(rs.getString("nombre"));
                 all.add(m);
+            if(m.getNombre().trim().equalsIgnoreCase("No Aplica")){
+                    noAplica = true;
+                }
+            }
+            if(!noAplica){
+                Metodologia m = new Metodologia();
+                m.setId(-1);
+                m.setNombre("No Aplica");
+                all.add(m);
             }
             st.close();
         }
@@ -370,7 +435,7 @@ public class AuxiliaresDAOImpl {
         ArrayList<Especialidad> all = new ArrayList<Especialidad>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-      
+        boolean noAplica = false;
         if(miConexion!=null)
         {
             Statement st = miConexion.createStatement();
@@ -380,6 +445,15 @@ public class AuxiliaresDAOImpl {
                 Especialidad e = new Especialidad();
                 e.setId(rs.getInt("especialidad_id"));
                 e.setNombre(rs.getString("nombre"));
+                all.add(e);
+            if(e.getNombre().trim().equalsIgnoreCase("No Aplica")){
+                    noAplica = true;
+                }
+            }
+            if(!noAplica){
+                Especialidad e = new Especialidad();
+                e.setId(-1);
+                e.setNombre("No Aplica");
                 all.add(e);
             }
             st.close();

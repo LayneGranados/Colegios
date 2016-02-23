@@ -10,6 +10,7 @@ import Code.Domain.Matricula;
 import Code.Domain.Persona;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,6 +25,14 @@ import java.util.ArrayList;
 public class MatriculaDAOImpl {
     
     String getMatricula="select * from matricula where";
+    String getEstudianteMatriculaEnAnio="select count(a.anio_id) as cantidad from \n" +
+                                        "matricula m \n" +
+                                        "inner join curso c on m.curso_id = c.curso_id\n" +
+                                        "inner join grado g on c.grado_id = g.grado_id\n" +
+                                        "inner join jornada j on g.jornada_id = j.jornada_id\n" +
+                                        "inner join anio a on j.anio_id = a.anio_id\n" +
+                                        "inner join estudiante e on m.estudiante_id = e.estudiante_id\n" +
+                                        "where e.estudiante_id = ? and c.curso_id = ?";
     
     String insertMatricula="insert into matricula ("
             +"estudiante_id,"
@@ -146,10 +155,46 @@ public class MatriculaDAOImpl {
             System.out.println("cadena-insert:"+cadena);
             Statement st = miConexion.createStatement();
             x =st.execute(cadena);
-            
             st.close();
         }
         return x;
+    }
+    
+    public boolean buscarEstudianteMatriculadoEnCurso(int idEstudiante, int idCursos){
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        Matricula m = new Matricula();
+        boolean existeEstudiante = false;
+        try{
+            if(miConexion!=null)
+            {   
+                PreparedStatement preparedStatement = miConexion.prepareStatement(this.getEstudianteMatriculaEnAnio);
+                preparedStatement.setInt(1, idEstudiante);
+                preparedStatement.setInt(2, idCursos);
+                Statement st = miConexion.createStatement();
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next())
+                {
+                   int cantidad = rs.getInt("cantidad");
+                   if(cantidad >0){
+                       existeEstudiante = true;
+                   }
+                }
+            }
+        }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+            existeEstudiante = false;
+            
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+            existeEstudiante = false;
+        }
+        catch(Exception exception){
+            exception.printStackTrace();
+            existeEstudiante = false;
+        }
+        return existeEstudiante;
+        
     }
     
     
