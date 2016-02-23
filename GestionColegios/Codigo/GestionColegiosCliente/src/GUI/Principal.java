@@ -263,8 +263,12 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Para matricular un estudiante es necesario que \ndigite el número de Matricula del Estudiante","Error en Matricula", JOptionPane.ERROR_MESSAGE);
             return null;
         }
-
         m.setEstudiante(this.estudianteActual);
+        if(this.matriculaBusiness.buscarEstudianteMatriculadoEnCurso(m.getEstudiante().getId(), m.getCurso())){
+            JOptionPane.showMessageDialog(null, "El estudiante ya se encuentra matriculado \nen un curso para este mismo año","Error en Matricula", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+        
         m.setBeneficiarioCabezaFamilia(this.chkCabezaFamiliaMatricula.isSelected());
         m.setBeneficiarioHeroeNacional(this.chkBenHeroeNacionalMatricula.isSelected());
         m.setBeneficiarioMadreFamilia(this.chkBenMadreFamiliaMatricula.isSelected());
@@ -3050,8 +3054,11 @@ public class Principal extends javax.swing.JFrame {
     private void btnBuscarEstudianteMatriculadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEstudianteMatriculadoActionPerformed
         // TODO add your handling code here:
         Matricula my = this.crearMatricula();
-        Matricula m = this.matriculaBusiness.getMatriculaEstudianteCurso(my.getEstudiante().getId(), my.getCurso());
-        this.ponerMatricula(m);
+        if(my != null){
+            Matricula m = this.matriculaBusiness.getMatriculaEstudianteCurso(my.getEstudiante().getId(), my.getCurso());
+            this.ponerMatricula(m);
+        }
+        
         
     }//GEN-LAST:event_btnBuscarEstudianteMatriculadoActionPerformed
 

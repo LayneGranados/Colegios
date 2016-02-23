@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class MatriculaDAOImpl {
     
     String getMatricula="select * from matricula where";
-    String getEstudianteMatriculaEnAnio="select count(a.anio_id) from \n" +
+    String getEstudianteMatriculaEnAnio="select count(a.anio_id) as cantidad from \n" +
                                         "matricula m \n" +
                                         "inner join curso c on m.curso_id = c.curso_id\n" +
                                         "inner join grado g on c.grado_id = g.grado_id\n" +
@@ -160,7 +160,7 @@ public class MatriculaDAOImpl {
         return x;
     }
     
-    public boolean buscarEstudianteMatriculadoEnCurso(int idEstudiante, int idAnio){
+    public boolean buscarEstudianteMatriculadoEnCurso(int idEstudiante, int idCursos){
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         Matricula m = new Matricula();
@@ -170,48 +170,30 @@ public class MatriculaDAOImpl {
             {   
                 PreparedStatement preparedStatement = miConexion.prepareStatement(this.getEstudianteMatriculaEnAnio);
                 preparedStatement.setInt(1, idEstudiante);
-                preparedStatement.setInt(2, idAnio);
+                preparedStatement.setInt(2, idCursos);
                 Statement st = miConexion.createStatement();
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next())
                 {
-                   m.setCurso(rs.getInt("curso_id"));
-                   Estudiante e = new Estudiante();
-                   e.setId(rs.getInt("estudiante_id"));
-                   m.setEstudiante(e);
-                   m.setVictimaConflicto(rs.getInt("poblacion_victima_id"));
-                   m.setDepartamentoExpulsor(rs.getInt("departamento_expulsor"));
-                   m.setMunicipioExpulsor(rs.getInt("municipio_expulsor"));
-                   m.setProvieneSectorPrivado(rs.getBoolean("proviene_sector_privado"));
-                   System.out.println("bool:"+rs.getBoolean("proviene_sector_privado"));
-                   System.out.println("int:"+rs.getInt("proviene_sector_privado"));
-                   m.setProvienteOtroMunicipio(rs.getBoolean("proviene_otro_municipio"));
-                   m.setTipoDiscapacidad(rs.getInt("tipo_discapacidad_id"));
-                   m.setCapacidadExcepcional(rs.getInt("capacidad_excepcional_id"));
-                   m.setInstutionFamiliar(rs.getInt("institucion_familiar_id"));
-                   m.setSubsidiado(rs.getBoolean("subsidiado"));
-                   m.setRepitente(rs.getBoolean("repitente"));
-                   m.setNuevo(rs.getBoolean("nuevo"));
-                   m.setBeneficiarioCabezaFamilia(rs.getBoolean("cabeza_familia"));
-                   m.setBeneficiarioMadreFamilia(rs.getBoolean("ben_mad_flia"));
-                   m.setBeneficiarioVeteranoFuerzas(rs.getBoolean("ben_vet_flia"));
-                   m.setBeneficiarioHeroeNacional(rs.getBoolean("ben_her_nac"));
-                   m.setCaracter(rs.getInt("caracter_id"));
-                   m.setEspecialidad(rs.getInt("especialidad_id"));
-                   m.setMetodologia(rs.getInt("metodologia_id"));
-                   m.setSituacionAnterior(rs.getInt("sit_acad_anio_ant_id"));
-                   m.setFuenteRecursos(rs.getInt("fuentes_recursos_id"));
-                   m.setZonaAlumno(rs.getString("zona_alumno"));
-                   m.setCondicionAnterior(rs.getInt("condicion_anio_anterior_id"));
+                   int cantidad = rs.getInt("cantidad");
+                   if(cantidad >0){
+                       existeEstudiante = true;
+                   }
                 }
             }
         }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+            existeEstudiante = false;
             
         }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+            existeEstudiante = false;
         }
         catch(Exception exception){
+            exception.printStackTrace();
+            existeEstudiante = false;
         }
-        return true;
+        return existeEstudiante;
         
     }
     
