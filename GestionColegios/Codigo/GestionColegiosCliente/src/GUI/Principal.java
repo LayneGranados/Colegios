@@ -107,6 +107,7 @@ public class Principal extends javax.swing.JFrame {
     private void initPrincipal() {
         this.putColegio();
         controller= new ControllerComboPrincipal(this);
+        controller.llenarCombos();
         this.paneResumenCertificadoAntiguo.setContentType("text/html");
         this.putIP();
         
@@ -374,23 +375,7 @@ public class Principal extends javax.swing.JFrame {
         
         return m;
     }
-    
-    
-
-    private void limpiarPersona() {
-        controller= new ControllerComboPrincipal(this);
-        this.txtNumeroDocumentoIdentificacion.setText("");
-        this.txtPrimerApellido.setText("");
-        this.txtSegundoApellido.setText("");
-        this.txtPrimerNombre.setText("");
-        this.txtSegundoNombre.setText("");
-        
-        this.cmbNacimientPersona.setDate(new Date());
-        
-        this.txtDireccion.setText("");
-        this.txtTelefono.setText("");
-    }
-    
+       
     private Persona obtenerPersona(){
         
         Persona p = new Persona();
@@ -811,7 +796,7 @@ public class Principal extends javax.swing.JFrame {
         btnMatricular = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         cmbNacimientPersona = new com.toedter.calendar.JDateChooser();
-        jLabel8 = new javax.swing.JLabel();
+        lblFotoEstudiante = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -1511,7 +1496,7 @@ public class Principal extends javax.swing.JFrame {
 
         jButton3.setText("Eliminar");
 
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblFotoEstudiante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
         jLabel10.setText("*La foto de la persona se guardará usando como nombre el tipo de documento y número de identificación.");
@@ -1567,7 +1552,7 @@ public class Principal extends javax.swing.JFrame {
                                                 .addComponent(cmbTipoDocumentoIdentificacion, 0, 260, Short.MAX_VALUE)
                                                 .addComponent(cmbNacimientPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                                                 .addGroup(jPanel22Layout.createSequentialGroup()
-                                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblFotoEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addComponent(jLabel131)))
                                             .addComponent(cmbSisben, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1636,7 +1621,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel132)
                             .addComponent(cmbTipoPersonaRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblFotoEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel117, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3218,6 +3203,22 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnLimpiarCamposEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCamposEstudianteActionPerformed
         // TODO add your handling code here:
+        this.cmbTipoPersonaRegistrar.setSelectedIndex(0);
+        this.txtRutaFotoPersona.setText("");
+        this.cmbGenero.setSelectedIndex(0);
+        this.controller.combosPersonas();
+        this.cmbSisben.setSelectedIndex(0);
+        this.cmbResguardo.setSelectedIndex(0);
+        this.cmbEstrato.setSelectedIndex(0);
+        this.txtDireccion.setText("");
+        this.txtTelefono.setText("");
+        this.txtPrimerNombre.setText("");
+        this.txtSegundoNombre.setText("");
+        this.txtSegundoNombre.setText("");
+        this.txtSegundoApellido.setText("");
+        this.txtPrimerApellido.setText("");
+        this.txtNumeroDocumentoIdentificacion.setText("");
+        this.cmbNacimientPersona.setDate(new Date());        
     }//GEN-LAST:event_btnLimpiarCamposEstudianteActionPerformed
 
     private void cmbDepartamentoExpedicionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbDepartamentoExpedicionMousePressed
@@ -3670,7 +3671,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
@@ -3718,6 +3718,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel lblEstudianteEncontrado;
+    private javax.swing.JLabel lblFotoEstudiante;
     private javax.swing.JTextPane paneResumenCertificadoAntiguo;
     private javax.swing.JPanel panelBackground;
     private javax.swing.JScrollPane scrollPaneCalificaciones;
