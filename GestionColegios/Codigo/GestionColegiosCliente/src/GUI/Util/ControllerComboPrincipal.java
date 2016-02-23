@@ -78,16 +78,18 @@ public class ControllerComboPrincipal {
         this.gradoBusiness = new GradoBusiness();
         this.cursoBusiness = new CursoBusiness();
         this.sedeBusiness = new SedeBusiness();
-        
-        this.llenarCombos();
     }
 
-    private void llenarCombos() {
+    public void llenarCombos() {
+        combosPersonas();
+        combosMatricula();
+    }
+    
+    public void combosPersonas(){
         ArrayList<TipoDocumento> tiposDeDocumento = this.auxiliaresBusiness.getAllTipoDocumento();
         ArrayList<Departamento> departamentos = this.auxiliaresBusiness.getAllDepartamentos();
         ArrayList<Resguardo> resguardos = this.auxiliaresBusiness.getAllResguardo();
         ArrayList<Etnia> etnias = this.auxiliaresBusiness.getAllEtnia();
-        
         this.myPrincipal.cmbTipoDocumentoIdentificacion.setModel(new ToComboBoxModel(tiposDeDocumento, "getNombre"));
         this.myPrincipal.cmbDepartamentoExpedicion.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbDepartamentoNacimiento.setModel(new ToComboBoxModel(departamentos, "getNombre"));
@@ -96,8 +98,9 @@ public class ControllerComboPrincipal {
         this.myPrincipal.cmbDepartamentoExpulsor.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbEtnia.setModel(new ToComboBoxModel(etnias, "getNombre"));
         this.myPrincipal.cmbResguardo.setModel(new ToComboBoxModel(resguardos, "getNombre"));
-        
-        /** ------INICIO DE COMBOS DE MATRICULA----**/
+    }
+    
+    public void combosMatricula(){
         ArrayList<Sede> sedes = this.sedeBusiness.selectAllSedes(this.myPrincipal.getInstitucionEducativaActual().getId());
         this.myPrincipal.cmbSedeMatricula.setModel(new ToComboBoxModel(sedes, "getNombre"));
         ArrayList<Caracter> caracteres = this.auxiliaresBusiness.getAllCaracter();
@@ -139,9 +142,6 @@ public class ControllerComboPrincipal {
         ArrayList<FuenteRecursos> fuentes = this.auxiliaresBusiness.getAllFuentesRecursos();
         this.myPrincipal.cmbFuenteRecursos.setModel(new ToComboBoxModel(fuentes, "getNombre"));
         this.myPrincipal.cmbFuenteRecursos.setPreferredSize(new Dimension(170, this.myPrincipal.cmbFuenteRecursos.getPreferredSize().height));
-        
-        /** ------FINAL DE COMBOS DE MATRICULA----**/
-        
         
     }
 
