@@ -3053,6 +3053,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnLimpiarCamposMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCamposMatriculaActionPerformed
         // T    ODO add your handling code here:
+        limpiarFormularioMatricula();
     }//GEN-LAST:event_btnLimpiarCamposMatriculaActionPerformed
 
     private void btnListarEstudiantesMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEstudiantesMatriculaActionPerformed
@@ -3489,6 +3490,26 @@ public class Principal extends javax.swing.JFrame {
                 new Principal().setVisible(true);
             }
         });
+    }
+    
+    
+    private void limpiarFormularioMatricula() {        
+        this.estudianteActual = new Estudiante();
+        this.cmbFechaMatricula.setDate(new Date());
+        this.txtCodigoMatricula.setText("");
+        this.txtNumeroMatricula.setText("");
+        this.chkCabezaFamiliaMatricula.setSelected(false);
+        this.chkBenHeroeNacionalMatricula.setSelected(false);
+        this.chkBenMadreFamiliaMatricula.setSelected(false);
+        this.chkBenVeteranoFuerzasMatricula.setSelected(false);
+        this.chkNuevoMatricula.setSelected(false);
+        this.chkProvieneSectorPrivadoMatricula.setSelected(false);
+        this.chkProvieneOtroMunicipioMatricula.setSelected(false);
+        this.chkRepitenteMatricula.setSelected(false);
+        this.chkRetiradoMatricula.setSelected(false);
+        this.chkSubsidiadoMatricula.setSelected(false);
+        this.chkPromovido.setSelected(false);
+        this.chkPoblacionVictimaConflicto.setSelected(false);
     }
     
     public void initCombobox (){
