@@ -150,13 +150,13 @@ public class PeriodoDAOImpl {
         return p;
     }
     
-    public ArrayList<Periodo> selectAllPeriodos(int colegio){
+    public ArrayList<Periodo> selectAllPeriodos(int jornada){
         
         ArrayList<Periodo> periodos = new ArrayList<Periodo>();
         
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        String query=this.periodoPorJornada+""+colegio;
+        String query=this.periodoPorJornada+""+jornada;
         
         try{
             if(miConexion!=null)
@@ -187,4 +187,38 @@ public class PeriodoDAOImpl {
         return periodos;
     }
     
+    
+    public ArrayList<Periodo> selectAllPeriodosSinJornada(int jornada){
+        
+        ArrayList<Periodo> periodos = new ArrayList<Periodo>();
+        
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        String query=this.periodoPorJornada+""+jornada;
+        
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next())
+                {
+                    Periodo p = new Periodo();
+                    p.setFechaInicio(rs.getDate("fecha_inicio"));
+                    p.setFechaFin(rs.getDate("fecha_fin"));
+                    p.setComentario(rs.getString("comentario"));
+                    p.setId(rs.getInt("periodo_id"));
+                    periodos.add(p);
+                }
+            }
+        }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+        }
+        catch(Exception exception){
+            exception.printStackTrace();
+        }
+        return periodos;
+    }
 }

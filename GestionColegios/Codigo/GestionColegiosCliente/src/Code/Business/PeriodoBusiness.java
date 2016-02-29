@@ -37,4 +37,8 @@ public class PeriodoBusiness {
         return this.PeriodoDAOImpl.getTodosLosPeriodos();
     }
     
+    public ArrayList<Periodo> selectAllPeriodosSinJornada(int jornada){
+        return this.PeriodoDAOImpl.selectAllPeriodosSinJornada(jornada);
+    }
+    
 }
