@@ -866,18 +866,28 @@ public class Principal extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         scrollPaneCalificaciones = new javax.swing.JScrollPane();
         jPanel15 = new javax.swing.JPanel();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel78 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
-        jComboBox11 = new javax.swing.JComboBox();
-        jComboBox12 = new javax.swing.JComboBox();
-        jButton23 = new javax.swing.JButton();
+        cmbSedeCalificaciones = new GUI.Util.JComboBox();
+        cmbCursoCalificaciones = new GUI.Util.JComboBox();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        cmbAnioCalificaciones = new GUI.Util.JComboBox();
+        cmbAsignaturaCalificaciones = new GUI.Util.JComboBox();
         jLabel80 = new javax.swing.JLabel();
-        jComboBox30 = new javax.swing.JComboBox();
-        jButton24 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        cmbJornadaCalificaciones = new GUI.Util.JComboBox();
+        cmbPeriodoCalificaciones = new GUI.Util.JComboBox();
+        jLabel78 = new javax.swing.JLabel();
+        cmbGradoCalificaciones = new GUI.Util.JComboBox();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
+        jLabel15 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         scrollPaneCertificaciones = new javax.swing.JScrollPane();
         jPanel9 = new javax.swing.JPanel();
@@ -2278,88 +2288,161 @@ public class Principal extends javax.swing.JFrame {
 
         PanelTabs.addTab("Matriculas", jPanel23);
 
-        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("Cargue Manual de Notas"));
-
-        jLabel78.setText("Grado");
+        jLabel8.setText("Sede");
 
         jLabel79.setText("Curso");
 
-        jButton23.setText("Buscar");
+        cmbSedeCalificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSedeCalificacionesActionPerformed(evt);
+            }
+        });
+
+        cmbCursoCalificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCursoCalificacionesActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Asignatura");
+
+        jLabel11.setText("Año");
+
+        cmbAnioCalificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAnioCalificacionesActionPerformed(evt);
+            }
+        });
 
         jLabel80.setText("Periodo");
 
-        jButton24.setText("Guardar Calificaciones");
+        jLabel12.setText("Jornada");
+
+        cmbJornadaCalificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbJornadaCalificacionesActionPerformed(evt);
+            }
+        });
+
+        jLabel78.setText("Grado");
+
+        cmbGradoCalificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbGradoCalificacionesActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("PDF Calificaciones Listado");
 
         jButton6.setText("PDF Boletines Individuales");
 
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel19Layout.createSequentialGroup()
-                        .addComponent(jLabel78)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel79)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel80)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox30, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel78)
-                    .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel79)
-                    .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton23)
-                    .addComponent(jLabel80)
-                    .addComponent(jComboBox30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton24)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)))
-        );
+        jButton24.setText("Guardar Calificaciones");
+
+        jLabel14.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel14.setText("REGISTRO MANUAL DE CALIFICACIONES");
+
+        jButton7.setText("Buscar");
+
+        jLabel15.setText("Listado de Calificaciones");
+
+        jButton8.setText("Agregar Calificaciones");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel15Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cmbSedeCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
+                                    .addComponent(jLabel79)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cmbCursoCalificaciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel13)
+                                .addComponent(jLabel11))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cmbAsignaturaCalificaciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbAnioCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel80))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel15Layout.createSequentialGroup()
+                                    .addComponent(cmbJornadaCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel78))
+                                .addComponent(cmbPeriodoCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cmbGradoCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel15Layout.createSequentialGroup()
+                            .addGap(289, 289, 289)
+                            .addComponent(jLabel14))
+                        .addGroup(jPanel15Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel15))
+                        .addGroup(jPanel15Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(jLabel14)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(cmbSedeCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(cmbAnioCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(cmbJornadaCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel78)
+                    .addComponent(cmbGradoCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbCursoCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbAsignaturaCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel80)
+                    .addComponent(cmbPeriodoCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel79)
+                    .addComponent(jLabel13)
+                    .addComponent(jButton7))
+                .addGap(10, 10, 10)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6)
+                    .addComponent(jButton24)
+                    .addComponent(jButton8))
+                .addGap(16, 16, 16))
         );
 
         scrollPaneCalificaciones.setViewportView(jPanel15);
@@ -2368,15 +2451,13 @@ public class Principal extends javax.swing.JFrame {
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addComponent(scrollPaneCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 838, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(scrollPaneCalificaciones)
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addComponent(scrollPaneCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(scrollPaneCalificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 197, Short.MAX_VALUE))
         );
 
         PanelTabs.addTab("Calificaciones", jPanel14);
@@ -3457,6 +3538,53 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCapacidadExcepcionalActionPerformed
 
+    private void cmbSedeCalificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSedeCalificacionesActionPerformed
+        // TODO add your handling code here:
+         Object sede = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbSedeCalificaciones);
+        Sede s = (Sede) sede;
+        if(s.getId()!=-1){
+            this.controller.llenarAnioCalificacion(s.getId());
+        }
+    }//GEN-LAST:event_cmbSedeCalificacionesActionPerformed
+
+    private void cmbAnioCalificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAnioCalificacionesActionPerformed
+        // TODO add your handling code here:
+        Object anio = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbAnioCalificaciones);
+        Anio a = (Anio) anio;
+        if(a.getId()!=-1){
+            this.controller.llenarJornadaCalificacion(a.getId());
+        }
+    }//GEN-LAST:event_cmbAnioCalificacionesActionPerformed
+
+    private void cmbJornadaCalificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJornadaCalificacionesActionPerformed
+        // TODO add your handling code here:
+        Object jornada = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbJornadaCalificaciones);
+        Jornada j = (Jornada) jornada;
+        if(j.getId()!=-1){
+            this.controller.llenarGradoCalificacion(j.getId());
+            this.controller.llenarPeriodoPorJornada(j.getId());
+        }
+    }//GEN-LAST:event_cmbJornadaCalificacionesActionPerformed
+
+    private void cmbGradoCalificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGradoCalificacionesActionPerformed
+        // TODO add your handling code here:
+        Object grado = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbGradoCalificaciones);
+        Grado g = (Grado) grado;
+        if(g.getId()!=-1){
+            this.controller.llenarCursoCalificacion(g.getId());
+        }
+    }//GEN-LAST:event_cmbGradoCalificacionesActionPerformed
+
+    private void cmbCursoCalificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCursoCalificacionesActionPerformed
+        // TODO add your handling code here:
+        Object curso = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbCursoCalificaciones);
+        Curso c = (Curso) curso;
+        if(c.getId()!=-1){
+            this.controller.llenarAsignaturaPorCursoCalificacion(c.getId());
+        }
+        
+    }//GEN-LAST:event_cmbCursoCalificacionesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3564,10 +3692,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkRepitenteMatricula;
     private javax.swing.JCheckBox chkRetiradoMatricula;
     private javax.swing.JCheckBox chkSubsidiadoMatricula;
+    public javax.swing.JComboBox cmbAnioCalificaciones;
     public javax.swing.JComboBox cmbAnioMatricula;
+    public javax.swing.JComboBox cmbAsignaturaCalificaciones;
     public javax.swing.JComboBox cmbCapacidadExcepcional;
     public javax.swing.JComboBox cmbCaracterMatricula;
     public javax.swing.JComboBox cmbCondicionAnioAnterior;
+    public javax.swing.JComboBox cmbCursoCalificaciones;
     public javax.swing.JComboBox cmbCursoMatricula;
     public javax.swing.JComboBox cmbDepartamentoColegio;
     public javax.swing.JComboBox cmbDepartamentoExpedicion;
@@ -3580,8 +3711,10 @@ public class Principal extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser cmbFechaMatricula;
     public javax.swing.JComboBox cmbFuenteRecursos;
     public javax.swing.JComboBox cmbGenero;
+    public javax.swing.JComboBox cmbGradoCalificaciones;
     public javax.swing.JComboBox cmbGradoMatricula;
     public javax.swing.JComboBox cmbInstitucionFamiliarOrigen;
+    public javax.swing.JComboBox cmbJornadaCalificaciones;
     public javax.swing.JComboBox cmbJornadaMatricula;
     public javax.swing.JComboBox cmbMetodologia;
     public javax.swing.JComboBox cmbMunicipioColegio;
@@ -3590,8 +3723,10 @@ public class Principal extends javax.swing.JFrame {
     public javax.swing.JComboBox cmbMunicipioNacimiento;
     public javax.swing.JComboBox cmbMunicipioResidencia;
     private com.toedter.calendar.JDateChooser cmbNacimientPersona;
+    public javax.swing.JComboBox cmbPeriodoCalificaciones;
     public javax.swing.JComboBox cmbResguardo;
     public javax.swing.JComboBox cmbResultadosCertificadosAntiguos;
+    public javax.swing.JComboBox cmbSedeCalificaciones;
     public javax.swing.JComboBox cmbSedeMatricula;
     public javax.swing.JComboBox cmbSisben;
     public javax.swing.JComboBox cmbSituacionAnioAnterior;
@@ -3608,32 +3743,35 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox jComboBox10;
-    private javax.swing.JComboBox jComboBox11;
-    private javax.swing.JComboBox jComboBox12;
-    private javax.swing.JComboBox jComboBox30;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel124;
     private javax.swing.JLabel jLabel126;
     private javax.swing.JLabel jLabel128;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel130;
     private javax.swing.JLabel jLabel131;
     private javax.swing.JLabel jLabel132;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
@@ -3692,6 +3830,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
@@ -3715,7 +3854,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;

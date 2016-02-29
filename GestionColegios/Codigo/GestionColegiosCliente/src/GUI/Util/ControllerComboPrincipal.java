@@ -6,6 +6,7 @@
 package GUI.Util;
 
 import Code.Business.AnioBusiness;
+import Code.Business.AsignaturaBusiness;
 import Code.Business.AuxiliaresBusiness;
 import Code.Business.CertificacionBusiness;
 import Code.Business.ConfiguracionBusiness;
@@ -14,9 +15,11 @@ import Code.Business.EstudianteBusiness;
 import Code.Business.GradoBusiness;
 import Code.Business.JornadaBusiness;
 import Code.Business.MatriculaBusiness;
+import Code.Business.PeriodoBusiness;
 import Code.Business.PersonaBusiness;
 import Code.Business.SedeBusiness;
 import Code.Domain.Anio;
+import Code.Domain.Asignatura;
 import Code.Domain.CapacidadExcepcional;
 import Code.Domain.Caracter;
 import Code.Domain.CertificacionOldstyle;
@@ -31,6 +34,7 @@ import Code.Domain.InstitucionFamiliarOrigen;
 import Code.Domain.Jornada;
 import Code.Domain.Metodologia;
 import Code.Domain.Municipio;
+import Code.Domain.Periodo;
 import Code.Domain.PoblacionVictimaConflicto;
 import Code.Domain.Resguardo;
 import Code.Domain.Sede;
@@ -62,6 +66,8 @@ public class ControllerComboPrincipal {
     public JornadaBusiness jornadaBusiness;
     public GradoBusiness gradoBusiness;
     public CursoBusiness cursoBusiness;
+    public AsignaturaBusiness asignaturaBusiness;
+    public PeriodoBusiness periodoBusiness;
 
     public ControllerComboPrincipal(Principal myPrincipal) {
         this.myPrincipal = myPrincipal;
@@ -78,11 +84,14 @@ public class ControllerComboPrincipal {
         this.gradoBusiness = new GradoBusiness();
         this.cursoBusiness = new CursoBusiness();
         this.sedeBusiness = new SedeBusiness();
+        this.asignaturaBusiness = new AsignaturaBusiness();
+        this.periodoBusiness = new PeriodoBusiness();
     }
 
     public void llenarCombos() {
         combosPersonas();
         combosMatricula();
+        combosCalificaciones();
     }
     
     public void combosPersonas(){
@@ -141,8 +150,14 @@ public class ControllerComboPrincipal {
         
         ArrayList<FuenteRecursos> fuentes = this.auxiliaresBusiness.getAllFuentesRecursos();
         this.myPrincipal.cmbFuenteRecursos.setModel(new ToComboBoxModel(fuentes, "getNombre"));
-        this.myPrincipal.cmbFuenteRecursos.setPreferredSize(new Dimension(170, this.myPrincipal.cmbFuenteRecursos.getPreferredSize().height));
+        this.myPrincipal.cmbSedeCalificaciones.setPreferredSize(new Dimension(170, this.myPrincipal.cmbFuenteRecursos.getPreferredSize().height));
         
+    }
+    
+    public void combosCalificaciones(){
+        ArrayList<Sede> sedes = this.sedeBusiness.selectAllSedes(this.myPrincipal.getInstitucionEducativaActual().getId());
+        this.myPrincipal.cmbSedeCalificaciones.setModel(new ToComboBoxModel(sedes, "getNombre"));
+        this.myPrincipal.cmbSedeCalificaciones.setPreferredSize(new Dimension(170, this.myPrincipal.cmbSedeCalificaciones.getPreferredSize().height));
     }
 
     public Object getObjetoSeleccionado(JComboBox combo) {
@@ -257,5 +272,33 @@ public class ControllerComboPrincipal {
         this.myPrincipal.cmbCursoMatricula.setModel(new ToComboBoxModel(cursos, "getNombre"));
     }
     
+    public void llenarAnioCalificacion(int id_sede){
+       ArrayList<Anio> anios = this.anioBusiness.getAllAniosPorSede(id_sede);
+        this.myPrincipal.cmbAnioCalificaciones.setModel(new ToComboBoxModel(anios, "getAnio"));
+    }
+    public void llenarJornadaCalificacion(int anio){
+       ArrayList<Jornada> jornadas = this.jornadaBusiness.selectAllJornadaPorAnio(anio);
+        this.myPrincipal.cmbJornadaCalificaciones.setModel(new ToComboBoxModel(jornadas, "getNombre"));
+    }
+    
+    public void llenarGradoCalificacion(int jornada){
+       ArrayList<Grado> grados = this.gradoBusiness.selectAllGradosPorJornada(jornada);
+        this.myPrincipal.cmbGradoCalificaciones.setModel(new ToComboBoxModel(grados, "getNombre"));
+    }
+    
+    public void llenarCursoCalificacion(int grado){
+       ArrayList<Curso> cursos = this.cursoBusiness.selectAllCursosPorGrado(grado);
+        this.myPrincipal.cmbCursoCalificaciones.setModel(new ToComboBoxModel(cursos, "getNombre"));
+    }
+    
+    public void llenarAsignaturaPorCursoCalificacion(int curso){
+       ArrayList<Asignatura> asignaturas = this.asignaturaBusiness.asignaturasPorCurso(curso);
+        this.myPrincipal.cmbAsignaturaCalificaciones.setModel(new ToComboBoxModel(asignaturas, "getNombre"));
+    }
+    
+    public void llenarPeriodoPorJornada(int jornada){
+       ArrayList<Periodo> periodos = this.periodoBusiness.selectAllPeriodosSinJornada(jornada);
+        this.myPrincipal.cmbPeriodoCalificaciones.setModel(new ToComboBoxModel(periodos, "getComentario"));
+    }
     
 }
