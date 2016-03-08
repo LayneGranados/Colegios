@@ -36,18 +36,16 @@ public class DetalleCertificacionDAOImpl {
             if(miConexion!=null)
             {
                 Statement st = miConexion.createStatement();
-                System.out.println(query);
-                //result = st.execute(query);
                 int id = st.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-                
                 st.close();
-                miConexion.close();
-               }
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return result;
     }
@@ -56,11 +54,8 @@ public class DetalleCertificacionDAOImpl {
         ArrayList<DetalleCertificadoOld> detalle = new ArrayList<DetalleCertificadoOld>();
         String cadena=this.detalleCertificacionOLD+""+id;
         
-        
         Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
-        
+        miConexion=ConexionBD.GetConnection();        
         try{
             if(miConexion!=null)
             {
@@ -74,14 +69,16 @@ public class DetalleCertificacionDAOImpl {
                     d.setValor_detalle(rs.getString("valor_detalle"));
                     detalle.add(d);
                 }
-        }
+                st.close();
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return detalle;
-    
     }
 }

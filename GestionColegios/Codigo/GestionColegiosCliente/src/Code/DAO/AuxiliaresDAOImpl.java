@@ -74,6 +74,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
   
@@ -101,6 +102,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -122,6 +124,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return d;
     }
     
@@ -148,8 +151,8 @@ public class AuxiliaresDAOImpl {
                 all.add(m);
             }
             st.close();
-        }else{
         }
+        miConexion.close();
         return all;
     }
   
@@ -171,8 +174,8 @@ public class AuxiliaresDAOImpl {
                 m.setDepartamentoId(rs.getInt("departamento_id"));
             }
             st.close();
-        }else{
         }
+        miConexion.close();
         return m;
     }
     
@@ -194,6 +197,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -215,6 +219,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -245,6 +250,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -275,7 +281,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
-        
+        miConexion.close();
         return all;
     }
     
@@ -306,6 +312,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -336,6 +343,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
         
@@ -366,6 +374,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -397,6 +406,7 @@ public class AuxiliaresDAOImpl {
             
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -428,6 +438,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -458,6 +469,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -483,6 +495,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -509,6 +522,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -536,6 +550,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return all;
     }
     
@@ -554,6 +569,7 @@ public class AuxiliaresDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return codigoColegio;
     }
     
@@ -572,8 +588,8 @@ public class AuxiliaresDAOImpl {
                 r.setNombre(rs.getString("nombre"));
             }
             st.close();
-        }else{
         }
+        miConexion.close();
         return r;
     }
     
@@ -592,8 +608,8 @@ public class AuxiliaresDAOImpl {
                 e.setNombre(rs.getString("nombre"));
             }
             st.close();
-        }else{
         }
+        miConexion.close();
         return e;
     }
     

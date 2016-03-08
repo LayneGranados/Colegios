@@ -22,23 +22,20 @@ import java.util.ArrayList;
 public class AsignaturaDAOImpl {
     
     String todosLosGrados="select * from grado";
-    String asignaturasPorCurso="select a.*, ac.asignatura_curso_id from asignatura_curso ac inner join curso c on ac.curso_id = c.curso_id inner join asignatura a on ac.asignatura_id = a.asignatura_id where c.curso_id =?";
+    String asignaturasPorCurso="select a.*, ac.asignatura_curso_id from asignatura_curso ac \n" +
+                                "inner join asignatura a on ac.asignatura_id = a.asignatura_id\n" +
+                                "where ac.curso_id =? order by a.nombre";
     String insert="insert into grado (nombre, jornada_id)"
             + "values (";
     String update="update grado set";
     
     
      public Grado guardarGrado(Grado g) {      
-       
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
+        Connection miConexion=ConexionBD.GetConnection();
         String query="";
         query=this.insert+""+
                 g.getNombre()+","+
                 g.getJornadaId()+"')";
-        System.out.println("query: "+query);
-         
         try{
             if(miConexion!=null)
             {
@@ -49,13 +46,11 @@ public class AsignaturaDAOImpl {
                     g.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
-                }
-        }catch(SQLException sqlException){
-            
+            }
+        miConexion.close();
+        }catch(SQLException sqlException){    
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+        }catch(Exception exception){
         }
         return g;
     }
@@ -81,8 +76,8 @@ public class AsignaturaDAOImpl {
                     g.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
                 }
+        miConexion.close();
         }catch(SQLException sqlException){
             
         }catch(NullPointerException nullPointerException){
@@ -101,11 +96,11 @@ public class AsignaturaDAOImpl {
             {   
                 PreparedStatement preparedStatement = miConexion.prepareStatement(this.asignaturasPorCurso);
                 preparedStatement.setInt(1, curso);
-                Statement st = miConexion.createStatement();
                 ResultSet rs = preparedStatement.executeQuery();
                 Asignatura a = new Asignatura();
                 a.setId(-1);
                 a.setNombre("No Seleccionado");
+                a.setIdAsignaturaCurso(-1);
                 asignaturas.add(a);
                 while (rs.next())
                 {
@@ -115,13 +110,14 @@ public class AsignaturaDAOImpl {
                     a.setIdAsignaturaCurso(rs.getInt("asignatura_curso_id"));
                     asignaturas.add(a);
                 }
+                rs.close();
             }
+        miConexion.close();
         }catch(SQLException sqlException){
             sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
             nullPointerException.printStackTrace();
-        }
-        catch(Exception exception){
+        }catch(Exception exception){
             exception.printStackTrace();
         }
         return asignaturas;

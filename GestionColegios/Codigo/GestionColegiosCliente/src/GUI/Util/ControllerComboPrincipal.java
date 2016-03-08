@@ -197,60 +197,85 @@ public class ControllerComboPrincipal {
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbTipoDocumentoIdentificacion.getModel(); 
         to.setSelectedItemCustomize(tipoDocumento);
         this.myPrincipal.cmbTipoDocumentoIdentificacion.setModel(to);
+        this.myPrincipal.cmbTipoDocumentoIdentificacion.requestFocusInWindow();
     }
     
     public void setSelectedItemDepartamentoExpedicion(Departamento departamento){
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbDepartamentoExpedicion.getModel(); 
         to.setSelectedItemCustomize(departamento);
         this.myPrincipal.cmbDepartamentoExpedicion.setModel(to);
+        this.myPrincipal.cmbDepartamentoExpedicion.requestFocusInWindow();
     }
     
     public void setSelectedItemMunicipioExpedicion(Municipio municipio){
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbMunicipioExpedicion.getModel(); 
         to.setSelectedItemCustomize(municipio);
         this.myPrincipal.cmbMunicipioExpedicion.setModel(to);
+        this.myPrincipal.cmbMunicipioExpedicion.requestFocusInWindow();
+    }
+    
+    public void setSelectedItemDepartamentoColegio(Departamento departamento){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbDepartamentoColegio.getModel(); 
+        to.setSelectedItemCustomize(departamento);
+        this.myPrincipal.cmbDepartamentoColegio.setModel(to);
+        this.myPrincipal.cmbDepartamentoColegio.requestFocusInWindow();
+    }
+    
+    public void setSelectedItemMunicipioColegio(Municipio municipio){
+        ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbMunicipioColegio.getModel(); 
+        to.setSelectedItemCustomize(municipio);
+        this.myPrincipal.cmbMunicipioColegio.setModel(to);
+        this.myPrincipal.cmbMunicipioColegio.requestFocusInWindow();
+        
     }
     
     public void setSelectedItemDepartamentoNacimiento(Departamento departamento){
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbDepartamentoNacimiento.getModel(); 
         to.setSelectedItemCustomize(departamento);
         this.myPrincipal.cmbDepartamentoNacimiento.setModel(to);
+        this.myPrincipal.cmbDepartamentoNacimiento.requestFocusInWindow();
     }
     
     public void setSelectedItemMunicipioNacimiento(Municipio municipio){
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbMunicipioNacimiento.getModel(); 
         to.setSelectedItemCustomize(municipio);
         this.myPrincipal.cmbMunicipioNacimiento.setModel(to);
+        this.myPrincipal.cmbMunicipioNacimiento.requestFocusInWindow();
     }
     
     public void setSelectedItemDepartamentoResidencia(Departamento departamento){
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbDepartamentoResidencia.getModel(); 
         to.setSelectedItemCustomize(departamento);
         this.myPrincipal.cmbDepartamentoResidencia.setModel(to);
+        this.myPrincipal.cmbDepartamentoResidencia.requestFocusInWindow();
     }
     
     public void setSelectedItemMunicipioResidencia(Municipio municipio){
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbMunicipioResidencia.getModel(); 
         to.setSelectedItemCustomize(municipio);
         this.myPrincipal.cmbMunicipioResidencia.setModel(to);
+        this.myPrincipal.cmbMunicipioResidencia.requestFocusInWindow();
     }
     
     public void setSelectedItemEtnia(Etnia etnia){
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbEtnia.getModel(); 
         to.setSelectedItemCustomize(etnia);
         this.myPrincipal.cmbEtnia.setModel(to);
+        this.myPrincipal.cmbEtnia.requestFocusInWindow();
     }
     
     public void setSelectedItemResguardo(Resguardo resguardo){
         ToComboBoxModel to = (ToComboBoxModel)this.myPrincipal.cmbResguardo.getModel(); 
         to.setSelectedItemCustomize(resguardo);
         this.myPrincipal.cmbResguardo.setModel(to);
+        this.myPrincipal.cmbResguardo.requestFocusInWindow();
     }
     
     public void setSelectedItemGenero(String nombre){
         ComboBoxModel to = this.myPrincipal.cmbGenero.getModel();
         to.setSelectedItem(nombre);
         this.myPrincipal.cmbGenero.setModel(to);
+        this.myPrincipal.cmbGenero.requestFocusInWindow();
     }
     
     public void llenarAnioMatricula(int id_sede){
@@ -290,12 +315,7 @@ public class ControllerComboPrincipal {
        ArrayList<Curso> cursos = this.cursoBusiness.selectAllCursosPorGrado(grado);
         this.myPrincipal.cmbCursoCalificaciones.setModel(new ToComboBoxModel(cursos, "getNombre"));
     }
-    
-    public void llenarAsignaturaPorCursoCalificacion(int curso){
-       ArrayList<Asignatura> asignaturas = this.asignaturaBusiness.asignaturasPorCurso(curso);
-        this.myPrincipal.cmbAsignaturaCalificaciones.setModel(new ToComboBoxModel(asignaturas, "getNombre"));
-    }
-    
+      
     public void llenarPeriodoPorJornada(int jornada){
        ArrayList<Periodo> periodos = this.periodoBusiness.selectAllPeriodosSinJornada(jornada);
         this.myPrincipal.cmbPeriodoCalificaciones.setModel(new ToComboBoxModel(periodos, "getComentario"));

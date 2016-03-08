@@ -85,7 +85,7 @@ public class PersonaDAOImpl {
         try{
             if(miConexion!=null)
             {
-                String q = this.guardarPersona+""+consulta;
+                String q = this.guardarPersona+""+consulta+" returning persona_id";
                 System.out.println("query de insert persona: "+q);
                 Statement st = miConexion.createStatement();
                 int id = st.executeUpdate(q, Statement.RETURN_GENERATED_KEYS);
@@ -94,16 +94,15 @@ public class PersonaDAOImpl {
                     String insertPersona ="insert into estudiante (codigo, persona_id) values ('',"+p.getId()+")";
                     int idEstudiante = st.executeUpdate(insertPersona, Statement.RETURN_GENERATED_KEYS);
                 }
-                
-                
                 st.close();
-                }
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception ex){
-            System.out.println("exception:"+ex.getMessage());
+            nullPointerException.printStackTrace();
+        }catch(Exception ex){
+            ex.printStackTrace();
         }
         return result;
     }
@@ -111,7 +110,6 @@ public class PersonaDAOImpl {
     public Persona getPersona(Persona p){      
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         Persona persona = new Persona();
         try{
             if(miConexion!=null)
@@ -136,10 +134,11 @@ public class PersonaDAOImpl {
                 }
         }
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return persona;
     }
@@ -147,7 +146,6 @@ public class PersonaDAOImpl {
     public Persona getPersonaMasCampos(Persona p){      
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         String x =this.personaPorIdentificacion;
         x+=p.getTipoDocumento().getId();
         
@@ -185,12 +183,15 @@ public class PersonaDAOImpl {
                     p.setSisben(rs.getInt(Integer.parseInt("sisben")));
                     p.setGenero(rs.getString("genero"));
                 }
+                st.close();
             }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return p;
     }
@@ -256,14 +257,11 @@ public class PersonaDAOImpl {
         }
         
         String cadena = this.todosLasPersonas+ " "+query;
-        
-        System.out.println("cadena persona: "+cadena);
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        
         try{
             if(miConexion!=null)
-            {
+            {   System.out.println("Cadena:"+cadena);
                 Statement st = miConexion.createStatement();
                 ResultSet rs = st.executeQuery(cadena);
                 while (rs.next())
@@ -303,14 +301,16 @@ public class PersonaDAOImpl {
                     persona.setTelefonoResidencia(rs.getString("telefono_residencia"));
                     personas.add(persona);
                 }
-        }
+                st.close();
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
-        catch(Exception exception){
-        }
-        
         return personas;
     }
     

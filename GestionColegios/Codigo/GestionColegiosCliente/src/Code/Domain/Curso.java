@@ -17,6 +17,7 @@ public class Curso {
     private Caracter caracter;
     private Especialidad especialidad;
     private Metodologia metodologia;
+    private Grado grado;
 
     public int getId() {
         return Id;
@@ -65,6 +66,16 @@ public class Curso {
     public void setMetodologia(Metodologia metodologia) {
         this.metodologia = metodologia;
     }
+
+    public Grado getGrado() {
+        return grado;
+    }
+
+    public void setGrado(Grado grado) {
+        this.grado = grado;
+    }
+    
+    
     
     
     

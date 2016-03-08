@@ -15,7 +15,7 @@ public class InstitucionEducativa {
     private String nombre;
     private String codigoDANEActual;
     private String codigoDANEAnterior;
-    private int municipio;
+    private Municipio municipio;
     private String rutaLogo;
     private String rutaArchivosGenerados;
     private String telefono;
@@ -53,14 +53,14 @@ public class InstitucionEducativa {
         this.codigoDANEAnterior = codigoDANEAnterior;
     }
 
-    public int getMunicipio() {
+    public Municipio getMunicipio() {
         return municipio;
     }
 
-    public void setMunicipio(int municipio) {
+    public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
     }
-
+    
     public String getRutaLogo() {
         return rutaLogo;
     }

@@ -7,14 +7,14 @@ package Code.Domain;
 
 /**
  *
- * @author Andres Orduz Grimaldo
+ * @author laynegranadosmogollon
  */
-public class Jornada {
+public class CaracteristicaBoletin {
     
     private int id;
     private String nombre;
-    private TipoJornada tipoJornada;
-    private Anio anio;
+    private String calculo;
+    private String tipo_valor;
 
     public int getId() {
         return id;
@@ -32,20 +32,24 @@ public class Jornada {
         this.nombre = nombre;
     }
 
-    public TipoJornada getTipoJornada() {
-        return tipoJornada;
+    public String getCalculo() {
+        return calculo;
     }
 
-    public void setTipoJornada(TipoJornada tipoJornada) {
-        this.tipoJornada = tipoJornada;
+    public void setCalculo(String calculo) {
+        this.calculo = calculo;
     }
 
-    public Anio getAnio() {
-        return anio;
+    public String getTipo_valor() {
+        return tipo_valor;
     }
 
-    public void setAnio(Anio anio) {
-        this.anio = anio;
+    public void setTipo_valor(String tipo_valor) {
+        this.tipo_valor = tipo_valor;
     }
-
+    
+    
+    
+    
+    
 }

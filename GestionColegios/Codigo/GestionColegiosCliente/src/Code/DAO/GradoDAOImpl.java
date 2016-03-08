@@ -62,13 +62,10 @@ public class GradoDAOImpl {
        
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         String query="";
         query=this.update+" "+
                 "nombre="+g.getNombre()+", "+
-                "jornada:Id='"+g.getJornadaId()+"' where grado_id="+g.getId();
-        System.out.println("query: "+query);
-         
+                "jornada:Id='"+g.getJornadaId()+"' where grado_id="+g.getId();         
         try{
             if(miConexion!=null)
             {
@@ -79,13 +76,14 @@ public class GradoDAOImpl {
                     g.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
-                }
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return g;
     }
@@ -97,7 +95,6 @@ public class GradoDAOImpl {
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         String query=this.gradoPorJornada+""+jornada;
-        
         try{
             if(miConexion!=null)
             {
@@ -111,12 +108,15 @@ public class GradoDAOImpl {
                     g.setId(rs.getInt("grado_id"));
                     grados.add(g);
                 }
-        }
+                st.close();
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return grados;
     }

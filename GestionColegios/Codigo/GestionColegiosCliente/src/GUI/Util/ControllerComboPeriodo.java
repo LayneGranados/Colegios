@@ -59,5 +59,6 @@ public class ControllerComboPeriodo {
         ToComboBoxModel to = (ToComboBoxModel)this.myPeriodo.cmbJornadaPeriodo.getModel();
         to.setSelectedItemCustomize(jor);
         this.myPeriodo.cmbJornadaPeriodo.setModel(to);
+        this.myPeriodo.cmbJornadaPeriodo.requestFocusInWindow();
     }
 }

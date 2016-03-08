@@ -25,8 +25,8 @@ public class ConexionBD {
         try
         {   
             Class.forName("com.mysql.jdbc.Driver");
+            String servidor = "jdbc:mysql://"+c.getIp().replace("ip: ", "");
             //String servidor = "jdbc:mysql://colegios.sytes.net:10508/colegios";
-            String servidor = "jdbc:mysql://yukasoft.com:3306/yukasoft_colegios";
             //String servidor = "jdbc:mysql://192.168.0.21:3306/colegios";
             String usuarioDB="yukasoft_colegio";
             String passwordDB="Petp=newPet";

@@ -28,12 +28,9 @@ public class TipoJornadaDAOImpl {
      public ArrayList<TipoJornada> getTodosLosTipoJornada(){
         
         ArrayList<TipoJornada> tiposJornada = new ArrayList<TipoJornada>();
-        
         Connection miConexion;
-
         miConexion=ConexionBD.GetConnection();
         String query=this.todosLosTipoJornada;
-        
         try{
             if(miConexion!=null)
             {
@@ -42,35 +39,30 @@ public class TipoJornadaDAOImpl {
                 while (rs.next())
                 {
                     TipoJornada tj = new TipoJornada();
-                    
                     tj.setNombre(rs.getString("nombre"));
-                    
                     tj.setId(rs.getInt("tipo_jornada_id"));
-                    
-                    
-                    
                     tiposJornada.add(tj);
                 }
-        }
+                st.close();
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return tiposJornada;
     }
     
     public TipoJornada tipoJornadaPorId (int id_tj){
          
-         TipoJornada tj= new TipoJornada();
-         Connection miConexion;
-         miConexion=ConexionBD.GetConnection();
-         String query="";
-         query=this.tipoJornadaPorId+""+id_tj;
-         
-         System.out.println("query: "+query);
-         
+        TipoJornada tj= new TipoJornada();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        String query="";
+        query=this.tipoJornadaPorId+""+id_tj;
         try{
             if(miConexion!=null)
             {
@@ -79,30 +71,27 @@ public class TipoJornadaDAOImpl {
                 while (rs.next())
                 {
                     tj.setNombre(rs.getString("nombre"));
-                    
                     tj.setId(rs.getInt("tipo_jornada_id"));          
                 }
-        }
+                st.close();
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return tj;
                  
      }
     
     public TipoJornada guardarTipoJornada(TipoJornada tj) {      
-       
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         String query="";
-        query=this.insert+"'"+
-                tj.getNombre()+"',"+
-                tj.getId()+"')";
-        System.out.println("query: "+query);
-         
+        query=this.insert+"'"+tj.getNombre()+"',"+tj.getId()+"')";         
         try{
             if(miConexion!=null)
             {
@@ -113,29 +102,24 @@ public class TipoJornadaDAOImpl {
                     tj.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
-                }
+            }
+        miConexion.close(); 
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return tj;
     }
     
     
     public TipoJornada updateTipoJornada(TipoJornada tj) {      
-       
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         String query="";
-        query=this.update+" "+
-                
-                "nombre='"+tj.getNombre()+"' where tipo_jornada_id="+tj.getId();
-        System.out.println("query: "+query);
-         
+        query=this.update+" "+"nombre='"+tj.getNombre()+"' where tipo_jornada_id="+tj.getId();
         try{
             if(miConexion!=null)
             {
@@ -146,13 +130,14 @@ public class TipoJornadaDAOImpl {
                     tj.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
-                }
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return tj;
     }

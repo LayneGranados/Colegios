@@ -202,8 +202,6 @@ public class ListadoPersonas extends javax.swing.JDialog {
             }
             data[i][4]= genero;
             data[i][5]= p.getFechaNacimiento().toString();
-            
-            
         }
         return data;
     }

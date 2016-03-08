@@ -14,8 +14,6 @@ import Code.Business.PersonaBusiness;
 import Code.Domain.Departamento;
 import Code.Domain.Municipio;
 import GUI.SedeModal;
-import GUI.Util.JComboBox;
-import GUI.Util.ToComboBoxModel;
 import java.util.ArrayList;
 
 /**
@@ -64,12 +62,14 @@ public class ControllerComboSede {
         ToComboBoxModel to = (ToComboBoxModel)this.mySede.cmbDepartamentoSede.getModel(); 
         to.setSelectedItemCustomize(dep);
         this.mySede.cmbDepartamentoSede.setModel(to);
+        this.mySede.cmbDepartamentoSede.requestFocusInWindow();
     }
     
     public void setSelectedItemMunicipio(Municipio mun){
         ToComboBoxModel to = (ToComboBoxModel)this.mySede.cmbMunicipioSede.getModel(); 
         to.setSelectedItemCustomize(mun);
         this.mySede.cmbMunicipioSede.setModel(to);
+        this.mySede.cmbMunicipioSede.requestFocusInWindow();
     }
      
 }

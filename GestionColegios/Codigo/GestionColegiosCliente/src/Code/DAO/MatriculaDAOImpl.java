@@ -34,6 +34,12 @@ public class MatriculaDAOImpl {
                                         "inner join estudiante e on m.estudiante_id = e.estudiante_id\n" +
                                         "where e.estudiante_id = ? and c.curso_id = ?";
     
+    String getEstudiantesMatriculadosEnCurso="select e.estudiante_id, m.matricula_id, m.codigo, p.* from matricula m \n" +
+                                             "inner join curso c on m.curso_id = c.curso_id \n" +
+                                             "inner join estudiante e on m.estudiante_id = e.estudiante_id\n" +
+                                             "inner join persona p on p.persona_id = e.persona_id\n" +
+                                             "where  c.curso_id = ? order by m.codigo";
+     
     String insertMatricula="insert into matricula ("
             +"estudiante_id,"
             + "curso_id,"
@@ -72,7 +78,6 @@ public class MatriculaDAOImpl {
             if(miConexion!=null)
             {   
                 String cadena = this.getMatricula+" estudiante_id="+idEstudiante+" and curso_id="+idCurso;
-                System.out.println("cadena en getMatricula: "+cadena);
                 Statement st = miConexion.createStatement();
                 ResultSet rs = st.executeQuery(cadena);
                 while (rs.next())
@@ -106,12 +111,15 @@ public class MatriculaDAOImpl {
                    m.setZonaAlumno(rs.getString("zona_alumno"));
                    m.setCondicionAnterior(rs.getInt("condicion_anio_anterior_id"));
                 }
+                st.close();
             }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return m;
     }
@@ -152,18 +160,17 @@ public class MatriculaDAOImpl {
                 +m.getPoblacionVictimaConflicto()+",str_to_date('"+
                 fecha+"','%d/%m/%Y'),"+
                 +m.getCondicionAnterior()+")";
-            System.out.println("cadena-insert:"+cadena);
             Statement st = miConexion.createStatement();
             x =st.execute(cadena);
             st.close();
         }
+        miConexion.close();
         return x;
     }
     
     public boolean buscarEstudianteMatriculadoEnCurso(int idEstudiante, int idCursos){
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Matricula m = new Matricula();
         boolean existeEstudiante = false;
         try{
             if(miConexion!=null)
@@ -171,7 +178,6 @@ public class MatriculaDAOImpl {
                 PreparedStatement preparedStatement = miConexion.prepareStatement(this.getEstudianteMatriculaEnAnio);
                 preparedStatement.setInt(1, idEstudiante);
                 preparedStatement.setInt(2, idCursos);
-                Statement st = miConexion.createStatement();
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next())
                 {
@@ -181,6 +187,7 @@ public class MatriculaDAOImpl {
                    }
                 }
             }
+        miConexion.close();
         }catch(SQLException sqlException){
             sqlException.printStackTrace();
             existeEstudiante = false;
@@ -194,6 +201,48 @@ public class MatriculaDAOImpl {
             existeEstudiante = false;
         }
         return existeEstudiante;
+        
+    }
+    
+    public ArrayList<Matricula> getEstudiantesMatriculadoEnCurso(int idCurso){
+        ArrayList<Matricula> matriculas = new ArrayList<Matricula>();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        try{
+            if(miConexion!=null)
+            {   
+                PreparedStatement preparedStatement = miConexion.prepareStatement(this.getEstudiantesMatriculadosEnCurso);
+                preparedStatement.setInt(1, idCurso);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next())
+                {
+                    Matricula m = new Matricula();
+                    m.setId(rs.getInt("matricula_id"));
+                    m.setCodigo(rs.getString("codigo"));
+                    Estudiante e = new Estudiante();
+                    e.setId(rs.getInt("estudiante_id"));
+                    Persona p = new Persona();
+                    p.setId(rs.getInt("persona_id"));
+                    p.setNombre1(rs.getString("nombre1"));
+                    p.setNombre2(rs.getString("nombre2"));
+                    p.setApellido1(rs.getString("apellido1"));
+                    p.setApellido2(rs.getString("apellido2"));
+                    e.setPersona(p);
+                    m.setEstudiante(e);
+                    matriculas.add(m);
+                }
+                preparedStatement.close();
+            }
+        miConexion.close();
+        }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+        }
+        catch(Exception exception){
+            exception.printStackTrace();
+        }
+        return matriculas;
         
     }
     

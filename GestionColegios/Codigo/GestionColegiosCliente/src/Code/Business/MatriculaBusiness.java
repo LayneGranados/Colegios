@@ -66,6 +66,9 @@ public class MatriculaBusiness {
         return this.matriculaDAO.buscarEstudianteMatriculadoEnCurso(idEstudiante, idCurso);
     }
     
+    public ArrayList<Matricula> getEstudiantesMatriculadoEnCurso(int idCurso){
+        return this.matriculaDAO.getEstudiantesMatriculadoEnCurso(idCurso);
+    }
     
     
     

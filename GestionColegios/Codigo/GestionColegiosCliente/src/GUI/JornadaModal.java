@@ -17,7 +17,6 @@ import Code.Domain.Jornada;
 import Code.Domain.Sede;
 import Code.Domain.TipoJornada;
 import GUI.Util.ControllerComboJornada;
-import GUI.Util.Objeto;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JTable;
@@ -47,7 +46,7 @@ public class JornadaModal extends javax.swing.JDialog {
     SedeBusiness sedeBusiness;
     AnioBusiness anioBusiness;
     
-    final String[] columnNames = {"Id", "Nombre", "Tipo Jornada","ID Tipo Jornada", "Año", "ID Año"};
+    final String[] columnNames = {"Id", "Nombre", "ID Tipo Jornada", "Tipo Jornada", "ID Año" ,"Año" };
     
     
     //Creates new form JornadaModal
@@ -151,7 +150,9 @@ public class JornadaModal extends javax.swing.JDialog {
         txtDescripcionJornada.setRows(5);
         jScrollPane1.setViewportView(txtDescripcionJornada);
 
-        jLabel9.setText("Tipo de Jornada");
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel9.setText("Tipo Jornada");
 
         cmbTipoDeJornada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,84 +164,90 @@ public class JornadaModal extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnLimparCamposJornada)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnGuardarJornada))
-                    .addComponent(scrollListadoJornada)
-                    .addComponent(jScrollPane1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblIdJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblIdJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnLimparCamposJornada)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnGuardarJornada))
+                            .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtNombreJornada, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbAnioJornada, javax.swing.GroupLayout.Alignment.LEADING, 0, 120, Short.MAX_VALUE)
-                                    .addComponent(cmbSedeJornada, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbTipoDeJornada, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(26, 26, 26))
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cmbAnioJornada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel2))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(cmbSedeJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cmbTipoDeJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtNombreJornada)))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(scrollListadoJornada))
+                        .addGap(0, 13, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblIdJornada)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIdJornada)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(cmbSedeJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(cmbTipoDeJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbAnioJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(txtNombreJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLimparCamposJornada)
-                            .addComponent(btnGuardarJornada))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(scrollListadoJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2)
+                                .addComponent(cmbSedeJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9)
+                                .addComponent(cmbTipoDeJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(cmbAnioJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimparCamposJornada)
+                    .addComponent(btnGuardarJornada))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollListadoJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -250,10 +257,12 @@ public class JornadaModal extends javax.swing.JDialog {
     private void btnGuardarJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarJornadaActionPerformed
         // TODO add your handling code here:
         Object anio = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbAnioJornada);
+        Anio a = (Anio)anio;
         Object tipoJornada = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbTipoDeJornada);
-        this.jornadaActual.setAnioId(((Anio)anio).getId());
+        TipoJornada tipo = (TipoJornada)tipoJornada;
+        this.jornadaActual.setAnio(a);
         this.jornadaActual.setNombre(this.txtNombreJornada.getText());
-        this.jornadaActual.setTipoJornada(((TipoJornada)tipoJornada));
+        this.jornadaActual.setTipoJornada(tipo);
         
         
         if(this.jornadaActual.getId()>0){
@@ -376,11 +385,11 @@ public class JornadaModal extends javax.swing.JDialog {
             Jornada j = jornadas.get(i);
             data[i][0] = j.getId();
             data[i][1] = j.getNombre();
-            data[i][2] = j.getTipoJornada().getNombre();
-            data[i][3] = j.getTipoJornada().getId();
-            Anio a = this.anioBusiness.getAnioPorId(j.getAnioId());
-            data[i][4] = a.getAnio();
-            data[i][5] = j.getAnioId();
+            data[i][2] = j.getTipoJornada().getId();
+            data[i][3] = j.getTipoJornada().getNombre();
+            data[i][4] = j.getAnio().getId();
+            data[i][5] = j.getAnio().getAnio();
+            
         }
         return data;
     }
@@ -423,22 +432,24 @@ public class JornadaModal extends javax.swing.JDialog {
             
             this.jornadaActual.setId((Integer)(model.getValueAt(row,0)));
             this.jornadaActual.setNombre((String)(model.getValueAt(row,1)));
-            int tipojorn = ((Integer)model.getValueAt(row,3));
-            this.jornadaActual.setTipoJornada(this.tipoJoranadaBusiness.tipoJornadaPorId(tipojorn));
-            this.jornadaActual.setAnioId((Integer)(model.getValueAt(row,5)));
+            TipoJornada tipo = new TipoJornada();
+            tipo.setId((Integer)model.getValueAt(row,2));
+            tipo.setNombre((String)model.getValueAt(row,3));
+            this.jornadaActual.setTipoJornada(tipo);
+            Anio a = new Anio();
+            a.setId((Integer)(model.getValueAt(row,4)));
+            a.setAnio((Integer)(model.getValueAt(row,5)));
+            this.jornadaActual.setAnio(a);
             
             this.txtNombreJornada.setText(this.jornadaActual.getNombre());
             this.lblIdJornada.setText(""+this.jornadaActual.getId());
-            
-            Anio anio =this.anioBusiness.getAnioPorId(this.jornadaActual.getAnioId());
-            Sede sede =  this.sedeBusiness.sedePorId(anio.getSede().getId());
-            TipoJornada tj = this.tipoJoranadaBusiness.tipoJornadaPorId(this.jornadaActual.getTipoJornada().getId());
-            this.controller= new ControllerComboJornada(this);
-            this.controller.setSelectedItemSede(sede);
-            this.controller.llenarAnioJornada(sede.getId());
-            this.controller.setSelectedItemAnio(anio);
-            this.controller.setSelectedItemTipoJornada(tj);
-            
+            this.controller.setSelectedItemAnio(a);
+            this.controller.setSelectedItemTipoJornada(tipo);
+            Object anio = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbAnioJornada);
+            Anio anioS = (Anio) anio;
+            if(anioS.getId()!=-1){
+                this.controller.setSelectedItemSede(anioS.getSede());
+            }            
         }
         
     }

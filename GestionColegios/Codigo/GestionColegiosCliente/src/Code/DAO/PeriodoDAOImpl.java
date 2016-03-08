@@ -42,9 +42,7 @@ public class PeriodoDAOImpl {
         
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         String query=this.todosLosPeriodos;
-        
         try{
             if(miConexion!=null)
             {
@@ -63,12 +61,15 @@ public class PeriodoDAOImpl {
                     p.setId(rs.getInt("periodo_id"));
                     periodos.add(p);
                 }
-        }
+                st.close();
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return periodos;
     }
@@ -82,17 +83,11 @@ public class PeriodoDAOImpl {
         String fechaIn = formatter.format(p.getFechaInicio());
         String fechaFi = formatter.format(p.getFechaFin());
         String query="";
-        query=this.insert+""+
-                                    
+        query=this.insert+""+            
                 p.getJornada().getId()+",str_to_date('"+
-                
                 fechaIn+"','%d/%m/%Y'),str_to_date('"+
-                
-                fechaFi+"','%d/%m/%Y'),'"+
-                        
-                p.getComentario()+"')";
-        System.out.println("query: "+query);
-         
+                fechaFi+"','%d/%m/%Y'),'"+     
+                p.getComentario()+"')";         
         try{
             if(miConexion!=null)
             {
@@ -103,13 +98,14 @@ public class PeriodoDAOImpl {
                     p.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
-                }
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return p;
     }
@@ -126,9 +122,7 @@ public class PeriodoDAOImpl {
                 "jornada_id="+p.getJornada().getId()+", "+
                 "fecha_inicio="+"str_to_date('"+fechaIn+"', '%d/%m/%Y'), "+
                 "fecha_fin="+"str_to_date('"+fechaFi+"', '%d/%m/%Y'), "+
-                "comentario='"+p.getComentario()+"' where periodo_id="+p.getId();
-        System.out.println("query: "+query);
-         
+                "comentario='"+p.getComentario()+"' where periodo_id="+p.getId();         
         try{
             if(miConexion!=null)
             {
@@ -139,25 +133,23 @@ public class PeriodoDAOImpl {
                     p.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
-                }
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return p;
     }
     
     public ArrayList<Periodo> selectAllPeriodos(int jornada){
-        
         ArrayList<Periodo> periodos = new ArrayList<Periodo>();
-        
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         String query=this.periodoPorJornada+""+jornada;
-        
         try{
             if(miConexion!=null)
             {
@@ -177,25 +169,25 @@ public class PeriodoDAOImpl {
                     p.setId(rs.getInt("periodo_id"));
                     periodos.add(p);
                 }
-        }
+                st.close();
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return periodos;
     }
     
     
     public ArrayList<Periodo> selectAllPeriodosSinJornada(int jornada){
-        
         ArrayList<Periodo> periodos = new ArrayList<Periodo>();
-        
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         String query=this.periodoPorJornada+""+jornada;
-        
         try{
             if(miConexion!=null)
             {
@@ -210,13 +202,14 @@ public class PeriodoDAOImpl {
                     p.setId(rs.getInt("periodo_id"));
                     periodos.add(p);
                 }
+                st.close();
             }
+        miConexion.close();
         }catch(SQLException sqlException){
             sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
             nullPointerException.printStackTrace();
-        }
-        catch(Exception exception){
+        }catch(Exception exception){
             exception.printStackTrace();
         }
         return periodos;

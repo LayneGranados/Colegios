@@ -8,6 +8,7 @@ package Code.DAO;
 import Code.Domain.Caracter;
 import Code.Domain.Curso;
 import Code.Domain.Especialidad;
+import Code.Domain.Grado;
 import Code.Domain.Metodologia;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 public class CursoDAOImpl {
     
     String todosLosCursos="select * from curso";
-    String cursoPorGrado="select cr.*, m.nombre as metodologia_nombre, c.nombre as caracter_nombre, e.nombre as especialidad_nombre from curso cr, metodologia m, caracter c, especialidad e where cr.caracter_id = c.caracter_id and cr.especialidad_id = e.especialidad_id and cr.metodologia_id=m.metodologia_id and grado_id=";
+    String cursoPorGrado="select cr.*, g.grado_id as grado_id_grado, g.nombre as grado_nombre , m.nombre as metodologia_nombre, c.nombre as caracter_nombre, e.nombre as especialidad_nombre from curso cr, metodologia m, caracter c, especialidad e, grado g where cr.grado_id = g.grado_id and cr.caracter_id = c.caracter_id and cr.especialidad_id = e.especialidad_id and cr.metodologia_id=m.metodologia_id and cr.grado_id=";
     String cursoPorCaracter="select * from curso where caracter_id=";
     String cursoPorEspecialidad="select * from curso where especialidad_id=";
     String cursoPorMetodologia="select * from curso where metodologia_id=";
@@ -34,10 +35,8 @@ public class CursoDAOImpl {
     
     
      public Curso guardarCurso(Curso c) {      
-       
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         String query="";
         query=this.insert+""+
                 c.getGradoId()+","+
@@ -45,8 +44,6 @@ public class CursoDAOImpl {
                 c.getCaracter().getId()+","+
                 c.getEspecialidad().getId()+","+
                 c.getMetodologia().getId()+")";
-        System.out.println("query: "+query);
-         
         try{
             if(miConexion!=null)
             {
@@ -57,13 +54,15 @@ public class CursoDAOImpl {
                     c.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
-                }
+                
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return c;
     }
@@ -72,7 +71,6 @@ public class CursoDAOImpl {
        
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
         String query="";
         query=this.update+" "+
                 "grado_id="+c.getGradoId()+", "+
@@ -81,8 +79,6 @@ public class CursoDAOImpl {
                 "especialidad_id="+c.getEspecialidad().getId()+", "+
                 "metodologia_id="+c.getMetodologia().getId()+", "+
                 "where sede_id="+c.getId();
-        System.out.println("query: "+query);
-         
         try{
             if(miConexion!=null)
             {
@@ -93,25 +89,25 @@ public class CursoDAOImpl {
                     c.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
-                }
+            }
+            miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return c;
     }
     
-    public ArrayList<Curso> selectAllCursosPorGrado(int grado){
+     public ArrayList<Curso> selectAllCursosPorGrado(int grado){
         
         ArrayList<Curso> cursos = new ArrayList<Curso>();
         
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         String query=this.cursoPorGrado+""+grado;
-        System.out.println(query);
         
         try{
             if(miConexion!=null)
@@ -134,14 +130,21 @@ public class CursoDAOImpl {
                     metodologia.setId(rs.getInt("metodologia_id"));
                     metodologia.setNombre(rs.getString("metodologia_nombre"));
                     c.setId(rs.getInt("curso_id"));
+                    Grado gr = new Grado();
+                    gr.setId(rs.getInt("grado_id_grado"));
+                    gr.setNombre(rs.getString("grado_nombre"));
+                    c.setGrado(gr);
                     cursos.add(c);
                 }
-        }
+                st.close();
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return cursos;
     }

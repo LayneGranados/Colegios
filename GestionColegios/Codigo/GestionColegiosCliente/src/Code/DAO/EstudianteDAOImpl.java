@@ -33,26 +33,25 @@ public class EstudianteDAOImpl {
         Boolean result=false;
         try{
             if(miConexion!=null)
-        {
-            Statement st = miConexion.createStatement();
-            
-            result = st.execute(this.guardarEstudiante +e.getPersona().getId()+")");
-            st.close();
-        }
+            {
+                Statement st = miConexion.createStatement();
+                result = st.execute(this.guardarEstudiante +e.getPersona().getId()+")");
+                st.close();
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return result;
     }
     
     public Estudiante getEstudianteMasCampos(Estudiante e){      
         Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
-              
+        miConexion=ConexionBD.GetConnection();              
         try{
             if(miConexion!=null)
             {
@@ -62,12 +61,15 @@ public class EstudianteDAOImpl {
                 {
                    e.setId(rs.getInt("estudiante_id"));
                 }
+                st.close();
             }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return e;
     }

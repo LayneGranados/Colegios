@@ -46,22 +46,21 @@ public class CertificacionDAOImpl {
             if(miConexion!=null)
             {
                 Statement st = miConexion.createStatement();
-                //result = st.execute(query);
                 int id = st.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-                
-                
                 ResultSet rs = st.getGeneratedKeys();
                 if(rs.next()){
                     cer.setCer_old_id(rs.getInt(1));
                 }
                 st.close();
                 miConexion.close();
-                }
+            }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return result;
     }
@@ -142,9 +141,7 @@ public class CertificacionDAOImpl {
         }
         
         Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
-        
+        miConexion=ConexionBD.GetConnection();        
         try{
             if(miConexion!=null)
             {
@@ -168,11 +165,13 @@ public class CertificacionDAOImpl {
                     certificados.add(cer);
                 }
         }
+        miConexion.close();
         }catch(SQLException sqlException){
-            
+            sqlException.printStackTrace();
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
         }
         return certificados;
     }

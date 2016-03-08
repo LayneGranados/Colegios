@@ -41,6 +41,7 @@ public class ColegioDAOImpl {
             }
             st.close();
         }
+        miConexion.close();
         return colegios;
     }
     

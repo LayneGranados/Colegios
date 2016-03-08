@@ -1,3 +1,3 @@
-IP=colegios.sytes.net
-IP=colegios.sytes.netxx
-IP=192.168.0.21IP=192.168.0.21
+IP=yukasoft.com:3306/yukasoft_colegios
+IP=yukasoft.com:3306/yukasoft_colegios_prueba
+IP=yukasoft.com:3306/yukasoft_colegios

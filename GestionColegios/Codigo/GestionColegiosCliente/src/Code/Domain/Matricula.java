@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Matricula {
     
+    private int id;
     private Estudiante estudiante;
     private Date fechaMatricula;
     
@@ -288,5 +289,15 @@ public class Matricula {
     public void setFechaMatricula(Date fechaMatricula) {
         this.fechaMatricula = fechaMatricula;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
     
 }

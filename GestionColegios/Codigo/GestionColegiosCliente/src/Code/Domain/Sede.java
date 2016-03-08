@@ -13,7 +13,7 @@ public class Sede {
     
     private int id;
     private String codigoDANEantiguo;
-    private int municipio;
+    private Municipio municipio;
     private int consecutivo;
     private int colegio;
     private String nombre;
@@ -59,11 +59,11 @@ public class Sede {
         this.nombre = nombre;
     }
 
-    public int getMunicipio() {
+    public Municipio getMunicipio() {
         return municipio;
     }
 
-    public void setMunicipio(int municipio) {
+    public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
     }
     

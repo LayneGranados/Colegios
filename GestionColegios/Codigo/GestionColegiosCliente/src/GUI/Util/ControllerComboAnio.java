@@ -59,22 +59,14 @@ public class ControllerComboAnio {
         return ((JComboBox) combo).getObjectSelected();
     }
     
-
-    
-    public void setSelectedItemSede(Sede sede){
-        /*ToComboBoxModel to = (ToComboBoxModel)this.mySede.cmbDepartamentoSede.getModel(); 
-        to.setSelectedItemCustomize(dep);
-        this.myAnio.cmbDepartamentoSede.setModel(to);*/
-        
+    public void setSelectedItemSede(Sede sede){        
         ToComboBoxModel to = (ToComboBoxModel)this.myAnio.cmbSedeAnio.getModel();
         to.setSelectedItemCustomize(sede);
         this.myAnio.cmbSedeAnio.setModel(to);
+        this.myAnio.cmbSedeAnio.requestFocusInWindow();
     }
     
     public void setSelectedItemMunicipio(Municipio mun){
-        /*ToComboBoxModel to = (ToComboBoxModel)this.mySede.cmbMunicipioSede.getModel(); 
-        to.setSelectedItemCustomize(mun);
-        this.myAnio.cmbMunicipioSede.setModel(to);*/
     }
     
 }

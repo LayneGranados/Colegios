@@ -7,6 +7,7 @@ package Code.DAO;
 
 import Code.Business.SedeBusiness;
 import Code.Domain.Anio;
+import Code.Domain.Municipio;
 import Code.Domain.Sede;
 import Code.Util.ConexionBD;
 import java.sql.Connection;
@@ -14,14 +15,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Andres Orduz Grimaldo
  */
 public class AnioDAOImpl {
-    SedeBusiness sedeBusiness;
     
+    SedeBusiness sedeBusiness;
     String aniosPorSede="select * from anio where sede_id=";
     String todosLasAniosConSede="select anio.*, sede.* from anio, sede where anio.sede_id = sede.sede_id";
     String anioPorSede="select * from anio where sede_id=";
@@ -37,9 +40,7 @@ public class AnioDAOImpl {
     public ArrayList<Anio> getAniosPorSede(int id_sede){
         
         ArrayList<Anio> anio = new ArrayList<Anio>();
-        
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
+        Connection miConexion=ConexionBD.GetConnection();
         Boolean result=false;
         String query=this.aniosPorSede+""+id_sede;
         
@@ -61,12 +62,32 @@ public class AnioDAOImpl {
                     a.setSede(s);
                     anio.add(a);
                 }
-        }
+                st.close();
+            }
         }catch(SQLException sqlException){
-            
+            try {
+                miConexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AnioDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }catch(NullPointerException nullPointerException){
+            try {
+                miConexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AnioDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         catch(Exception exception){
+            try {
+                miConexion.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AnioDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        try {
+            miConexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(AnioDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return anio;
     }
@@ -74,13 +95,9 @@ public class AnioDAOImpl {
     public Anio anioPorId (int id){
         
         Anio a = new Anio();
-         Connection miConexion;
-         miConexion=ConexionBD.GetConnection();
-         String query="";
-         query=this.anioPorId+""+id;
-         
-         System.out.println("query: "+query);
-         
+        Connection miConexion=ConexionBD.GetConnection();
+        String query="";
+        query=this.anioPorId+""+id;         
         try{
             if(miConexion!=null)
             {
@@ -95,28 +112,23 @@ public class AnioDAOImpl {
                     a.setSede(s);
                     a.setId(rs.getInt("anio_id"));          
                 }
-        }
+                st.close();
+            }
+            miConexion.close();
         }catch(SQLException sqlException){
-            
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+        }catch(Exception exception){
         }
         return a;
     }
-     public Anio guardarAnio(Anio a) {      
-       
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
+     public Anio guardarAnio(Anio a){      
+        Connection miConexion=ConexionBD.GetConnection();
         String query="";
         query=this.insert+""+
                 a.getId()+","+
                 a.getAnio()+",'"+
                 a.getDescripcion()+"',"+
                 a.getSede().getId()+")";
-        System.out.println("query: "+query);
-         
         try{
             if(miConexion!=null)
             {
@@ -127,30 +139,23 @@ public class AnioDAOImpl {
                     a.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
-                }
+            }
+            miConexion.close();
         }catch(SQLException sqlException){
-            
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+        }catch(Exception exception){
         }
         return a;
     }
      
      public Anio updateAnio(Anio a) {      
-       
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
+        Connection miConexion=ConexionBD.GetConnection();
         String query="";
         query=this.update+" "+
                 "anio_id="+a.getId()+", "+
-                "anio='"+a.getAnio()+"', '"+
-                "descripcion="+a.getDescripcion()+"', "+
-                "sede_id="+a.getSede()+", "+"' where anio_id="+a.getId();;
-        System.out.println("query: "+query);
-         
+                "anio='"+a.getAnio()+"', "+
+                "descripcion='"+a.getDescripcion()+"', "+
+                "sede_id="+a.getSede().getId()+" where anio_id="+a.getId();
         try{
             if(miConexion!=null)
             {
@@ -161,13 +166,11 @@ public class AnioDAOImpl {
                     a.setId(rs.getInt(1));
                 }
                 st.close();
-                miConexion.close();
                 }
+            miConexion.close();
         }catch(SQLException sqlException){
-            
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+        }catch(Exception exception){
         }
         return a;
     }
@@ -175,10 +178,7 @@ public class AnioDAOImpl {
     public ArrayList<Anio> selectAllAnios(){
         
         ArrayList<Anio> anio = new ArrayList<Anio>();
-        
-        Connection miConexion;
-        miConexion=ConexionBD.GetConnection();
-        Boolean result=false;
+        Connection miConexion=ConexionBD.GetConnection();
         String query=this.todosLasAniosConSede;
         
         try{
@@ -193,23 +193,24 @@ public class AnioDAOImpl {
                     Sede s = new Sede();
                     a.setId(rs.getInt("anio_id"));
                     a.setAnio(rs.getInt("anio"));
-                  
                     a.setDescripcion(rs.getString("descripcion"));
                     s.setId(rs.getInt("sede_id"));
                     s.setColegio(rs.getInt("colegio_id"));
-                    s.setMunicipio(rs.getInt("municipio_id"));
+                    Municipio m = new Municipio();
+                    m.setId(rs.getInt("municipio_id"));
+                    s.setMunicipio(m);
                     s.setCodigoDANEantiguo(rs.getString("antiguo_codigo_dane"));
                     s.setConsecutivo(rs.getInt("consecutivo"));
                     s.setNombre(rs.getString("nombre"));
                     a.setSede(s);
                     anio.add(a);
                 }
-        }
-        }catch(SQLException sqlException){
-            
+                st.close();
+            }
+            miConexion.close();
+        }catch(SQLException sqlException){    
         }catch(NullPointerException nullPointerException){
-        }
-        catch(Exception exception){
+        }catch(Exception exception){
         }
         return anio;
     }

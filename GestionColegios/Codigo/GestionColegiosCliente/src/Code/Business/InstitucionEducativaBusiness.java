@@ -28,4 +28,8 @@ public class InstitucionEducativaBusiness {
         return this.institucionEducativaDAOImpl.selectColegio();
     }
     
+    public void updateColegio(InstitucionEducativa institucionEducativa){
+        this.institucionEducativaDAOImpl.updateColegio(institucionEducativa);
+    }
+    
 }

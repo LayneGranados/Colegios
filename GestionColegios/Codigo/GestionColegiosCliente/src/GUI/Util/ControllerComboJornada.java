@@ -80,6 +80,7 @@ public class ControllerComboJornada {
         ToComboBoxModel to = (ToComboBoxModel)this.myJornada.cmbTipoDeJornada.getModel();
         to.setSelectedItemCustomize(tj);
         this.myJornada.cmbTipoDeJornada.setModel(to);
+        this.myJornada.cmbTipoDeJornada.requestFocusInWindow();
     }
     
     public void setSelectedItemSede (Sede sede){
@@ -87,6 +88,7 @@ public class ControllerComboJornada {
         ToComboBoxModel to = (ToComboBoxModel)this.myJornada.cmbSedeJornada.getModel();
         to.setSelectedItemCustomize(sede);
         this.myJornada.cmbSedeJornada.setModel(to);
+        this.myJornada.cmbSedeJornada.requestFocusInWindow();
     }
     
     public void setSelectedItemAnio(Anio anio){
@@ -94,5 +96,6 @@ public class ControllerComboJornada {
         ToComboBoxModel to = (ToComboBoxModel)this.myJornada.cmbAnioJornada.getModel();
         to.setSelectedItemCustomize(anio);
         this.myJornada.cmbAnioJornada.setModel(to);
+        this.myJornada.cmbAnioJornada.requestFocusInWindow();
     }
 }

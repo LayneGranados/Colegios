@@ -36,7 +36,7 @@ public class SedeModal extends javax.swing.JDialog {
     InstitucionEducativa actualColegio;
     ArrayList<Sede> sedes;
     
-    final String[] columnNames = {"Id", "Nombre", "Consecutivo", "Municipio", "Antiguo DANE"};
+    final String[] columnNames = {"Id", "Nombre", "Consecutivo", "Antiguo DANE", "Id Municipio" ,"Municipio" };
 
     /**
      * Creates new form SedeModal
@@ -263,7 +263,7 @@ public class SedeModal extends javax.swing.JDialog {
     private void btnGuardarSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarSedeActionPerformed
         // TODO add your handling code here:
         Object mun = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbMunicipioSede);
-        this.sedeActual.setMunicipio(((Municipio)mun).getId());
+        this.sedeActual.setMunicipio(((Municipio)mun));
         this.sedeActual.setNombre(this.txtNombreSede.getText());
         this.sedeActual.setColegio(actualColegio.getId());
         this.sedeActual.setCodigoDANEantiguo(this.txtCodigoDANEAnterior.getText());
@@ -371,15 +371,16 @@ public class SedeModal extends javax.swing.JDialog {
 
     private Object[][] dataTable(){
         int tamSedes = this.sedes.size();
-        Object[][] data = new Object[tamSedes][5];
+        Object[][] data = new Object[tamSedes][6];
         
         for(int i=0;i<sedes.size();i++){
            Sede s = sedes.get(i);
             data[i][0]= s.getId();
             data[i][1]= s.getNombre();
             data[i][2]= s.getCodigoDANEantiguo();
-            data[i][3]= s.getMunicipio();
-            data[i][4]= s.getConsecutivo();
+            data[i][3]= s.getMunicipio().getId();
+            data[i][4]= s.getMunicipio().getNombre();
+            data[i][5]= s.getConsecutivo();
         }
         return data;
     }
@@ -421,17 +422,22 @@ public class SedeModal extends javax.swing.JDialog {
             
             this.sedeActual.setId((Integer)(model.getValueAt(row,0)));
             this.sedeActual.setNombre((String)(model.getValueAt(row,1)));
-            this.sedeActual.setCodigoDANEantiguo(((String)model.getValueAt(row,2)));
-            this.sedeActual.setMunicipio((Integer)(model.getValueAt(row,3)));
-            this.sedeActual.setConsecutivo((Integer)(model.getValueAt(row,4)));
+            this.sedeActual.setConsecutivo((Integer)(model.getValueAt(row,2)));
+            this.sedeActual.setCodigoDANEantiguo(((String)model.getValueAt(row,3)));
+            
+            Municipio m = new Municipio();
+            m.setId((Integer)(model.getValueAt(row,4)));
+            m.setNombre((String)model.getValueAt(row,5));
+            this.sedeActual.setMunicipio(m);
             
             this.txtNombreSede.setText(this.sedeActual.getNombre());
             this.txtConsecutivoSede.setText(""+this.sedeActual.getConsecutivo());
             this.txtCodigoDANEAnterior.setText(this.sedeActual.getCodigoDANEantiguo());
             this.lblIdSede.setText(""+this.sedeActual.getId());
             
-            Municipio municipio = this.auxiliaresBusiness.getMunicipioPorId(this.sedeActual.getMunicipio());
+            Municipio municipio = this.auxiliaresBusiness.getMunicipioPorId(this.sedeActual.getMunicipio().getId());
             Departamento departamento =  this.auxiliaresBusiness.getDepartamentoPorId(municipio.getDepartamentoId());
+            
             this.controller= new ControllerComboSede(this);
             this.controller.setSelectedItemDepartamento(departamento);
             this.controller.llenarMunicipioSede(departamento.getId());
