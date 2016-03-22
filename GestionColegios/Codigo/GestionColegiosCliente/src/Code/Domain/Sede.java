@@ -14,7 +14,7 @@ public class Sede {
     private int id;
     private String codigoDANEantiguo;
     private Municipio municipio;
-    private int consecutivo;
+    private Long consecutivo;
     private int colegio;
     private String nombre;
     
@@ -35,11 +35,11 @@ public class Sede {
         this.codigoDANEantiguo = codigoDANEantiguo;
     }
 
-    public int getConsecutivo() {
+    public Long getConsecutivo() {
         return consecutivo;
     }
 
-    public void setConsecutivo(int consecutivo) {
+    public void setConsecutivo(Long consecutivo) {
         this.consecutivo = consecutivo;
     }
 

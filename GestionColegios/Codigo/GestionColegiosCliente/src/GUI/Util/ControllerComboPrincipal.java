@@ -91,20 +91,22 @@ public class ControllerComboPrincipal {
     public void llenarCombos() {
         combosPersonas();
         combosMatricula();
-        combosCalificaciones();
     }
     
-    public void combosPersonas(){
-        ArrayList<TipoDocumento> tiposDeDocumento = this.auxiliaresBusiness.getAllTipoDocumento();
+    public void llenarCombosDepartamentos(){
         ArrayList<Departamento> departamentos = this.auxiliaresBusiness.getAllDepartamentos();
-        ArrayList<Resguardo> resguardos = this.auxiliaresBusiness.getAllResguardo();
-        ArrayList<Etnia> etnias = this.auxiliaresBusiness.getAllEtnia();
-        this.myPrincipal.cmbTipoDocumentoIdentificacion.setModel(new ToComboBoxModel(tiposDeDocumento, "getNombre"));
         this.myPrincipal.cmbDepartamentoExpedicion.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbDepartamentoNacimiento.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbDepartamentoResidencia.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbDepartamentoColegio.setModel(new ToComboBoxModel(departamentos, "getNombre"));
         this.myPrincipal.cmbDepartamentoExpulsor.setModel(new ToComboBoxModel(departamentos, "getNombre"));
+    }
+    
+    public void combosPersonas(){
+        ArrayList<TipoDocumento> tiposDeDocumento = this.auxiliaresBusiness.getAllTipoDocumento();
+        ArrayList<Resguardo> resguardos = this.auxiliaresBusiness.getAllResguardo();
+        ArrayList<Etnia> etnias = this.auxiliaresBusiness.getAllEtnia();
+        this.myPrincipal.cmbTipoDocumentoIdentificacion.setModel(new ToComboBoxModel(tiposDeDocumento, "getNombre"));
         this.myPrincipal.cmbEtnia.setModel(new ToComboBoxModel(etnias, "getNombre"));
         this.myPrincipal.cmbResguardo.setModel(new ToComboBoxModel(resguardos, "getNombre"));
     }

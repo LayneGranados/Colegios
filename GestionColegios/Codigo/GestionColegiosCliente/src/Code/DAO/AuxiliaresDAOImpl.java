@@ -26,6 +26,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -51,6 +53,7 @@ public class AuxiliaresDAOImpl {
     String todosColegios="select * from colegio";
     String departamentoPorID="select * from departamento where departamento_id=";
     String todosMunicipiosPorDepartamento="select * from municipio where departamento_id=";
+    String todosLosMunicipios = "select * from municipio";
     String municipioPorID="select * from municipio where municipio_id=";
     String etniaPorId = "select * from etnia where etnia_id=";
     String resguardoPorId = "select * from resguardo where resguardo_id=";
@@ -177,6 +180,54 @@ public class AuxiliaresDAOImpl {
         }
         miConexion.close();
         return m;
+    }
+    
+    public ArrayList<Municipio> getMunicipios() throws SQLException{
+        ArrayList<Municipio> municipios = new ArrayList<Municipio>();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.todosLosMunicipios);
+            while (rs.next())
+            {
+                Municipio m = new Municipio();
+                m.setId(rs.getInt("municipio_id"));
+                m.setNombre(rs.getString("nombre"));
+                m.setCodigoDANE(rs.getString("codigo_dane"));
+                m.setDepartamentoId(rs.getInt("departamento_id"));
+                municipios.add(m);
+            }
+            st.close();
+        }
+        miConexion.close();
+        return municipios;
+    }
+    
+    public Map<String, Municipio> getMapMunicipios() throws SQLException{
+        Map<String, Municipio> municipios = new HashMap<String, Municipio>();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.todosLosMunicipios);
+            while (rs.next())
+            {
+                Municipio m = new Municipio();
+                m.setId(rs.getInt("municipio_id"));
+                m.setNombre(rs.getString("nombre"));
+                m.setCodigoDANE(rs.getString("codigo_dane"));
+                m.setDepartamentoId(rs.getInt("departamento_id"));
+                municipios.put(m.getCodigoDANE(), m);
+            }
+            st.close();
+        }
+        miConexion.close();
+        return municipios;
     }
     
     public ArrayList<SituacionAnioAnterior> getAllSituacionesAnteriores() throws SQLException{
@@ -499,6 +550,58 @@ public class AuxiliaresDAOImpl {
         return all;
     }
     
+    public Map<Integer, Resguardo> getMapAllResguardo() throws SQLException{
+        Map<Integer, Resguardo> all = new HashMap<Integer, Resguardo>();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+      
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.todosResguardo);
+            Resguardo r = new Resguardo();
+            r.setId(-1);
+            r.setNombre("No Aplica");
+            all.put(r.getId(), r);
+            while (rs.next())
+            {   
+                r = new Resguardo();
+                r.setId(rs.getInt("resguardo_id"));
+                r.setNombre(rs.getString("nombre"));
+                all.put(r.getId(), r);
+            }
+            st.close();
+        }
+        miConexion.close();
+        return all;
+    }
+    
+    public Map<Integer, Etnia> getMapEtnia() throws SQLException{
+        Map<Integer, Etnia> all = new HashMap<Integer, Etnia>();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+      
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.todosEtnia);
+            Etnia e = new Etnia();
+            e.setId(-1);
+            e.setNombre("No Aplica");
+            all.put(e.getId(), e);
+            while (rs.next())
+            {   
+                e = new Etnia();
+                e.setId(rs.getInt("etnia_id"));
+                e.setNombre(rs.getString("nombre"));
+                all.put(e.getId(), e);
+            }
+            st.close();
+        }
+        miConexion.close();
+        return all;
+    }
+    
     public ArrayList<Etnia> getAllEtnia() throws SQLException{
         ArrayList<Etnia> all = new ArrayList<Etnia>();
         Connection miConexion;
@@ -547,6 +650,34 @@ public class AuxiliaresDAOImpl {
                 tipo.setId(rs.getInt("tipo_documento_id"));
                 tipo.setNombre(rs.getString("nombre"));
                 all.add(tipo);
+            }
+            st.close();
+        }
+        miConexion.close();
+        return all;
+    }
+    
+    public Map<Integer,TipoDocumento> getMapAllTipoDocumento() throws SQLException{
+        Map<Integer,TipoDocumento> all = new HashMap<Integer,TipoDocumento>();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+      
+        if(miConexion!=null)
+        {
+            Statement st = miConexion.createStatement();
+            ResultSet rs = st.executeQuery(this.todosTipoDocumento);
+            
+            TipoDocumento tipo = new TipoDocumento();
+            tipo.setId(-1);
+            tipo.setNombre("No Seleccionado");
+            all.put(tipo.getId(),tipo);
+            
+            while (rs.next())
+            {
+                tipo = new TipoDocumento();
+                tipo.setId(rs.getInt("tipo_documento_id"));
+                tipo.setNombre(rs.getString("nombre"));
+                all.put(tipo.getId(),tipo);
             }
             st.close();
         }

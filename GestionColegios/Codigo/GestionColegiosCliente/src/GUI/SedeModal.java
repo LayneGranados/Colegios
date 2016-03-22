@@ -267,7 +267,12 @@ public class SedeModal extends javax.swing.JDialog {
         this.sedeActual.setNombre(this.txtNombreSede.getText());
         this.sedeActual.setColegio(actualColegio.getId());
         this.sedeActual.setCodigoDANEantiguo(this.txtCodigoDANEAnterior.getText());
-        this.sedeActual.setConsecutivo(Integer.parseInt(this.txtConsecutivoSede.getText()));
+        if(this.txtConsecutivoSede.getText() != null){
+            this.sedeActual.setConsecutivo(Long.parseLong(this.txtConsecutivoSede.getText()));
+        }else{
+            this.sedeActual.setConsecutivo(0L);
+        }
+        
         
         
         if(this.sedeActual.getId()>0){
@@ -378,9 +383,9 @@ public class SedeModal extends javax.swing.JDialog {
             data[i][0]= s.getId();
             data[i][1]= s.getNombre();
             data[i][2]= s.getCodigoDANEantiguo();
-            data[i][3]= s.getMunicipio().getId();
+            data[i][5]= s.getMunicipio().getId();
             data[i][4]= s.getMunicipio().getNombre();
-            data[i][5]= s.getConsecutivo();
+            data[i][3]= s.getConsecutivo();
         }
         return data;
     }
@@ -422,8 +427,14 @@ public class SedeModal extends javax.swing.JDialog {
             
             this.sedeActual.setId((Integer)(model.getValueAt(row,0)));
             this.sedeActual.setNombre((String)(model.getValueAt(row,1)));
-            this.sedeActual.setConsecutivo((Integer)(model.getValueAt(row,2)));
-            this.sedeActual.setCodigoDANEantiguo(((String)model.getValueAt(row,3)));
+            String value = (String)model.getValueAt(row,2);
+            if(value.isEmpty()){
+                this.sedeActual.setConsecutivo(0L);
+            }else{
+                this.sedeActual.setConsecutivo(Long.parseLong(value));
+            }
+            
+            this.sedeActual.setCodigoDANEantiguo((((String)model.getValueAt(row,3))));
             
             Municipio m = new Municipio();
             m.setId((Integer)(model.getValueAt(row,4)));

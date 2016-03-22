@@ -200,7 +200,7 @@ public class AnioDAOImpl {
                     m.setId(rs.getInt("municipio_id"));
                     s.setMunicipio(m);
                     s.setCodigoDANEantiguo(rs.getString("antiguo_codigo_dane"));
-                    s.setConsecutivo(rs.getInt("consecutivo"));
+                    s.setConsecutivo(rs.getLong("consecutivo"));
                     s.setNombre(rs.getString("nombre"));
                     a.setSede(s);
                     anio.add(a);
