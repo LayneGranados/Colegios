@@ -5,20 +5,25 @@
  */
 package Code.Business;
 
+import Code.DAO.AnioDAOImpl;
 import Code.DAO.AuxiliaresDAOImpl;
 import Code.DAO.EstudianteDAOImpl;
 import Code.DAO.InstitucionEducativaDAOImpl;
+import Code.DAO.JornadaDAOImpl;
 import Code.DAO.MatriculaDAOImpl;
 import Code.DAO.PersonaDAOImpl;
 import Code.DAO.SedeDAOImpl;
+import Code.Domain.Anio;
 import Code.Domain.Etnia;
 import Code.Domain.InstitucionEducativa;
+import Code.Domain.Jornada;
 import Code.Domain.Matricula;
 import Code.Domain.Municipio;
 import Code.Domain.Persona;
 import Code.Domain.Resguardo;
 import Code.Domain.Sede;
 import Code.Domain.TipoDocumento;
+import Code.Domain.TipoJornada;
 import Code.Util.PDFUtil;
 import Code.Util.UtilidadesArchivo;
 import java.io.File;
@@ -46,6 +51,8 @@ public class MatriculaBusiness {
     InstitucionEducativaDAOImpl instuticionDAO;
     SedeDAOImpl sedeDAO;
     PersonaDAOImpl personaDAO;
+    AnioDAOImpl anioDAO;
+    JornadaDAOImpl jornadaDAO;
 
     public MatriculaBusiness() {
         this.estudianteDAO = new EstudianteDAOImpl();
@@ -54,6 +61,8 @@ public class MatriculaBusiness {
         this.instuticionDAO = new InstitucionEducativaDAOImpl();
         this.sedeDAO = new SedeDAOImpl();
         this.personaDAO = new PersonaDAOImpl();
+        this.anioDAO = new AnioDAOImpl();
+        this.jornadaDAO = new JornadaDAOImpl();
     }
     
     public EstudianteDAOImpl getEstudianteDAO() {
@@ -70,13 +79,52 @@ public class MatriculaBusiness {
         Map<String, Municipio> municipios = null;
         Map<String, InstitucionEducativa> colegios = null;
         Map<Long,Sede> sedes = null;
-        Map<String, InstitucionEducativa> guardarColegios = new HashMap<String, InstitucionEducativa>();
         Map<Long,Sede> guardarSedes = new HashMap<Long,Sede>();
+        Map<Integer,Anio> anios = null;
+        Map<Integer,Anio> guardarAnios = new HashMap<Integer,Anio>();
+        Map<Integer,Jornada> jornadas = null;
+        Map<String,Jornada> guardarJornadas = new HashMap<String,Jornada>();
+        Map<String, InstitucionEducativa> guardarColegios = new HashMap<String, InstitucionEducativa>();
         Map<Integer, TipoDocumento> tiposDocumentos = null;
         Map<String, Persona> personas = null;
         Map<String, Persona> guardarPersonas = new HashMap<String, Persona>();
         Map<Integer, Etnia> etnias = null;
         Map<Integer, Resguardo> resguardos = null;
+        ArrayList<TipoJornada> tiposJornadas = new ArrayList<TipoJornada>();
+        tiposJornadas.add(new TipoJornada(1,"Completa"));
+        tiposJornadas.add(new TipoJornada(2,"Mañana"));
+        tiposJornadas.add(new TipoJornada(3,"Tarde"));
+        tiposJornadas.add(new TipoJornada(4,"Nocturna"));
+        tiposJornadas.add(new TipoJornada(5,"Fin de Semana"));
+        Map<Integer,String> grado = new HashMap<Integer,String>();
+        grado.put(-2, "Pre-Jardin");
+        grado.put(-1, "Jardín I o A o Kinder");
+        grado.put(0, "Jardín II o B, Transición o Grado 0");
+        grado.put(1, "Primero");
+        grado.put(2, "Segundo");
+        grado.put(3, "Tercero");
+        grado.put(4, "Cuarto");
+        grado.put(5, "Quinto");
+        grado.put(6, "Sexto");
+        grado.put(7, "Septimo");
+        grado.put(8, "Octavo");
+        grado.put(9, "Noveno");
+        grado.put(10, "Decimo");
+        grado.put(11, "Once");
+        grado.put(12, "Doce - Normal Superior");
+        grado.put(13, "Trece - Normal Superior");
+        grado.put(14, "Educación discapacidad cognitiva no integrada");
+        grado.put(15, "Educación discapacidad auditiva no integrada");
+        grado.put(16, "Educación discapacidad visual no integrada");
+        grado.put(17, "Educación discapacidad motora no integrada");
+        grado.put(18, "Educación discapacidad múltiple no integrada");
+        grado.put(21, "Ciclo 1 Adultos");
+        grado.put(22, "Ciclo 2 Adultos");
+        grado.put(23, "Ciclo 3 Adultos");
+        grado.put(24, "Ciclo 4 Adultos");
+        grado.put(25, "Ciclo 5 Adultos");
+        grado.put(26, "Ciclo 6 Adultos");
+        grado.put(99, "Aceleración del Aprendizaje");
         
         try {
             municipios = this.auxiliaresDAO.getMapMunicipios();
@@ -123,7 +171,6 @@ public class MatriculaBusiness {
             if(exSede == null){
                 exSede = guardarSedes.get(consecutivo);
                 if(exSede == null){
-                    System.out.println("linea: "+i);
                     Sede s = new Sede();
                     s.setNombre(campos[2]);
                     String codigoDANEColegio = campos[5].trim().replaceAll(" ", "");
@@ -139,6 +186,93 @@ public class MatriculaBusiness {
         }
         this.sedeDAO.guardarMapSede(guardarSedes);
         sedes = this.sedeDAO.getMapTodasLasSedes();
+        
+        for(int i=0;i<lineas.size();i++){ 
+            String linea = lineas.get(i);
+            String[] campos = linea.split(";");
+            String consecutivo = campos[7].trim().replaceAll(" ", "");
+            Sede exSede = sedes.get(consecutivo);
+            if(exSede != null){
+                anios = this.anioDAO.getMapAniosPorSedes(exSede.getId());
+                try{
+                    Integer numeroAnio = Integer.parseInt(campos[3].trim().replaceAll("[^0-9]", "").replaceAll(" ", ""));
+                    Anio anioEencontrado = anios.get(numeroAnio);
+                    if(anioEencontrado == null){
+                        Anio anioGuardado = guardarAnios.get(numeroAnio);
+                        if(anioGuardado == null){
+                            Anio newAnio = new Anio();
+                            newAnio.setDescripcion("Año creado en el cargue de matricula");
+                            newAnio.setAnio(numeroAnio);
+                            newAnio.setSede(exSede);
+                            guardarAnios.put(numeroAnio, newAnio);
+                        }
+                    }
+                }catch(NumberFormatException ex){
+                }
+                this.anioDAO.guardarMapAnio(guardarAnios);
+            }
+        }
+        
+        for(int i=0;i<lineas.size();i++){ 
+            String linea = lineas.get(i);
+            String[] campos = linea.split(";");
+            String consecutivo = campos[7].trim().replaceAll(" ", "");
+            Sede exSede = sedes.get(consecutivo);
+            if(exSede != null){
+                anios = this.anioDAO.getMapAniosPorSedes(exSede.getId());
+                try{
+                    Integer numeroAnio = Integer.parseInt(campos[3].trim().replaceAll("[^0-9]", "").replaceAll(" ", ""));
+                    Anio anioEencontrado = anios.get(numeroAnio);
+                    if(anioEencontrado != null){
+                        try{
+                            Integer tipoJornadaCampo = Integer.parseInt(campos[36].trim().replaceAll("[^0-9]", "").replaceAll(" ", ""));
+                            TipoJornada actualTipoJornada = tiposJornadas.get(tipoJornadaCampo-1);
+                            jornadas = this.jornadaDAO.selectAllMapJornadaPorAnioTipo(anioEencontrado.getId(), tipoJornadaCampo);
+                            if(jornadas.isEmpty()){
+                                if(guardarJornadas.get(anioEencontrado.getId()+""+tipoJornadaCampo) == null){
+                                    Jornada newJornada = new Jornada();
+                                    newJornada.setAnio(anioEencontrado);
+                                    newJornada.setTipoJornada(actualTipoJornada);
+                                    newJornada.setNombre("Jornada "+actualTipoJornada.getNombre()+" 1");
+                                    guardarJornadas.put(anioEencontrado.getId()+""+tipoJornadaCampo, newJornada);
+                                }
+                            }
+                        }catch(NumberFormatException ex){
+                        }
+                    }
+                }catch(NumberFormatException ex){
+                }
+            }
+        }
+        this.jornadaDAO.guardarMapJornada(guardarJornadas);
+        
+        for(int i=0;i<lineas.size();i++){ 
+            String linea = lineas.get(i);
+            String[] campos = linea.split(";");
+            String consecutivo = campos[7].trim().replaceAll(" ", "");
+            Sede exSede = sedes.get(consecutivo);
+            if(exSede != null){
+                anios = this.anioDAO.getMapAniosPorSedes(exSede.getId());
+                try{
+                    Integer numeroAnio = Integer.parseInt(campos[3].trim().replaceAll("[^0-9]", "").replaceAll(" ", ""));
+                    Anio anioEencontrado = anios.get(numeroAnio);
+                    if(anioEencontrado != null){
+                        try{
+                            Integer tipoJornadaCampo = Integer.parseInt(campos[36].trim().replaceAll("[^0-9]", "").replaceAll(" ", ""));
+                            TipoJornada actualTipoJornada = tiposJornadas.get(tipoJornadaCampo-1);
+                            jornadas = this.jornadaDAO.selectAllMapJornadaPorAnioTipo(anioEencontrado.getId(), tipoJornadaCampo);
+                            if(!jornadas.isEmpty()){
+                                Jornada jornadaActual = jornadas.get(0);
+                                
+                                
+                            }
+                        }catch(NumberFormatException ex){
+                        }
+                    }
+                }catch(NumberFormatException ex){
+                }
+            }
+        }
         
         for(int i=0;i<lineas.size();i++){ 
             String linea = lineas.get(i);
@@ -234,6 +368,32 @@ public class MatriculaBusiness {
             }
         }
         this.personaDAO.guardarMapPersonas(guardarPersonas);
+        
+        personas = this.personaDAO.getMapPersonas();
+        
+        for(int i=0;i<lineas.size();i++){ 
+            String linea = lineas.get(i);
+            String[] campos = linea.split(";");
+            String campoTipoDocumento = campos[8].trim().replaceAll(" ","");
+            if(campoTipoDocumento.equalsIgnoreCase("")){
+                campoTipoDocumento = "2"; 
+            }
+            TipoDocumento t = tiposDocumentos.get(Integer.parseInt(campoTipoDocumento));
+            String campoNumeroDocumento = campos[9].trim().replaceAll(" ","");
+            if(!campoNumeroDocumento.equalsIgnoreCase("")){
+                Persona p = personas.get(t.getId()+""+campoNumeroDocumento);
+                if(p != null){
+                    String consecutivo = campos[7].trim().replaceAll(" ", "");
+                    Sede exSede = sedes.get(consecutivo);
+                    
+                    
+                }
+            }else{
+                System.out.println("linea "+i+" no tiene numero de documento");
+            }
+        }
+        
+        
     }
     
     public boolean guardarMatricula(Matricula m){

@@ -15,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,8 +31,8 @@ public class AnioDAOImpl {
     String todosLasAniosConSede="select anio.*, sede.* from anio, sede where anio.sede_id = sede.sede_id";
     String anioPorSede="select * from anio where sede_id=";
     String anioPorId="select * from anio where anio_id=";
-    String insert="insert into anio (anio_id, anio, descripcion, sede_id)"
-            + "values (";
+    String insert="insert into anio (anio_id, anio, descripcion, sede_id) values (";
+    String bulk="insert into anio (anio, descripcion, sede_id) values ";
     String update="update anio set";
 
     public AnioDAOImpl() {
@@ -51,13 +53,11 @@ public class AnioDAOImpl {
                 ResultSet rs = st.executeQuery(query);
                 while (rs.next())
                 {
-                    
                     Anio a = new Anio();
                     Sede s = new Sede();
                     a.setId(rs.getInt("anio_id"));
                     a.setAnio(rs.getInt("anio"));
                     a.setDescripcion(rs.getString("descripcion"));
-                    
                     s.setId(rs.getInt("sede_id"));                          
                     a.setSede(s);
                     anio.add(a);
@@ -93,7 +93,6 @@ public class AnioDAOImpl {
     }
     
     public Anio anioPorId (int id){
-        
         Anio a = new Anio();
         Connection miConexion=ConexionBD.GetConnection();
         String query="";
@@ -121,7 +120,7 @@ public class AnioDAOImpl {
         }
         return a;
     }
-     public Anio guardarAnio(Anio a){      
+    public Anio guardarAnio(Anio a){      
         Connection miConexion=ConexionBD.GetConnection();
         String query="";
         query=this.insert+""+
@@ -146,6 +145,41 @@ public class AnioDAOImpl {
         }catch(Exception exception){
         }
         return a;
+    }
+
+    public void guardarMapAnio(Map<Integer,Anio> anios) {      
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        String query=this.bulk; 
+        boolean primero = true;
+        for (Map.Entry<Integer, Anio> entry : anios.entrySet())
+        {
+            Anio temp = entry.getValue();
+            if(!primero){
+                query+=",";
+            }
+            query+="("+
+                temp.getAnio()+",'"+
+                temp.getDescripcion()+"',"+
+                temp.getSede().getId()+")"; 
+            primero = false;
+        }
+        System.out.println(query);
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                st.executeUpdate(query);
+                st.close();
+            }
+        miConexion.close();
+        }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
+        }
     }
      
      public Anio updateAnio(Anio a) {      
@@ -213,6 +247,40 @@ public class AnioDAOImpl {
         }catch(Exception exception){
         }
         return anio;
+    }
+    
+    public Map<Integer, Anio> getMapAniosPorSedes(int id_sede){
+        Map<Integer, Anio> anios = new HashMap<Integer, Anio>();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        String query=this.aniosPorSede+""+id_sede;
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next())
+                {
+                    Anio a = new Anio();
+                    Sede s = new Sede();
+                    a.setId(rs.getInt("anio_id"));
+                    a.setAnio(rs.getInt("anio"));
+                    a.setDescripcion(rs.getString("descripcion"));
+                    s.setId(rs.getInt("sede_id"));                          
+                    a.setSede(s);
+                    anios.put(a.getAnio(), a);
+                }
+                st.close();
+            }
+        miConexion.close();
+        }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
+        }
+        return anios;
     }
     
 }

@@ -19,11 +19,11 @@ import java.util.ArrayList;
  */
 public class GradoDAOImpl {
     
-    String todosLosGrados="select * from grado";
-    String gradoPorJornada="select * from grado where jornada_id=";
-    String insert="insert into grado (nombre, jornada_id)"
-            + "values (";
-    String update="update grado set";
+    String todosLosGrados = "select * from grado";
+    String gradoPorJornada = "select * from grado where jornada_id=";
+    String insert = "insert into grado (nombre, jornada_id) values (";
+    String bulk = "insert into grado (nombre, jornada_id) values ";
+    String update = "update grado set";
     
     
      public Grado guardarGrado(Grado g) {      
