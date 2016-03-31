@@ -28,7 +28,7 @@ public class SedeDAOImpl {
     String sedePorId="select s.*, m.nombre as nombre_municipio from sede s inner join municipio m on s.municipio_id = m.municipio_id where s.sede_id=";
     String insert="insert into sede (colegio_id, municipio_id, consecutivo, nombre)"
             + "values (";
-    String bulk="insert into sede (colegio_id, municipio_id, antiguo_codigo_dane, consecutivo, nombre)"
+    String bulk="insert into sede (colegio_id, municipio_id, departamento_id, antiguo_codigo_dane, consecutivo, nombre)"
             + "values ";
     String update="update sede set";
 
@@ -193,15 +193,18 @@ public class SedeDAOImpl {
             if(!primero){
                 query+=",";
             }
+            Integer idDepartamento = temp.getMunicipio()!=null?temp.getMunicipio().getDepartamentoId():null;
             query+="("+
                 temp.getColegio()+","+
-                temp.getMunicipio()+",'"+
+                temp.getMunicipio().getId()+","+
+                idDepartamento+",'"+
                 temp.getCodigoDANEantiguo()+"',"+
                 temp.getConsecutivo()+",'"+
                 temp.getNombre()+"')"; 
             primero = false;
+            System.out.println(query);
         }
-        System.out.println(query);
+        
         try{
             if(miConexion!=null)
             {

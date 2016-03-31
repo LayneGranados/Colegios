@@ -139,13 +139,13 @@ public class Principal extends javax.swing.JFrame {
         this.txtRutaGeneracionArchivosColegio.setText(this.institucionEducativaActual.getRutaArchivosGenerados());
         this.txtCodigoDANEAnterior.setText(this.institucionEducativaActual.getCodigoDANEAnterior());
         this.txtColegioDANEActual.setText(this.institucionEducativaActual.getCodigoDANEActual());
-        this.controller.setSelectedItemDepartamentoColegio(this.institucionEducativaActual.getMunicipio().getDepartamento());
-        Object dpto = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbDepartamentoColegio);
-        Departamento d = (Departamento) dpto;
-        if(d.getId()!=-1){
-            this.controller.llenarMunicipioColegio(d.getId());
-        }
-        this.controller.setSelectedItemMunicipioColegio(this.institucionEducativaActual.getMunicipio());
+        //this.controller.setSelectedItemDepartamentoColegio(this.institucionEducativaActual.getMunicipio().getDepartamento());
+        //Object dpto = this.controller.getObjetoSeleccionado((GUI.Util.JComboBox)this.cmbDepartamentoColegio);
+        //Departamento d = (Departamento) dpto;
+        //if(d.getId()!=-1){
+            //this.controller.llenarMunicipioColegio(d.getId());
+        //}
+        //this.controller.setSelectedItemMunicipioColegio(this.institucionEducativaActual.getMunicipio());
     }
 
     private Estudiante crearEstudiante() {

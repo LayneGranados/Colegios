@@ -140,36 +140,46 @@ public class MatriculaBusiness {
         for(int i=0;i<lineas.size();i++){
             String linea = lineas.get(i);
             String[] campos = linea.split(";");
-            System.out.println(lineas.get(i));
             String codigoDANE = campos[5].trim().replaceAll(" ", "");
+            String codigoDepartamento = codigoDANE.substring(1,6);
             InstitucionEducativa exIE = colegios.get(codigoDANE);
             if(exIE == null){
                 exIE = guardarColegios.get(codigoDANE);
                 if(exIE == null){
+                    System.out.println("Colegio es null, va a guardarlo: "+i+" "+lineas.get(i));
                     InstitucionEducativa c = new InstitucionEducativa();
                     c.setCodigoDANEActual(codigoDANE);
                     c.setCodigoDANEAnterior(campos[6]);
                     c.setNombre(campos[1]);
-                    Integer codigoMunicipio = Integer.parseInt(campos[4].trim().replaceAll(" ", ""));
+                    Integer codigoMunicipio = Integer.parseInt(codigoDepartamento);
                     Municipio m = municipios.get(String.valueOf(codigoMunicipio));
                     c.setMunicipio(m);
                     guardarColegios.put(codigoDANE, c);
                 }
             }
         }
-        this.instuticionDAO.guardarMapColegio(guardarColegios);
+        if(!guardarColegios.isEmpty()){
+            this.instuticionDAO.guardarMapColegio(guardarColegios);
+            colegios = this.instuticionDAO.selectMapAllColegio();
+            System.out.println("Esta vacio colegio");
+        }
+        
         try {
             municipios = this.auxiliaresDAO.getMapMunicipios();
         } catch (SQLException ex) {
             Logger.getLogger(MatriculaBusiness.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         for(int i=0;i<lineas.size();i++){ 
             String linea = lineas.get(i);
             String[] campos = linea.split(";");
             String consecutivo = campos[7].trim().replaceAll(" ", "");
-            Sede exSede = sedes.get(consecutivo);
+            String codigoDANE = campos[5].trim().replaceAll(" ", "");
+            String codigoDepartamento = codigoDANE.substring(1,6);
+            Long c = Long.parseLong(consecutivo);
+            Sede exSede = sedes.get(c);
             if(exSede == null){
-                exSede = guardarSedes.get(consecutivo);
+                exSede = guardarSedes.get(c);
                 if(exSede == null){
                     Sede s = new Sede();
                     s.setNombre(campos[2]);
@@ -179,19 +189,25 @@ public class MatriculaBusiness {
                     }
                     s.setConsecutivo(Long.parseLong(consecutivo));
                     InstitucionEducativa ie = colegios.get(codigoDANEColegio);
+                    Municipio m = municipios.get(String.valueOf(codigoDepartamento));
                     s.setColegio(ie.getId());
+                    s.setMunicipio(m);
                     guardarSedes.put(s.getConsecutivo(), s);
                 }
             }
         }
-        this.sedeDAO.guardarMapSede(guardarSedes);
-        sedes = this.sedeDAO.getMapTodasLasSedes();
+        if(!guardarSedes.isEmpty()){
+            this.sedeDAO.guardarMapSede(guardarSedes);
+            sedes = this.sedeDAO.getMapTodasLasSedes();
+            System.out.println("Estan las sedes vacias");
+        }
         
         for(int i=0;i<lineas.size();i++){ 
             String linea = lineas.get(i);
             String[] campos = linea.split(";");
             String consecutivo = campos[7].trim().replaceAll(" ", "");
-            Sede exSede = sedes.get(consecutivo);
+            Long c = Long.parseLong(consecutivo);
+            Sede exSede = sedes.get(c);
             if(exSede != null){
                 anios = this.anioDAO.getMapAniosPorSedes(exSede.getId());
                 try{
@@ -209,7 +225,9 @@ public class MatriculaBusiness {
                     }
                 }catch(NumberFormatException ex){
                 }
-                this.anioDAO.guardarMapAnio(guardarAnios);
+                if(!guardarAnios.isEmpty()){
+                    this.anioDAO.guardarMapAnio(guardarAnios);
+                }
             }
         }
         
@@ -217,7 +235,8 @@ public class MatriculaBusiness {
             String linea = lineas.get(i);
             String[] campos = linea.split(";");
             String consecutivo = campos[7].trim().replaceAll(" ", "");
-            Sede exSede = sedes.get(consecutivo);
+            Long c = Long.parseLong(consecutivo);
+            Sede exSede = sedes.get(c);
             if(exSede != null){
                 anios = this.anioDAO.getMapAniosPorSedes(exSede.getId());
                 try{
@@ -244,13 +263,16 @@ public class MatriculaBusiness {
                 }
             }
         }
-        this.jornadaDAO.guardarMapJornada(guardarJornadas);
+        if(!guardarJornadas.isEmpty()){
+            this.jornadaDAO.guardarMapJornada(guardarJornadas);
+        }
         
         for(int i=0;i<lineas.size();i++){ 
             String linea = lineas.get(i);
             String[] campos = linea.split(";");
             String consecutivo = campos[7].trim().replaceAll(" ", "");
-            Sede exSede = sedes.get(consecutivo);
+            Long c = Long.parseLong(consecutivo);
+            Sede exSede = sedes.get(c);
             if(exSede != null){
                 anios = this.anioDAO.getMapAniosPorSedes(exSede.getId());
                 try{
