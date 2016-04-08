@@ -70,6 +70,9 @@ public class MatriculaDAOImpl {
             +"fecha_matricula,"
             +"condicion_anio_anterior_id) values (";
     
+    
+    String cargue_temporal="insert into cargue_temporal (colegio_codigo_dane,sede_consecutivo,anio_numero,tipo_documento_id,persona_numero_documento,tipo_jornada,grado,curso,caracter,especialidad,metodologia,subsidiado ,repitente,nuevo,sit_acad_ano_ant,con_alum_ano_ant,fue_recu,zona_alu,cab_familia,ben_mad_flia,ben_vet_fp,ben_her_nac) values ";
+    
     public Matricula getMatriculaPorEstudianteCurso(int idEstudiante, int idCurso){      
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
@@ -243,7 +246,67 @@ public class MatriculaDAOImpl {
             exception.printStackTrace();
         }
         return matriculas;
-        
+    }
+
+    public void cargueMatriculaTemporal(ArrayList<String> cargues) {      
+        Connection miConexion=ConexionBD.GetConnection();
+        String query=this.cargue_temporal; 
+        boolean primero = true;
+        int x = 0;
+        for (int i=0; i<cargues.size();i++){
+            x++;
+            String linea = cargues.get(i);
+            //System.out.println("linea en la q va: "+i);
+            String [] datos = linea.split(";");
+            String t=query;
+            try{
+                if(!primero){
+                    query+=",";
+                }
+                query+="('"+datos[5]+"','"+
+                datos[7]+"','"+datos[3]+"','"+datos[8]+"','"+datos[9]+"','"+datos[36]+"','"+datos[39]+"','"+datos[40]+"','"+datos[37]+"','"+datos[38]+"','"+datos[41]+"','"+datos[42]+"','"+
+                datos[43]+"','"+datos[44]+"','"+datos[45]+"','"+datos[46]+"','"+datos[47]+"','"+datos[48]+"','"+datos[49]+"','"+datos[50]+"','"+datos[51]+"','"+datos[52]+"')"; 
+                primero = false;
+            }catch(ArrayIndexOutOfBoundsException e){
+                System.out.println("Error en la linea:"+i);
+                query = t;
+            }
+            
+            if(x==50){
+                try{
+                    if(miConexion!=null)
+                    {
+                        Statement st = miConexion.createStatement();
+                        //System.out.println("query: "+query);
+                        st.executeUpdate(query);
+                        //st.close();
+                        query=this.cargue_temporal;
+                        x = 0;
+                        primero = true;
+                    }
+                //miConexion.close();
+                }catch(SQLException sqlException){
+                    sqlException.printStackTrace();
+                }
+            }
+        }
+        //System.out.println(query);
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                //System.out.println("query: "+query);
+                st.executeUpdate(query);
+                st.close();
+            }
+        miConexion.close();
+        }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
+        }
     }
     
     

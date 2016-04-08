@@ -26,6 +26,7 @@ public class EstudianteDAOImpl {
     String estudiantePorCodigo="SELECT * FROM estudiante WHERE codigo=";
     String estudiantePorPersona="SELECT * FROM estudiante WHERE persona_id=";
     String guardarEstudiante="insert into estudiante (persona_id) values(";
+    String guardarEstudiantesDePersonas = "INSERT INTO estudiante(codigo, persona_id) SELECT 'auto-generado', p.persona_id FROM persona p WHERE NOT EXISTS (SELECT 1 FROM estudiante e WHERE p.persona_id = e.persona_id)";
     
     public Boolean guardarEstudiante(Estudiante e){      
         Connection miConexion;
@@ -47,6 +48,26 @@ public class EstudianteDAOImpl {
             exception.printStackTrace();
         }
         return result;
+    }
+    
+    public void guardarEstudianteDePersonas(){      
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                st.execute(this.guardarEstudiantesDePersonas);
+                st.close();
+            }
+        miConexion.close();
+        }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
+        }
     }
     
     public Estudiante getEstudianteMasCampos(Estudiante e){      

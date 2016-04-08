@@ -13,7 +13,8 @@ public class Grado {
     
     private int id;
     private String nombre;
-    private int jornadaId;    
+    private int jornadaId; 
+    private String codigo;
 
     public int getId() {
         return id;
@@ -38,6 +39,16 @@ public class Grado {
     public void setJornadaId(int jornadaId) {
         this.jornadaId = jornadaId;
     }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    
+    
     
 }
 

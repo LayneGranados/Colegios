@@ -147,12 +147,12 @@ public class AnioDAOImpl {
         return a;
     }
 
-    public void guardarMapAnio(Map<Integer,Anio> anios) {      
+    public void guardarMapAnio(Map<String,Anio> anios) {      
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         String query=this.bulk; 
         boolean primero = true;
-        for (Map.Entry<Integer, Anio> entry : anios.entrySet())
+        for (Map.Entry<String, Anio> entry : anios.entrySet())
         {
             Anio temp = entry.getValue();
             if(!primero){
@@ -249,8 +249,8 @@ public class AnioDAOImpl {
         return anio;
     }
     
-    public Map<Integer, Anio> getMapAniosPorSedes(int id_sede){
-        Map<Integer, Anio> anios = new HashMap<Integer, Anio>();
+    public Map<String, Anio> getMapAniosPorSedes(int id_sede){
+        Map<String, Anio> anios = new HashMap<String, Anio>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         String query=this.aniosPorSede+""+id_sede;
@@ -268,7 +268,7 @@ public class AnioDAOImpl {
                     a.setDescripcion(rs.getString("descripcion"));
                     s.setId(rs.getInt("sede_id"));                          
                     a.setSede(s);
-                    anios.put(a.getAnio(), a);
+                    anios.put(a.getAnio()+"-"+s.getId(), a);
                 }
                 st.close();
             }

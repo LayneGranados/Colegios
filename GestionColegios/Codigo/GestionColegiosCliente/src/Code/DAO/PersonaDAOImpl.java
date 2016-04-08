@@ -128,7 +128,8 @@ public class PersonaDAOImpl {
         return result;
     }
     
-    public void guardarMapPersonas(Map<String, Persona> personas){      
+    public String guardarMapPersonas(Map<String, Persona> personas){      
+        String cedulasPersonas = "";
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
         System.out.println("cantidad de personas: "+personas.size());
@@ -171,6 +172,7 @@ public class PersonaDAOImpl {
                 if(miConexion!=null)
                 {
                     Statement st = miConexion.createStatement();
+                    System.out.println("query en personas: "+query);
                     st.executeUpdate(query);                
                     st.close();
                 }
@@ -181,6 +183,7 @@ public class PersonaDAOImpl {
         } catch (SQLException ex) {
             Logger.getLogger(PersonaDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return "";
     }
     
     public Persona getPersona(Persona p){      

@@ -16,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -29,8 +31,8 @@ public class CursoDAOImpl {
     String cursoPorEspecialidad="select * from curso where especialidad_id=";
     String cursoPorMetodologia="select * from curso where metodologia_id=";
     String cursoPorId="select * from curso where cursoid=";
-    String insert="insert into curso (grado_id, nombre, caracter_id, especialidad_id, metodologia_id)"
-            + "values (";
+    String insert="insert into curso (grado_id, nombre, caracter_id, especialidad_id, metodologia_id) values (";
+    String bulk = "insert into curso (nombre, grado_id) values ";
     String update="update curso set";
     
     
@@ -67,6 +69,40 @@ public class CursoDAOImpl {
         return c;
     }
      
+    public void guardarMapCursos(Map<String,Curso> cursos) {      
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        String query=this.bulk;
+        boolean primero = true;
+        for (Map.Entry<String,Curso> entry : cursos.entrySet())
+        {
+            Curso temp = entry.getValue();
+            if(!primero){
+                query+=",";
+            }
+            query+="('"+
+                temp.getNombre()+"',"+
+                temp.getGrado().getId()+")"; 
+            primero = false;
+        }
+        System.out.println(query);
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                st.executeUpdate(query);
+                st.close();
+            }
+        miConexion.close();
+        }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
+        }
+    }
+     
      public Curso updateCurso(Curso c) {      
        
         Connection miConexion;
@@ -101,7 +137,7 @@ public class CursoDAOImpl {
         return c;
     }
     
-     public ArrayList<Curso> selectAllCursosPorGrado(int grado){
+    public ArrayList<Curso> selectAllCursosPorGrado(int grado){
         
         ArrayList<Curso> cursos = new ArrayList<Curso>();
         
@@ -135,6 +171,43 @@ public class CursoDAOImpl {
                     gr.setNombre(rs.getString("grado_nombre"));
                     c.setGrado(gr);
                     cursos.add(c);
+                }
+                st.close();
+            }
+        miConexion.close();
+        }catch(SQLException sqlException){
+            sqlException.printStackTrace();
+        }catch(NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+        }catch(Exception exception){
+            exception.printStackTrace();
+        }
+        return cursos;
+    }
+    
+    
+    
+    public Map<String,Curso> selectMAPAllCursosPorGrado(int grado){
+        Map<String,Curso> cursos = new HashMap<String,Curso>();
+        Connection miConexion;
+        miConexion=ConexionBD.GetConnection();
+        String query=this.cursoPorGrado+""+grado;
+        try{
+            if(miConexion!=null)
+            {
+                Statement st = miConexion.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next())
+                {
+                    Curso c = new Curso();
+                    c.setGradoId(rs.getInt("grado_id"));
+                    c.setNombre(rs.getString("nombre"));
+                    c.setId(rs.getInt("curso_id"));
+                    Grado gr = new Grado();
+                    gr.setId(rs.getInt("grado_id_grado"));
+                    gr.setNombre(rs.getString("grado_nombre"));
+                    c.setGrado(gr);
+                    cursos.put(c.getNombre(), c);
                 }
                 st.close();
             }

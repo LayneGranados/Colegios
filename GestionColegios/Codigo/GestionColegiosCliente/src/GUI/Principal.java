@@ -813,6 +813,8 @@ public class Principal extends javax.swing.JFrame {
         lblEstudianteEncontrado = new javax.swing.JLabel();
         txtEstudianteMatricular = new javax.swing.JLabel();
         btnLimpiarCamposMatricula1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        cmbColegioMatricula = new GUI.Util.JComboBox();
         jPanel14 = new javax.swing.JPanel();
         scrollPaneCalificaciones = new javax.swing.JScrollPane();
         jPanel15 = new javax.swing.JPanel();
@@ -1013,7 +1015,7 @@ public class Principal extends javax.swing.JFrame {
 
         jButton1.getAccessibleContext().setAccessibleName("Generar \nBackup");
 
-        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder("Configuración del Sistema Colegio"));
+        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder("Información del Colegio"));
 
         jLabel5.setText("Nombre");
 
@@ -2168,7 +2170,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(chkPoblacionVictimaConflicto)
                     .addComponent(chkCabezaFamiliaMatricula)
                     .addComponent(chkBenHeroeNacionalMatricula))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarMatricula)
                     .addComponent(btnBuscarEstudianteMatriculado)
@@ -2192,6 +2194,32 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione el colegio para iniciar la Matricula"));
+
+        cmbColegioMatricula.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        cmbColegioMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbColegioMatriculaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cmbColegioMatricula, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cmbColegioMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
         jPanel23Layout.setHorizontalGroup(
@@ -2205,7 +2233,9 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(txtEstudianteMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLimpiarCamposMatricula1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 37, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
@@ -2217,9 +2247,11 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(lblEstudianteEncontrado)
                         .addComponent(txtEstudianteMatricular, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
                     .addComponent(btnLimpiarCamposMatricula1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         PanelTabs.addTab("Matriculas", jPanel23);
@@ -3546,6 +3578,10 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAgregarCalificacionesActionPerformed
 
+    private void cmbColegioMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbColegioMatriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbColegioMatriculaActionPerformed
+
     private String[] crearColumnNamesListaCalificaciones(int idCurso){
         asignaturasMatricula = this.asignaturaBusiness.asignaturasPorCurso(idCurso);
         if(asignaturasMatricula != null && !asignaturasMatricula.isEmpty()){
@@ -3762,6 +3798,7 @@ public class Principal extends javax.swing.JFrame {
     public javax.swing.JComboBox cmbAnioMatricula;
     public javax.swing.JComboBox cmbCapacidadExcepcional;
     public javax.swing.JComboBox cmbCaracterMatricula;
+    public javax.swing.JComboBox cmbColegioMatricula;
     public javax.swing.JComboBox cmbCondicionAnioAnterior;
     public javax.swing.JComboBox cmbCursoCalificaciones;
     public javax.swing.JComboBox cmbCursoMatricula;
@@ -3921,6 +3958,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;

@@ -30,7 +30,7 @@ public class InstitucionEducativaDAOImpl {
     String insert= "insert into colegio "
             + "(codigo_dane, dane_anterior, municipio_id, nombre, path_logo, ruta_archivos_generados, direccion, telefono) values (";
     String bulk= "insert into colegio "
-            + "(codigo_dane, dane_anterior, municipio_id, nombre, path_logo, ruta_archivos_generados, direccion, telefono) values ";
+            + "(codigo_dane, dane_anterior, municipio_id, nombre) values ";
     
     String update = "update colegio set nombre = ?, codigo_dane = ?, municipio_id = ?, dane_anterior = ? , telefono = ?, direccion = ? where colegio_id = ? ";
     
@@ -94,11 +94,7 @@ public class InstitucionEducativaDAOImpl {
                 }else{
                     query +="null,";
                 }
-                query +="'"+temp.getNombre().trim()+"','"+
-                    temp.getRutaLogo()+"','"+
-                    temp.getRutaArchivosGenerados()+"','"+
-                    temp.getDireccion()+"','"+
-                    temp.getTelefono()+"')";  
+                query +="'"+temp.getNombre().trim()+"')";  
                 primero = false;
             }
             System.out.println(query);

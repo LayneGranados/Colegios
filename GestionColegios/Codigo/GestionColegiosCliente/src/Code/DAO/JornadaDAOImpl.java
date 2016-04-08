@@ -281,7 +281,6 @@ public class JornadaDAOImpl {
         Map<Integer,Jornada> jornadas = new HashMap<Integer,Jornada>();
         Connection miConexion;
         miConexion=ConexionBD.GetConnection();
-        String query=this.jornadaPorAnio_id+""+anio;
         try{
             if(miConexion!=null)
             {
